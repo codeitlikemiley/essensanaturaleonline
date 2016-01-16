@@ -1,19 +1,14 @@
 <?php
 
-// NO Middleware and NO Api Rate Limiter
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function(){
-return view('pages.app');
-});
-
-
 Route::group(['middleware' => 'web'], function () {
+	Route::post('searchProduct', 'SearchController@searchProduct');
+
+	Route::get('search/autocomplete', 'SearchController@autocomplete');
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
+
+
 });
 
 Route::group(['middleware' => 'api'], function () {

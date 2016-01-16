@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('referral_link', 60)->unique();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
