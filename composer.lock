@@ -661,16 +661,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
+                "reference": "add2c74b144d0a25ba27a1506b7ce84e6bcadd64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/add2c74b144d0a25ba27a1506b7ce84e6bcadd64",
+                "reference": "add2c74b144d0a25ba27a1506b7ce84e6bcadd64",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2015-12-23 07:46:46"
+            "time": "2016-01-15 21:59:03"
         },
         {
             "name": "league/flysystem",

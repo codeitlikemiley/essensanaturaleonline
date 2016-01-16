@@ -5,6 +5,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function(){
+return view('pages.app');
+});
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
