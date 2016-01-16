@@ -13,8 +13,6 @@
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>
 
-  <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <!--Import all Css-->   
   {!! Html::style('css/vendor.css') !!}
   {!! Html::style('css/custom.css') !!}
