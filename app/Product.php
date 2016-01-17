@@ -10,4 +10,5 @@ class Product extends Model
     {
         return self::where('name', $name)->firstOrFail();
     }
+    
 }

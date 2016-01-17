@@ -5,14 +5,12 @@ Route::group(['middleware' => 'web'], function () {
 
 	Route::get('search/autocomplete', 'SearchController@autocomplete');
     Route::auth();
-
     Route::get('/', 'HomeController@index');
-
 
 });
 
 Route::group(['middleware' => 'api'], function () {
-// Put Here Your Api Call
-
+    // Put Here Your Api Call
+	Route::get('api/products', 'ProductController@show');
 
 });

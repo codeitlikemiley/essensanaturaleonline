@@ -74,72 +74,21 @@
 	</div>
 
 </div>
-<!--   Product Section   -->
-<!--   Toggle and Load Product   -->
-<div class="row container">
-<div class="col s12 m4 l4">
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/buah-merah.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Product Name<i class="material-icons right">live_help</i></span>
-      <p><a href="#!">₱350<span><i class="material-icons right">add_shopping_cart</i></span></a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Product Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-</div><div class="col s12 m4 l4">
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/buah-merah.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Product Name<i class="material-icons right">live_help</i></span>
-      <p><a href="#!">₱350<span><i class="material-icons right">add_shopping_cart</i></span></a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Product Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-</div>
-<div class="col s12 m4 l4">
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/buah-merah.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Product Name<i class="material-icons right">live_help</i></span>
-      <p><a href="#!">₱350<span><i class="material-icons right">add_shopping_cart</i></span></a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-</div>
-</div>
 <!--Paginated Products-->
-<div class="row">
-<ul class="pagination center">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+<div class="productAjax">
+@include('layouts.products')
 </div>
+
+<!-- Make this Load Dynamically or Update Dynamically -->
+
+
 <!-- Courrier List -->
 @include('layouts.carousel')
 </main>
 @endsection
 
 @section('footer')
+@include('layouts.pagination')
 <!--Import Custom JS-->
 @include('layouts.logoslider')
 <script>
