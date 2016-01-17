@@ -134,9 +134,15 @@
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </div>
+<!-- Courrier List -->
+@include('layouts.carousel')
 </main>
 @endsection
 
 @section('footer')
 <!--Import Custom JS-->
+@include('layouts.logoslider')
+<script>
+jssor_1_slider_init();
+</script>
 @endsection

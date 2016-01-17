@@ -33,6 +33,9 @@
   $( "#navsearch" ).toggle();
   $( "#q" ).focus();
 });
+   $( "#q" ).blur(function(){
+    $( "#navsearch" ).toggle();
+   });
 
     });// end of document ready
 })(jQuery);
