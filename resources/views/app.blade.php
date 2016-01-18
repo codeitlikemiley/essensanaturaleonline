@@ -20,6 +20,8 @@
     <!--Import Footer-->
     @include('layouts.footer')
 
+    @include('layouts.btmsheet')
+
     @include('layouts.navbutton')
 
     <!--Import all JS Usable in All Page-->

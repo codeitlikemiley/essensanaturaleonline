@@ -42,6 +42,8 @@
       <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">view_headline</i></a>
       <ul class="right">
         <li id="searchable"><a href="#!"><i class="material-icons">search</i></a></li>
+        <li id="e-cart"><a href="#cartbtn" class="modal-trigger"><i class="material-icons">shopping_cart</i></a></li>
+
       </ul>
 
     </div>
