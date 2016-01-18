@@ -38,10 +38,12 @@
 		    @endforeach
 		  </tbody>
 		</table>
-				<div class="modal-footer">
-    	<a href="#!" class="right red lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
+
+		<div class="modal-footer row">
+		<span class="col push-s1 s5 left btn-large lighten-2">Total: ₱ {{ $product->count() }}</span>
+    	<a href="#!" class="col pull-s1 s5 right red lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
     	<div>
-    	<span class="right btn-large lighten-2">Total: ₱ {{ $product->count() }}</span>
+    	
     	</div>
 		</div> <!-- End Modal Footer Div -->
 		</div> <!-- End First Col -->
