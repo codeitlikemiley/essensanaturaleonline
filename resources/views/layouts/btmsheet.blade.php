@@ -36,10 +36,17 @@
 		    @endforeach
 		  </tbody>
 		</table>
-
+		<div class="row container">
+		<div class="col s10 offset-s2 l6 offset-l6 m6 offset-m6">
+			<blockquote class="large">
+      		<h4>Total : <span>₱</span><span>1000</span></h4>
+    		</blockquote>
+		</div>
+		
+		</div>
 		<div class="modal-footer row">
-		<span class="col push-s1 s5 left btn-large lighten-2">Total: ₱ {{ $product->count() }}</span>
-    	<a href="#!" class="col pull-s1 s5 right red lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
+		<a href="#!" class="col push-s1 s5 left blue lighten-2 modal-action modal-close waves-effect waves-light btn-large">Update Cart</a>
+    	<a href="#!" class="col pull-s1 s5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
     	<div>
     	
     	</div>
