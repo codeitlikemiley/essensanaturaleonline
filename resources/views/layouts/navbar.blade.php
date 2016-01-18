@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       {{-- NavBar Logo Section --}}
       <a id="logo-container" href="#" class="brand-logo center fixed">
-      <h4>Essensa Naturale™</h4>
+      <h4>Essensa™</h4>
          {{-- <img src="img/logo.png" width="50" height="50" alt="Essensa Naturale Online"> --}}
       </a>
 
