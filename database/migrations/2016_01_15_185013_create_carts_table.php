@@ -16,7 +16,6 @@ class CreateCartsTable extends Migration
             $table->increments('id');
             $table->integer('customer_id')->unsigned()->nullable();
             $table->foreign('customer_id')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('instances');
             $table->timestamps();
         });
     }

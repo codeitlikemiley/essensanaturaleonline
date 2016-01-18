@@ -18,7 +18,6 @@ class CreateCartItemsTable extends Migration
             $table->foreign('cart_id')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');    
             $table->integer('product_id')->unsigned()->nullable();
             $table->foreign('product_id')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('qty');
             $table->timestamps();
         });
     }
