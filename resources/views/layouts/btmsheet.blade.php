@@ -17,7 +17,7 @@
 		      <th style="height:50px;">Price</th>
 		      <th style="height:50px;">Quantity</th>
 		      <th style="height:50px;">Total</th>
-		      <th style="height:50px;"></th>
+		      <th style="height:50px; width:10px;"></th>
 		    </tr>
 
 		  </thead>
@@ -27,11 +27,11 @@
 		      <td style="height:50px;">
     		  {{ HTML::image($product->image, $product->name, array('class' => 'circle left', 'width' => 25, 'height' => 25)) }}<span> {{ $product->name }} </span>
   			  </td>
-		      <td style="height:50px;">{{ $product->price }}</td>
+		      <td style="height:50px;">₱ {{ $product->price }}</td>
 		      <td style="height:50px;"><input value="1" style="width:50px; position:relative; padding-top:-100px; padding-bottom:-100px;"></input></td>
-		      <td style="height:50px;">{{ $product->count() }}</td>
-		      <td style="height:50px;"><a href="#"><i class="material-icons removeItem" style="color:red;">close</i></a></td>
-		      
+		      <td style="height:50px;">₱ 500</td>
+		      <td style="height:50px; width:10px;"><a href="#" class="waves-effect waves-circle waves-red  removeItem btn-floating white left z-depth-0"><i class="material-icons" style="color:red;">close</i></a></td>
+		       
 		    </tr>
 		    @endforeach
 		  </tbody>
