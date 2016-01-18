@@ -12,11 +12,11 @@ use Cache;
 class ProductController extends Controller
 {
     public function show(Request $request){
-    	$products = Product::paginate(3);
-    	$products->setPath('/');
-    	if ($request->ajax()) {
-            return Response::json(\View::make('layouts.products')->with(compact('products'))->render());
-        }
+    	// $products = Product::paginate(3);
+    	// $products->setPath('/');
+    	// if ($request->ajax()) {
+     //        return Response::json(\View::make('layouts.products')->with(compact('products'))->render());
+     //    }
     	// to use Cache Version Move the Route in Web Middleware in route.php
         // Uncomment Code Above if You Intend to Cache
         if (Cache::has('products')) {
