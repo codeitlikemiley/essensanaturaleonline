@@ -24,8 +24,8 @@
 		  	@foreach ($products as $product)
 		    <tr>
 		      <td style="height:50px;">
-		      <div class="chip">
-    		  {{ HTML::image($product->image, $product->name, array('class' => 'circle left', 'width' => 50, 'height' => 50)) }}
+		      <div class="chip truncate">
+    		  {{ HTML::image($product->image, '', array('class' => 'circle left', 'width' => 25, 'height' => 25)) }}
                {{ $product->name }}
                <i class="material-icons">close</i>
   			  </div>
