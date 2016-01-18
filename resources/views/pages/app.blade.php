@@ -75,7 +75,8 @@
 
 </div>
 <!--Paginated Products-->
-<div class="productAjax">
+@include('layouts.loading')
+<div class="productAjax buttonloader">
 @include('layouts.products')
 </div>
 

@@ -37,6 +37,24 @@
     $( "#navsearch" ).toggle();
    });
 
+
+
     });// end of document ready
 })(jQuery);
+function buttonloader(v)
+    {
+
+    if(v == 'on'){
+
+     $('.buttonloader').hide();
+     $('.loading').show();
+
+    }
+    else{
+
+     $('.loading').hide();
+     $('.buttonloader').show();
+
+    }
+    }
 </script>
