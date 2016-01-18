@@ -1,21 +1,22 @@
 <!-- Cart Bottom Sheet -->
   <div id="cartbtn" class="modal bottom-sheet">
     <div class="modal-content">
-      <h4>Cart</h4>
+      
       @if (Auth::user())
     	Please Log In Your Account!
       @else
 		<!-- Need to Make the Qty an Input -->
 		<!-- Add Remove Button -->
+		<div class="row">
+		<div class="col s12 m12 l12">
+		<h4>Cart Items</h4>
 		<table class="bordered highlight responsive-table">
 		  <thead>
 		    <tr>
-		      <th style="height:50px;">Product Name</th>
-		      <th style="height:50px;">Description</th>
+		      <th style="height:50px;">Name</th>
 		      <th style="height:50px;">Price</th>
 		      <th style="height:50px;">Quantity</th>
-		      
-
+		      <th style="height:50px;">Total</th>
 		    </tr>
 
 		  </thead>
@@ -29,22 +30,28 @@
                <i class="material-icons">close</i>
   			  </div>
   			  </td>
-		      
-		      <td style="height:50px;"><div class="truncate"><p>{{ $product->description }}</p></div></td>
-		      <td style="height:50px;"><div><p>{{ $product->price }}</p></div></td>
-		      <td style="height:50px;"><div><input value="1" style="width:50px;"></input></div></td>
+		      <td style="height:50px;">{{ $product->price }}</td>
+		      <td style="height:50px;"><input value="1" style="width:50px; position:relative; padding-top:-100px; padding-bottom:-100px;"></input></td>
+		      <td style="height:50px;">{{ $product->count() }}</td>
 		      
 		    </tr>
 		    @endforeach
 		  </tbody>
 		</table>
+				<div class="modal-footer">
+    	<a href="#!" class="right red lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
+    	<div>
+    	<span class="right btn-large lighten-2">Total: ₱ {{ $product->count() }}</span>
+    	</div>
+		</div> <!-- End Modal Footer Div -->
+		</div> <!-- End First Col -->
       @endif
 		
       
-    </div>
-    <div class="modal-footer">
-    <p class="right">Total: 10000</p>
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Check Out</a>
+    </div> <!-- End Div Row -->
+    
+      
 
-    </div>
-  </div>
+    </div> <!-- End Modal Content -->
+
+  </div> <!-- End BottomSheet Div -->
