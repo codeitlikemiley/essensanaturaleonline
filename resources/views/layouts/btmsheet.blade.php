@@ -45,8 +45,8 @@
 		
 		</div>
 		<div class="modal-footer row">
-		<a href="#!" class="col push-s1 s5 left blue lighten-2 modal-action modal-close waves-effect waves-light btn-large">Update Cart</a>
-    	<a href="#!" class="col pull-s1 s5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
+		<a href="#!" class="col s6 push-m1 m5 push-l1 l5 left blue lighten-2 modal-action modal-close waves-effect waves-light btn-large">Update Cart</a>
+    	<a href="#!" class="col s6 pull-m1 m5 pull-l1 l5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
     	<div>
     	
     	</div>
