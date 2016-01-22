@@ -103,8 +103,9 @@ jssor_1_slider_init();
     $('form input .qty_input').on('keypress', function(e) {
     return e.which !== 13;
     });
-  
-  function addProduct(id){
+
+  function addProduct(id, e){
+    e.preventDefault();
     var url = $('#form'+ id).attr('action');
     var formdata = $('#form' + id).serializeArray();
     buttonloader('on');
