@@ -91,7 +91,7 @@
 						
 					</div>
 					<div class="modal-footer">
-						<a href="#" class="btn-large waves-effect waves-light card-action right modal-close">Close</a>
+						<a href="#" class="btn-large waves-effect waves-light card-action right modal-action modal-close">Close</a>
 					</div>
 				</div>
 			</div>
