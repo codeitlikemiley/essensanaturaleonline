@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use App\User;
+
+class UserTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $faker = Faker\Factory::create();
+    	for ($i = 0; $i < 10; $i++)
+    	{
+      	$email    = $faker->email;
+      	$username    = str_replace('.', '_', $faker->unique()->userName);
+      	$password = Hash::make("password");
+      	User::create([
+      	"username" => $username,
+        "email"    => $email,
+        "password" => $password
+      	]);
+    	}	
+    }
+}

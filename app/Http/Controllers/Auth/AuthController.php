@@ -4,9 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\Auth;
 
 class AuthController extends Controller
 {
@@ -28,7 +33,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -68,5 +73,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function authenticate(Request $request)
+    {
+    $credentials = [
+      "email"    => $request->input("email"),
+      "password" => $request->input("password")
+    ];
+    if (\Auth::attempt($credentials))
+    {
+      return \Response::json([
+        "status"  => "ok",
+        "account" => \Auth::user()->toArray()
+      ]);
+    }
+    return \Response::json([
+      "status" => "error"
+    ]);
     }
 }

@@ -29,6 +29,6 @@ class CreateCartItemsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cart_items');
+        Schema::drop('cart_item');
     }
 }

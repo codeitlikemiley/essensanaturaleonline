@@ -148,6 +148,6 @@ return [
     |
     */
 
-    'secure' => false,
+    'secure' => false, // Turn it On Production
 
 ];

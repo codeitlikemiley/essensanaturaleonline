@@ -76,8 +76,8 @@
 </div>
 <!--Paginated Products-->
 @include('layouts.loading')
-<div class="productAjax buttonloader">
-@include('layouts.products')
+<div class="productAjax buttonloader">                
+@include('layouts.products')       
 </div>
 
 <!-- Make this Load Dynamically or Update Dynamically -->
@@ -89,10 +89,91 @@
 @endsection
 
 @section('footer')
+{!! Html::script('js/cart.js') !!}
 @include('layouts.pagination')
 <!--Import Custom JS-->
 @include('layouts.logoslider')
-<script>
+<script type="text/javascript">
 jssor_1_slider_init();
+
+       
+    $.ajaxSetup({headers:{'X-CSRF-TOKEN':
+        $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
+    // Prevent Pressing Enter on Qty Input
+    $('form input').on('keypress', function(e) {
+    return e.which !== 13;
+    });
+
+  function addProduct(id){
+    var url = $('#form'+ id).attr('action');
+    var formdata = $('#form' + id).serializeArray();
+        $.ajax({
+            url: url,
+            dataType:'JSON',
+            data: formdata,
+            type:'post',
+        }).done(function(data){
+            $('#qty'+id).val('1');
+            $('#myCart').empty();
+            $('#myCart').html(data);
+            Materialize.toast('Product Added!', 4000,'',function(){console.log('Product Added!');});
+        }).fail(function () { // if Fail
+    Materialize.toast('Product Not Added!', 4000,'',function(){console.log('Product Not Found!');});
+          });
+    }
+    function updateProduct(id){
+    var url = $('#updateItemForm' + id).attr('action');
+    var updatedata = $('#updateItemForm' + id).serializeArray();
+        $.ajax({
+            url: url,
+            dataType:'JSON',
+            data: updatedata,
+            type:'post',
+        }).done(function(data){
+            $('#item'+id).val();
+            $('#myCart').empty();
+            $('#myCart').html(data);
+            Materialize.toast('Product Updated!', 4000,'',function(){console.log('Product Added!');});
+        }).fail(function () { // if Fail
+    Materialize.toast('Product Not Updated!', 4000,'',function(){console.log('Product Not Found!');});
+          });
+    }
+    function removeCart(){
+      var destroydata = $('#destroyCart').serializeArray();
+      $.ajax({
+            url: 'destroyCart',
+            type:'post',
+            dataType: 'JSON',
+            data: destroydata,
+
+        }).done(function(data){
+            $('#myCart').empty();
+            $('#myCart').html(data);
+            Materialize.toast('Cart Removed!', 4000,'',function(){console.log('Cart Removed!');});
+        }).fail(function () { // if Fail
+    Materialize.toast('Cart Deletion Failed', 4000,'',function(){console.log('Cart Deletion Failed!');});
+          });
+    }
+
+    function removeProduct(id){
+      var itemData = $('#removeItemForm'+id).serializeArray();
+      var url = $('#removeItemForm'+id).attr('action');
+      $.ajax({
+            url: url,
+            type:'post',
+            dataType: 'JSON',
+            data: itemData,
+
+        }).done(function(data){
+            $('#myCart').empty();
+            $('#myCart').html(data);
+            Materialize.toast('Product Removed!', 4000,'',function(){console.log('Cart Removed!');});
+        }).fail(function () { // if Fail
+    Materialize.toast('Product Deletion Failed', 4000,'',function(){console.log('Cart Deletion Failed!');});
+          });
+    }
+           
+
+   
 </script>
 @endsection

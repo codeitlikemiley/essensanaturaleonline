@@ -11,8 +11,8 @@
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }); //End Button Collapse
 
-   // modal trigger for bottomsheet
-   $('.modal-trigger').leanModal({
+   // modal trigger in Navbar Shopcart for bottomsheet
+   $('#nav-cart').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: '.6', // Opacity of modal background
       in_duration: 300, // Transition in duration
@@ -21,21 +21,35 @@
       complete: function() { console.log('Closed'); } // Callback for Modal close
       });  // End MOdal Trigger
 
-   $('#bsh').click(function(){
-   $('#sidenav-overlay').remove();
-   });   // END Bottomsheet
+   // modal trigger in Pagination For Product Add Qty Modal
+   $('.modal-pagination').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: '.6', // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      ready: function() { console.log('Open'); }, // Callback for Modal open
+      complete: function() { console.log('Closed'); } // Callback for Modal close
+      });
+
+   
 
    // initialize parallax
    $('.parallax').parallax();
    // initialize slider
    $('.slider').slider();
-   $( "#searchable" ).click(function() {
-  $( "#navsearch" ).toggle();
-  $( "#q" ).focus();
-});
+   // Open and Close Nav Search Bar
+   $("#searchable").click(function() {
+      $("#navsearch").toggle();
+      $("#q").focus();
+    });
+   // Close on Blur Nav Bar
    $( "#q" ).blur(function(){
     $( "#navsearch" ).toggle();
    });
+
+   
+
+
 
 
 

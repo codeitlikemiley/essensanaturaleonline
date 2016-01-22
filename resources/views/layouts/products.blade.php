@@ -9,8 +9,8 @@
     </div>
     <div class="card-content">
       <span class="card-title  amber-text text-darken-4 truncate">{{ $product->name }}</span>
-      <a href="#!"><i class="material-icons activator right">search</i></a>
-      <a href="#!"><i class="material-icons right">add_shopping_cart</i></a>
+      <a href="#!"><i class="material-icons right">search</i></a>
+      <a href="#addProduct{{ $product->id }}" class="modal-trigger modal-pagination"><i class="material-icons right">add_shopping_cart</i></a>
       
       <p>₱{{ $product->price }}</p>
     </div>
@@ -19,6 +19,29 @@
       <p>{{ $product->description }}</p>
     </div>
   </div> <!-- End Card Div -->
+  <!-- Add Qty Modal -->
+  <div id="addProduct{{ $product->id }}" class="modal">
+    <div class="modal-content">
+        <blockquote class="center">
+          <h5>Add to Cart?</h5>
+        </blockquote>
+          <div class="row">
+          <div class ="col s6 offset-s3">
+           <form action="addProduct" method="POST" id="form{{ $product->id }}">
+           <input type="hidden" name="product_id" value="{{ $product->id }}"/>
+           <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+           <input id="qty{{ $product->id }}" name="qty" type="text" value="1" >
+           <label for="qty{{ $product->id }}">No. Of {{ $product->name }}</label>
+          </form>
+          </div>
+          </div>
+        
+    </div>
+    <div class="modal-footer">
+      <a href="#!" onclick="addProduct({{ $product->id }});" class="modal-action modal-close waves-effect waves-green btn-flat">Add To Cart</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
+  </div>
 
 </div> <!-- Card Column -->
 @endforeach

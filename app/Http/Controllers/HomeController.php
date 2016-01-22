@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Product;
+use Cart;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    protected $shippingfee = 150;
+    protected $taxrate = .12;
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $cart = Cart::content();
+        $subtotal = Cart::total();
+        $shippingfee = $this->shippingfee;
+        if (!$subtotal) {
+            $shippingfee = 0;
+        }
+        if ($subtotal > 1150) {
+            $shippingfee = 0;
+        }
+        $taxrate = $this->taxrate;
+        $tax = round($subtotal * $taxrate);
+        $total = $subtotal + $shippingfee + $tax;
         $products = Product::paginate(3);
-        return view('pages.app')->with('products', $products);
+
+        return view('pages.app')->with(compact('cart', 'subtotal', 'tax', 'shippingfee', 'total', 'products'));
     }
 }

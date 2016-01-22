@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3d5ca8e8453119dc9a4a198778acbea",
-    "content-hash": "2865607d567f8b6978f21bc79b5952d0",
+    "hash": "033ba408e711774d699af0616cc0255a",
+    "content-hash": "ef943860388157932c4b4f0e04a61418",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -214,6 +214,51 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "gloudemans/shoppingcart",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Crinsane/LaravelShoppingcart.git",
+                "reference": "d2ba5aff19fc94a321611b1e9dd531c8e1800359"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Crinsane/LaravelShoppingcart/zipball/d2ba5aff19fc94a321611b1e9dd531c8e1800359",
+                "reference": "d2ba5aff19fc94a321611b1e9dd531c8e1800359",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gloudemans\\Shoppingcart": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "Rob_Gloudemans@hotmail.com"
+                }
+            ],
+            "description": "Laravel 4 Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2015-02-19 14:36:24"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -702,16 +747,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "add2c74b144d0a25ba27a1506b7ce84e6bcadd64"
+                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/add2c74b144d0a25ba27a1506b7ce84e6bcadd64",
-                "reference": "add2c74b144d0a25ba27a1506b7ce84e6bcadd64",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
+                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
                 "shasum": ""
             },
             "require": {
@@ -752,7 +797,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-01-15 21:59:03"
+            "time": "2016-01-16 16:54:49"
         },
         {
             "name": "league/flysystem",

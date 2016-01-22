@@ -1,21 +1,36 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Category;
+use App\Product;
 
 class ProductTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run()
     {
-    	$products = 
-    	[
-    	['name' => 'Affirmative EDC', 'price' => 150.00, 'description' => 'Infused with Essential Oils and Alkaline Ions No Methanol Content Non-Toxic', 'image' => '/img/buah-merah.jpg', 'rating_cache' => 5.0, 'rating_count' => 10],
-        ['name' => 'Herbs Central 8 in 1 UNI', 'price' => 250.00, 'description' => 'A great instant coffee especially formulated for coffee drinkers who want more from their cup', 'image' => '/img/buah-merah.jpg', 'rating_cache' => 3.0, 'rating_count' => 10],
-		];
-        DB::table('products')->insert($products);
+        $faker = Faker\Factory::create();
+        $categories = Category::all();
+        foreach ($categories as $category) {
+            for ($i = 0; $i < rand(-1, 10); ++$i) {
+                $name = ucwords($faker->word);
+                $stock = $faker->numberBetween(0, 100);
+                $price = $faker->randomFloat(2, 5, 100);
+                $summary = $faker->sentence();
+                $description = $faker->paragraph();
+                $image = $faker->imageUrl($width = 640, $height = 480);
+                Product::create([
+            'name' => $name,
+            'stock' => $stock,
+            'price' => $price,
+            'description' => $description,
+            'summary' => $summary,
+            'image' => $image,
+            'category_id' => $category->id,
+            ]);
+            }
+        }
     }
 }
