@@ -22,6 +22,8 @@
   <!-- Add Qty Modal -->
   <div id="addProduct{{ $product->id }}" class="modal">
     <div class="modal-content">
+
+
         <blockquote class="center">
           <h5>Add to Cart?</h5>
         </blockquote>
@@ -35,13 +37,14 @@
           </form>
           </div>
           </div>
+    
         
     </div>
     <div class="modal-footer">
-      <a href="#!" onclick="addProduct({{ $product->id }});" class="modal-action modal-close waves-effect waves-green btn-flat">Add To Cart</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+      <a href="#!" onclick="addProduct({{ $product->id }});" class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat">Add To Cart</a>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
     </div>
-  </div>
+  </div> <!-- ENd MOdal Div -->
 
 </div> <!-- Card Column -->
 @endforeach

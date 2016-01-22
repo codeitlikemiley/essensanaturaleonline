@@ -107,6 +107,7 @@ jssor_1_slider_init();
   function addProduct(id){
     var url = $('#form'+ id).attr('action');
     var formdata = $('#form' + id).serializeArray();
+    buttonloader('on');
         $.ajax({
             url: url,
             dataType:'JSON',
@@ -117,8 +118,10 @@ jssor_1_slider_init();
             $('#myCart').empty();
             $('#myCart').html(data);
             Materialize.toast('Product Added!', 4000,'',function(){console.log('Product Added!');});
+            buttonloader('off');
         }).fail(function () { // if Fail
     Materialize.toast('Product Not Added!', 4000,'',function(){console.log('Product Not Found!');});
+            buttonloader('off');
           });
     }
     function updateProduct(id){
@@ -130,7 +133,7 @@ jssor_1_slider_init();
             data: updatedata,
             type:'post',
         }).done(function(data){
-            $('#item'+id).val();
+            $('#updateQty'+id).val();
             $('#myCart').empty();
             $('#myCart').html(data);
             Materialize.toast('Product Updated!', 4000,'',function(){console.log('Product Added!');});

@@ -1,5 +1,6 @@
 <div class="row">
 		<div class="col s12 m12 l12">
+		@if(Cart::count())
 		<h4>Cart Items</h4>
 		
 		<table class="bordered highlight responsive-table">
@@ -75,7 +76,26 @@
 		</form>
 		<!-- ADD Check Out AJAX -->
     	<a href="#!" class="col s6 pull-m1 m5 pull-l1 l5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
-    	
+    	@else
+			
+			<div class="row">
+				<div class="col s12">
+					<div class="card red lighten-2" style="height:125px">
+						<div class="card-content white-text valign-wrapper center-align">
+							<i class="material-icons left v-align">shopping_cart</i>
+							
+							<span class="card-title v-align">
+							Cart is Empty...</span>
+							
+						</div>
+						
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn-large waves-effect waves-light card-action right modal-action modal-close">Close</a>
+					</div>
+				</div>
+			</div>
+		@endif
 		</div> <!-- End Cart Modal Footer Div -->
 		</div> <!-- End Cart Col -->
 
