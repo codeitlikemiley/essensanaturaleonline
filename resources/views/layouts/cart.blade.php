@@ -64,9 +64,9 @@
 		</li>
         
       </ul>
-</div>
+		</div><!-- End Payable Div-->
 		
-		</div>
+		</div> <!--End Col Div -->
 
 		<div class="modal-footer row">
 		
@@ -97,9 +97,6 @@
 			</div>
 		@endif
 		</div> <!-- End Cart Modal Footer Div -->
-		</div> <!-- End Cart Col -->
+		</div> <!-- End Cart Row -->
 
-		
-      
-    </div> <!-- End Cart Div Row -->
 
