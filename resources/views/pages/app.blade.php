@@ -100,7 +100,7 @@ jssor_1_slider_init();
     $.ajaxSetup({headers:{'X-CSRF-TOKEN':
         $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
     // Prevent Pressing Enter on Qty Input
-    $('form input').on('keypress', function(e) {
+    $('form input .qty_input').on('keypress', function(e) {
     return e.which !== 13;
     });
 

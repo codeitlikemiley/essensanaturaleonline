@@ -32,7 +32,7 @@
            <form action="addProduct" method="POST" id="form{{ $product->id }}">
            <input type="hidden" name="product_id" value="{{ $product->id }}"/>
            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-           <input id="qty{{ $product->id }}" name="qty" type="text" value="1" >
+           <input id="qty{{ $product->id }}" name="qty" type="text" value="1" class="qty_input">
            <label for="qty{{ $product->id }}">No. Of {{ $product->name }}</label>
           </form>
           </div>
