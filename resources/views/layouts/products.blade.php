@@ -29,7 +29,7 @@
         </blockquote>
           <div class="row">
           <div class ="col s6 offset-s3">
-           <form action="addProduct" method="POST" id="form{{ $product->id }}">
+           <form action="addProduct" method="POST" id="form{{ $product->id }}" onsubmit="addProduct({{ $product->id }});">
            <input type="hidden" name="product_id" value="{{ $product->id }}"/>
            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
            <input id="qty{{ $product->id }}" name="qty" type="text" value="1">
