@@ -100,11 +100,8 @@ jssor_1_slider_init();
     $.ajaxSetup({headers:{'X-CSRF-TOKEN':
         $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
     // Prevent Pressing Enter on Qty Input
-    $('form input').on('keypress', function(e) {
-      if($('.qtype')){
+    $('.qtype').on('keypress', function(e) {
         return e.which !== 13;
-      }
-    
     });
 
   function addProduct(id){
@@ -120,12 +117,9 @@ jssor_1_slider_init();
             $('#qty'+id).val('1');
             $('#myCart').empty();
             $('#myCart').html(data);
-            $('form input').on('keypress', function(e) {
-      if($('.qtype')){
+            $('.qtype').on('keypress', function(e) {
         return e.which !== 13;
-      }
-    
-    });
+            });
             Materialize.toast('Product Added!', 4000,'',function(){console.log('Product Added!');});
             buttonloader('off');
         }).fail(function () { // if Fail
@@ -145,12 +139,9 @@ jssor_1_slider_init();
             $('#updateQty'+id).val();
             $('#myCart').empty();
             $('#myCart').html(data);
-            $('form input').on('keypress', function(e) {
-      if($('.qtype')){
-        return e.which !== 13;
-      }
-    
-    });
+            $('.qtype').on('keypress', function(e) {
+            return e.which !== 13;
+            });
             Materialize.toast('Product Updated!', 4000,'',function(){console.log('Product Added!');});
         }).fail(function () { // if Fail
     Materialize.toast('Product Not Updated!', 4000,'',function(){console.log('Product Not Found!');});
@@ -167,6 +158,9 @@ jssor_1_slider_init();
         }).done(function(data){
             $('#myCart').empty();
             $('#myCart').html(data);
+            $('.qtype').on('keypress', function(e) {
+            return e.which !== 13;
+            });
             Materialize.toast('Cart Removed!', 4000,'',function(){console.log('Cart Removed!');});
         }).fail(function () { // if Fail
     Materialize.toast('Cart Deletion Failed', 4000,'',function(){console.log('Cart Deletion Failed!');});
@@ -185,6 +179,9 @@ jssor_1_slider_init();
         }).done(function(data){
             $('#myCart').empty();
             $('#myCart').html(data);
+            $('.qtype').on('keypress', function(e) {
+            return e.which !== 13;
+            });
             Materialize.toast('Product Removed!', 4000,'',function(){console.log('Cart Removed!');});
         }).fail(function () { // if Fail
     Materialize.toast('Product Deletion Failed', 4000,'',function(){console.log('Cart Deletion Failed!');});

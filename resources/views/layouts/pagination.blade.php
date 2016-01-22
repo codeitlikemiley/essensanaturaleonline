@@ -29,6 +29,12 @@
       			ready: function() { console.log('Open'); }, // Callback for Modal open
       			complete: function() { console.log('Closed'); } // Callback for Modal close
       			});
+      			$('form input').on('keypress', function(e) {
+      if($('.qtype')){
+        return e.which !== 13;
+      }
+    
+    });
 				
 				
 				buttonloader('off');
