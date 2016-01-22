@@ -120,6 +120,12 @@ jssor_1_slider_init();
             $('#qty'+id).val('1');
             $('#myCart').empty();
             $('#myCart').html(data);
+            $('form input').on('keypress', function(e) {
+      if($('.qtype')){
+        return e.which !== 13;
+      }
+    
+    });
             Materialize.toast('Product Added!', 4000,'',function(){console.log('Product Added!');});
             buttonloader('off');
         }).fail(function () { // if Fail
