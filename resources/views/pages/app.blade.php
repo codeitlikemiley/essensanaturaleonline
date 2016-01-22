@@ -104,8 +104,7 @@ jssor_1_slider_init();
     return e.which !== 13;
     });
 
-  function addProduct(id, e){
-    e.preventDefault();
+  function addProduct(id){
     var url = $('#form'+ id).attr('action');
     var formdata = $('#form' + id).serializeArray();
     buttonloader('on');
