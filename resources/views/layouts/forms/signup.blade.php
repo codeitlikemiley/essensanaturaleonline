@@ -59,8 +59,8 @@ id="registration_form" data-parsley-validate>
 	</div>
   <div class="row non-input-field">
 	 <div class="row col s11 offset-s1">
-      <input type="checkbox" id="agree" name="agree" required="" data-parsley-required-message="Agree On Our Terms and Condition" data-parsley-trigger="change focusout"/>
-      <label for="agree">Do You Agree On Our <a class="modal-trigger" data-target="tos">Terms and Condition</a>?</label>
+      <input type="checkbox" id="agree" name="agree" required="" data-parsley-required-message="Please Agree On Our Terms and Condition" data-parsley-trigger="change focusout"/>
+      <label for="agree">Do You Agree On Our <a class="modal-trigger" id="tosmodal" href="#tos">Terms and Condition</a>?</label>
 	 </div>
    </div>
    <div class="row">
@@ -82,6 +82,6 @@ id="registration_form" data-parsley-validate>
       @include('layouts.forms.terms')
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
     </div>
   </div>
