@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
 
                 'username'   => 'masterpowers',
                 'email'      => 'masterpowers001@gmail.com',
-                'password'   => 'MasterPowers007',
+                'password'   => Hash::make('MasterPowers007'),
                 'active'     => 1,
                 'status'     => 1,
                 'created_at' => \Carbon\Carbon::now(),
@@ -29,10 +29,10 @@ class UserTableSeeder extends Seeder
         
 
         $faker = Faker\Factory::create();
-    	 for ($i = 0; $i < 10; $i++)
-    	 {
+         for ($i = 0; $i < 10; $i++)
+         {
         
-      	foreach (range(2, 51) as $index) {
+        foreach (range(2, 51) as $index) {
         $username = str_replace('.', '_', $faker->unique()->userName);
         $symbol = '@';
         $domain = 'gmail.com';
@@ -49,6 +49,6 @@ class UserTableSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now(),
             ]);
         } //endforeach
-    	}	
+        }   
     }
 }
