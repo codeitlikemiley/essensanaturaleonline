@@ -59,7 +59,7 @@ id="registration_form" data-parsley-validate>
 	</div>
   <div class="row non-input-field">
 	 <div class="row col s11 offset-s1">
-      <input type="checkbox" id="agree" name="agree" required="" data-parsley-required-message="You Need To Agree On Our Terms And Condition" data-parsley-trigger="change focusout"/>
+      <input type="checkbox" id="agree" name="agree" required="" data-parsley-required-message="Agree On Our Terms and Condition" data-parsley-trigger="change focusout"/>
       <label for="agree">Do You Agree On Our <a class="modal-trigger" data-target="tos">Terms and Condition</a>?</label>
 	 </div>
    </div>
