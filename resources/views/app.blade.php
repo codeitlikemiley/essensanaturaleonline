@@ -20,7 +20,7 @@
     <!--Import Footer-->
     @include('layouts.footer')
 
-    {{-- @include('layouts.btmsheet') --}}
+    @include('layouts.btmsheet')
 
     @include('layouts.navbutton')
 

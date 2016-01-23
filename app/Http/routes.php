@@ -74,7 +74,23 @@ Route::post('signup', ['as' => 'signup', 'uses' => 'Auth\AuthController@create']
 //Load Referral Link of A User {NOTE: ALWAYS MAKE THIS THE LAST LINE IN ROUTE!}
 Route::get('@{link?}', ['as' => 'reflink', 'uses' => 'LinkController@showRefLink']);
 
+View::composer('layouts.cart', function($view) {
+		$cart = Cart::content();
+        $subtotal = Cart::total();
+        $shippingfee = 150;
+        if (!$subtotal) {
+            $shippingfee = 0;
+        }
 
+        if ($subtotal > 1150) {
+            $shippingfee = 0;
+        }
+        $taxrate = 0.12;
+        $tax = round($subtotal * $taxrate);
+        $total = $subtotal + $shippingfee + $tax;
+
+        $view->with(compact('cart', 'subtotal', 'tax', 'shippingfee', 'total'));
+    });
 
 
 });
