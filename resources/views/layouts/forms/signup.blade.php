@@ -78,7 +78,7 @@ id="registration_form" data-parsley-validate>
     </form>
 
 <div id="tos" class="modal modal-fixed-footer">
-    <div class="modal-content">
+    <div class="modal-content flow-text">
       @include('layouts.forms.terms')
     </div>
     <div class="modal-footer">
