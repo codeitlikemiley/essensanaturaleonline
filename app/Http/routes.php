@@ -28,11 +28,13 @@ Route::group(['middleware' => 'web'], function () {
   	"uses" => "OrderController@index"
 	]);
 
+    // Not Being Used 
+	Route::get('showCart', 'CartController@showCart');
+
     // AJAX Call
 	Route::post('destroyCart', 'CartController@destroyCart');
 	Route::post('addToCart', 'CartController@addToCart');
 	Route::post('updateItem', 'CartController@updateItem');
-	Route::get('showCart', 'CartController@showCart');
 	Route::post('removeCartItem', 'CartController@removeCartItem');
 
 
