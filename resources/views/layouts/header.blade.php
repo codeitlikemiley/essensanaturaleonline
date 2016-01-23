@@ -8,7 +8,7 @@
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Essena Naturale Online" />
     <meta property="og:description"   content="Official Seller of Buah Merah Juice Drink" />
-    <meta property="og:image"         content="{{ asset('img/logo.png') }}" />
+    <meta property="og:image"         content="{{ asset('img/buah-merah.jpg') }}" />
 
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>

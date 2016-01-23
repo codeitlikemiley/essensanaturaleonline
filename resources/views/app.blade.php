@@ -27,7 +27,8 @@
     <!--Import all JS Usable in All Page-->
     {!! Html::script('js/vendor.js') !!}
     <!--Import Initialize Js Components-->
-    @include('layouts.ajax')
+    @include('layouts.jquery')
+    @include('layouts.cartAjax')
 
     <!--Custom JS Here!-->
     {!! Html::script('js/search.js') !!}

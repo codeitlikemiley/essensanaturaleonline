@@ -38,6 +38,7 @@ Route::group(['middleware' => 'web'], function () {
 
 	// This Route is if You Wanted to Use Product Properties in DB and Associate it with Cart!
 	Route::post('addProduct', 'CartController@addProduct');
+	// Product Pagination
 	Route::get('api/products', 'ProductController@show');
 
 	Route::get('profile', function(){
