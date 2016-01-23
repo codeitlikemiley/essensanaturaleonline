@@ -207,6 +207,8 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Input'     => Illuminate\Support\Facades\Input::class,
+        
 
 
     ],

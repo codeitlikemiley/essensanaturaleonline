@@ -1,66 +1,43 @@
-@extends('layouts.app')
+@extends('app')
+
+@section('head')
+    {!! Html::style('css/parsley.css') !!}
+@stop
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+    <div class="section">
+        <div class="row">
+            <div class="col l6 offset-l3 m8 offset-m2 s12 ">
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                <ul class="tabs z-depth-1">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
+                    <li class="tab col s3">
+                        <a class="{{ Session::get('login') }}" href="#login">Login</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a class="{{ Session::get('signup') }}" href="#signup">Sign-up</a>
+                    </li>
+                </ul>
+                <div class="progress" id="loginloader" style="display:none">
+                    <div class="indeterminate amber" ></div>
                 </div>
+            </div>
+
+            <div id="login" class="col l6 offset-l3 m8 offset-m2 s12 ">
+                @include('layouts.forms.login')
+            </div>
+            <div id="signup" class="col l6 offset-l3 m8 offset-m2 s12 ">
+                @include('layouts.forms.signup')
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@section('footer')
+<!--Import Google Recaptcha-->
+    {!! Html::script('js/parsley.min.js') !!}
+    @include('layouts.recaptcha')
+@stop
