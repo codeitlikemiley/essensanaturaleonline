@@ -50,7 +50,7 @@
         {!! Form::open(['route'=> 'password/postEmail', 'class' => 'col s12', 'id' => 'passwordreset_form', 'data-parsley-validate' ]) !!}
         <div class="row">
           <div class="input-field col s11">
-            <i class="mdi-action-lock-outline prefix"></i>
+            <i class="material-icons prefix">email</i>
             {!! Form::email('email','',['placeholder' => 'Email', 'required' => '', 'data-parsley-required-message' => 'Type Email You Want To Recover', 'data-parsley-type' => 'email', 'data-parsley-type-message' => 'This is Not A Valid Email!', 'data-parsley-pattern' => '/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/i' , 'data-parsley-pattern-message' => 'Use Only Google Email Address!', 
               'data-parsley-trigger' => 'change focusout',
             ]) !!}

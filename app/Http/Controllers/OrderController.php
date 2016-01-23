@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ItemOrder;
-use App\Cart;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
-use App\CartItem;
+use Cart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -74,8 +73,6 @@ class OrderController extends Controller
     {
     $query = Order::with([
       "user",
-      "itemOrders",
-      "itemOrders.product",
       "itemOrders.product.category"
     ]);
     $user = $request->input('user_id');
