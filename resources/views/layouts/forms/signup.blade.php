@@ -30,13 +30,13 @@ id="registration_form" data-parsley-validate>
 
         <div class="input-field col s11">
         <i class="material-icons prefix icon-lower">account_circle</i>
-          <input id="username" type="text" name="username" tabindex="4" required="" data-parsley-required-message="Username is Required" data-parsley-minlength="8" data-parsley-minlength-message="Username Name Cant Be That Short!" data-parsley-maxlength="30" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/" data-parsley-pattern-message="Username Pattern Must Be e.g. (johndoe_001)" data-parsley-trigger="change focusout"/>
+          <input id="username" type="text" name="username" tabindex="4" required="" data-parsley-required-message="Username is Required" data-parsley-minlength="8" data-parsley-minlength-message="Username Name Cant Be That Short!" data-parsley-maxlength="30" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/" data-parsley-pattern-message="Pattern Must Be e.g. (joe_001)" data-parsley-trigger="change focusout"/>
           <label for="username">Username</label>
         </div>
 
         <div class="input-field col s11">
     	<i class="material-icons prefix icon-lower">public</i>
-          <input id="display_name" type="text" name="display_name" tabindex="5" required="" data-parsley-required-message="Public Name is Required" data-parsley-minlength="2" data-parsley-minlength-message="Display Name Cant Be That Short!" data-parsley-maxlength="30" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[\w\-\s]*$/" data-parsley-pattern-message="Diplay Name Pattern Must Be e.g. (Im John-Doe_23)" data-parsley-trigger="change focusout"/>
+          <input id="display_name" type="text" name="display_name" tabindex="5" required="" data-parsley-required-message="Public Name is Required" data-parsley-minlength="2" data-parsley-minlength-message="Display Name Cant Be That Short!" data-parsley-maxlength="30" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[\w\-\s]*$/" data-parsley-pattern-message="Pattern Must Be e.g. (Im Joe_1)" data-parsley-trigger="change focusout"/>
           <label for="display_name">Display Name</label>
         </div>
 
