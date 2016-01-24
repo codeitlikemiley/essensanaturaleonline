@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-	  protected $guarded = ["id"];
+    public $table = "orders";
+    protected $guarded = ["id"];
   	protected $softDelete = true;
 
     public function user()
@@ -31,6 +32,15 @@ class Order extends Model
     $total += ($item->price * $item->qty);
     }
     return $total;
+    }
+
+    public function mop()
+    {
+        return $this->morphTo();
+    }
+    public static function findByUserID($uid)
+    {
+        return self::where('user_id', $uid)->get();
     }
 
  
