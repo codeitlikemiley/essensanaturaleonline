@@ -17,6 +17,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('products/{id}', 'ProductController@submitReview');
 
 	Route::get('getCheckOut', 'OrderController@getCheckOut');
+	Route::post('postCheckOut', 'OrderController@postCheckOut');
 	
 	Route::any("account/authenticate", [
   	"as"   => "account/authenticate",

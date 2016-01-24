@@ -14,8 +14,7 @@ class CreateRemittancesTable extends Migration
     {
         Schema::create('remittances', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('remittance_name');
-            $table->string('transaction_id')->unique();
+            $table->string('name');
             $table->string('transaction_no');
             $table->string('sender_name'); 
             $table->string('mobile_no');

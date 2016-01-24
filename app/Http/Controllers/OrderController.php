@@ -7,13 +7,15 @@ use App\ItemOrder;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Cart;
-use App\Bank;
+// use App\Bank;
 // use App\OnlineBank;
 // use App\MobileTransfer;
 // use App\Remittance;
-
+// use App\Http\Requests\CreateOrderRequest;
+use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class OrderController extends Controller
 {
@@ -22,12 +24,38 @@ class OrderController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function getCheckOut(Request $request)
     {
-        $userID = 1; // Auth::user()->id;
+        $mop = [
+        'App\Bank' => 'Bank',
+        'App\OnlineBank' => 'OnlineBank',
+        'App\Remittance' => 'Remittance',
+        'App\MobileTransfer' => 'MobileTransfer'
+        ];
+        $method = array('pickup', 'deliver');
+        $bank_name = array('BDO', 'BPI', 'UNIONBANK', 'METROBANK', 'EASTWEST');
+        $online_bank_name = array('BDO', 'BPI', 'UNIONBANK');
+        $mobile_carrier = array('SMARTMONEY', 'GCASH');
+        $remittance_name = array('WESTER UNION','MONEY GRAM', 'CEBUANA LHUILLIER', 'CEBUANA MLHUILLIER', 'LBC REMITTANCE', 'PALAWAN EXPRESS');
+
+
+        $message = "Review Your Order!";
+        return view('layouts.getCheckOut')->with(compact('mop','method', 'bank_name', 'online_bank_name' , 'mobile_carrier', 'remittance_name'));
+        // return response()->json(['html' => \View::make('layouts.getCheckOut')->with(compact('mop', 'method', 'bank_name', 'online_bank_name', 'mobile_carrier', 'remittance_name'))->render(), 'success' => true, 'message' => $message], 200);
+    }
+
+    public function postCheckOut(Request $request)
+    {
+        // $createOrderRequest = new CreateOrderRequest();
+        // $validator         = Validator::make($request->all(), $createOrderRequest->rules(), $createOrderRequest->messages());
+        // if ($validator->fails()) {
+        //     return response()->json(['success' => false, 'errors' => $validator->errors()->toArray()], 400);
+        // }
+        DB::beginTransaction();
+        $userID = \Auth::user()->id; 
         $cart = Cart::content();
         if(!$cart->count()){
             return "Add Item to Cart!";
@@ -35,13 +63,13 @@ class OrderController extends Controller
         $subtotal = Cart::total();
 
         $status = 'unpaid';
-        if($request->input('mop') == 'CreditCard'){
+        if($request->input('mop') == 'App\CreditCard'){
             $status = 'paid';
+            //method 
+            // return
         }
-        $method = 'deliver';
-        if($request->input('method') == 'pickup'){
-            $method = 'pickup';
-        }
+        $method = $request->input('method');
+        
         $shippingfee = $this->shippingfee;
         if (!$subtotal) {
             $shippingfee = 0;
@@ -69,9 +97,10 @@ class OrderController extends Controller
         if(!$request->input('mop')){
             $model = 'App\Bank';
         }
-        $transaction = substr(md5(rand()), 0, 7);
+        // $transaction = substr(md5(rand()), 0, 7);
         $mop = new $model();
-        $mop->transaction_id = $transaction;
+        $mop->name = $request->input('name');
+        // $mop->transaction_id = $transaction;
         $mop->amount =  $total;
         $mop->save();
         $mop->orderPayment()->save($order);
@@ -93,6 +122,23 @@ class OrderController extends Controller
             $itemOrder->options =$options;
             $order->itemOrders()->save($itemOrder);
         }
+        try {
+            if (!$order && !$mop && !$itemOrder) {
+                throw new \Exception('Order Creation Failed!');
+            }
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            $errors = [
+            'ExceptionError' => $e->getMessage()
+            
+            ];
+
+            return response()->json(['success' => false, 'errors' => $errors], 400); // Failed Creation
+        }
+
+        // Account Successfully Created
+        DB::commit();
         Cart::destroy();
         return 'Done';
         

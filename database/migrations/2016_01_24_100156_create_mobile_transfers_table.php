@@ -14,8 +14,7 @@ class CreateMobileTransfersTable extends Migration
     {
         Schema::create('mobile_transfers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('carrier', ['smartmoney', 'gcash']);
-            $table->string('transaction_id')->unique();
+            $table->string('name');
             $table->string('transaction_no');
             $table->string('sender_name');
             $table->string('mobile_no');
