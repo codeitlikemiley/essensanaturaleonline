@@ -16,8 +16,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/products/{id}', 'ProductController@showProduct');
 	Route::post('products/{id}', 'ProductController@submitReview');
 
-	Route::get('getCheckOut', 'OrderController@getCheckOut');
-	Route::post('postCheckOut', 'OrderController@postCheckOut');
+	Route::get('checkout', 'OrderController@getCheckOut');
+	Route::post('checkout', 'OrderController@postCheckOut');
 	
 	Route::any("account/authenticate", [
   	"as"   => "account/authenticate",

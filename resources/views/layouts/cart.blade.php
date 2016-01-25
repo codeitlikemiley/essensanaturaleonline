@@ -75,7 +75,7 @@
 		<a href="#!" onclick="removeCart();" class="col s6 push-m1 m5 push-l1 l5 left red darken-4 modal-action modal-close waves-effect waves-light btn-large">Remove Cart</a>
 		</form>
 		<!-- ADD Check Out AJAX -->
-    	<a href="#!" class="col s6 pull-m1 m5 pull-l1 l5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
+    	<a href="checkout" class="col s6 pull-m1 m5 pull-l1 l5 right teal lighten-2 modal-action modal-close waves-effect waves-light btn-large">Check Out</a>
     	@else
 			
 			<div class="row">

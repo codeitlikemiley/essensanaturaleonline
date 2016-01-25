@@ -29,19 +29,19 @@ class LinkTableSeeder extends Seeder
     	}
         
 
-        $faker = Faker\Factory::create();
+        // $faker = Faker\Factory::create();
         
-        foreach (range(1, 50) as $index) {
-            Link::create([
-                'link'           => str_replace('.', '_', $faker->unique()->userName),
-                'user_id'        => $index + 1,
-                'sp_link_id'     => $index,
-                'sp_user_id'     => $index,
-                'active'         => true,
-                'date_activated' => \Carbon\Carbon::now(),
-                'created_at'     => \Carbon\Carbon::now(),
-                'updated_at'     => \Carbon\Carbon::now(),
-            ]);
-        }
+        // foreach (range(1, 50) as $index) {
+        //     Link::create([
+        //         'link'           => str_replace('.', '_', $faker->unique()->userName),
+        //         'user_id'        => $index + 1,
+        //         'sp_link_id'     => $index,
+        //         'sp_user_id'     => $index,
+        //         'active'         => true,
+        //         'date_activated' => \Carbon\Carbon::now(),
+        //         'created_at'     => \Carbon\Carbon::now(),
+        //         'updated_at'     => \Carbon\Carbon::now(),
+        //     ]);
+        // }
     }
 }

@@ -1,4 +1,4 @@
-<form action="postCheckOut" method="POST" class="col s12 login-form" id="postCheckOut">
+<form action="checkout" method="POST" class="col s12 login-form" id="postCheckOut">
 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 <h6>How do You Want to Receive the Product?</h6>
 @foreach ($method as $value) 
@@ -19,7 +19,7 @@
 </div>
   
 <!-- If $key is selected toggle this Using Jquery -->
-{{-- <div class="input-field col s12">
+<div class="input-field col s12">
     <select name="name">
       <option value="" disabled selected>Select A Bank</option>
   	@foreach ($bank_name as $key => $value) 
@@ -27,7 +27,7 @@
 	@endforeach
     </select>
     <label>Bank Deposit</label>
-</div> --}}
+</div>
 
 {{-- 
 <div class="input-field col s12">
@@ -50,7 +50,7 @@
     <label>Mobile Transfer</label>
 </div> --}}
 
-<div class="input-field col s12">
+{{-- <div class="input-field col s12">
     <select name="name">
       <option value="" disabled selected>Select Remittance</option>
   	@foreach ($remittance_name as $key => $value) 
@@ -58,7 +58,7 @@
 	@endforeach
     </select>
     <label>Remittances</label>
-</div>
+</div> --}}
 @include('layouts.loading')
 
    <div class="row buttonloader">

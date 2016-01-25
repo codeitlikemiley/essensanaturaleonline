@@ -34,27 +34,27 @@ class ProfileTableSeeder extends Seeder
     	}
         
 
-        $faker = Faker\Factory::create();
+        // $faker = Faker\Factory::create();
 
         
-        foreach (range(2, 51) as $index) {
-            Profile::create([
-                'user_id'        => $index,
-                'first_name'     => $faker->firstName,
-                'last_name'      => $faker->lastName,
-                'profile_pic'    => $faker->imageUrl($width = 125, $height = 125),
+        // foreach (range(2, 51) as $index) {
+        //     Profile::create([
+        //         'user_id'        => $index,
+        //         'first_name'     => $faker->firstName,
+        //         'last_name'      => $faker->lastName,
+        //         'profile_pic'    => $faker->imageUrl($width = 125, $height = 125),
 
-                'about_me'       => $faker->paragraph(5),
-                'display_name'   => $faker->name,
-                'contact_no'     => $faker->phoneNumber,
-                'address'        => $faker->streetAddress,
-                'city'           => $faker->city,
-                'province_state' => $faker->state,
-                'zip_code'       => $faker->postcode,
-                'country'        => $faker->country,
-                'created_at'     => \Carbon\Carbon::now(),
-                'updated_at'     => \Carbon\Carbon::now(),
-            ]);
-        }
+        //         'about_me'       => $faker->paragraph(5),
+        //         'display_name'   => $faker->name,
+        //         'contact_no'     => $faker->phoneNumber,
+        //         'address'        => $faker->streetAddress,
+        //         'city'           => $faker->city,
+        //         'province_state' => $faker->state,
+        //         'zip_code'       => $faker->postcode,
+        //         'country'        => $faker->country,
+        //         'created_at'     => \Carbon\Carbon::now(),
+        //         'updated_at'     => \Carbon\Carbon::now(),
+        //     ]);
+        // }
     }
 }
