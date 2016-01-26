@@ -1,5 +1,19 @@
 <?php
 
+Route::get('/editOrder', function(){
+	// if !Auth User then it return f	// Use this For Editting Your Own Order!
+
+	// $user = \Auth::loginUsingId(1);
+	// Auth::logout();
+	  $order = App\Order::findOrFail(1);
+	  if(\Bouncer::allows('power', $order))
+	  {
+	  	return view('welcome')->with(compact('order', 'user'));
+	  }
+	  return Response::json(['message' => 'Your Are Not Authorize To Do This Action!'], 403);
+
+});
+
 Route::group(['middleware' => 'web'], function () {
 	Route::post('searchProduct', 'SearchController@searchProduct');
 
@@ -24,8 +38,8 @@ Route::group(['middleware' => 'web'], function () {
   	"uses" => "Auth\AuthController@authenticate"
 	]);
     
-    Route::any("order/index", [
-  	"as"   => "order/index",
+    Route::any("orders", [
+  	"as"   => "orders",
   	"uses" => "OrderController@index"
 	]);
 

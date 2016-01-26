@@ -7,6 +7,7 @@ use App\ItemOrder;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Cart;
+use App\User;
 // use App\Bank;
 // use App\OnlineBank;
 // use App\MobileTransfer;
@@ -16,6 +17,7 @@ use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Redirect;
 
 class OrderController extends Controller
 {
@@ -24,7 +26,7 @@ class OrderController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function getCheckOut(Request $request)
@@ -140,8 +142,8 @@ class OrderController extends Controller
         // Account Successfully Created
         DB::commit();
         Cart::destroy();
-        return 'Done';
-        
+        // return response()->json(['html' => \View::make('layouts.addToCart')->with(compact('item'))->render(), 'success' => true, 'message' => $message, 'itemID' => $itemID, 'subtotal' => $subtotal, 'tax' => $tax, 'shippingfee' => $shippingfee, 'total' => $total], 200);
+        return Redirect::to('/orders');
     }
 
     public function checkout(Request $request)
@@ -197,19 +199,12 @@ class OrderController extends Controller
     // start here >> this should be for admin
     public function index(Request $request)
     {
-    $query = Order::with([
-      "user",
-      "itemOrders.product.category"
-    ]);
-    $user = $request->input('user_id');
-    if ($user)
-    {
-      $query->where("user_id", $user);
-    }
-    return $query->get();
+        
+    $user = User::with('orders.mop')->find(\Auth::user()->id);
+    
+    return view('pages.orders')->with('user' ,$user);
+    
     }
 
-    public function switchToJack($lid)
-    {
-    }
+    
 }
