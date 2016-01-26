@@ -150,6 +150,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Silber\Bouncer\BouncerServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -208,6 +209,7 @@ return [
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
+        'Bouncer' => Silber\Bouncer\BouncerFacade::class,
         
 
 
