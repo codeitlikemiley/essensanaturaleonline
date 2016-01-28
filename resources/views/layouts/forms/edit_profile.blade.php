@@ -2,7 +2,7 @@
 
 <div class="card">
 {{-- Login Form --}}
-<form action="updateProfile" method="POST" class="col s12 login-form" id="editProfile" data-parsley-validate>
+<form action="profile" method="POST" class="col s12 login-form" id="updateProfile" data-parsley-validate>
 
    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
@@ -63,21 +63,15 @@
           <label for="country">Country</label>
         </div>
 
-  
-  <div class="row">
-  <div class="g-recaptcha" id="recaptcha4">
-
-  </div>
-  </div>
 
   @include('layouts.loading')
   <div class="row buttonloader">
-  <button class="col s5 offset-s1 btn waves-effect waves-light form-submit" type="submit" id="sign_in" name="action">Update Profile <i class="material-icons right">send</i></button>
+  <button class="col s5 offset-s1 btn waves-effect waves-light form-submit" type="submit" id="updateprofileBTN" name="action">Update Profile <i class="material-icons right">send</i></button>
   @if(Cart::count())
     <a href="/checkout" class="activator col s5 btn waves-effect waves-light deep-orange darken-4" type="submit" name="action" >Checkout</a>
     @else
     <a href="/" class="activator col s5 btn waves-effect waves-light amber" type="submit" name="action" >Order Products</a>
-    @endif
+  @endif
 
   </div>
 </form>

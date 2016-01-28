@@ -17,7 +17,7 @@
                         <a class="{{ Session::get('profile') }}" href="#login">Shipping Details</a>
                     </li>
                 </ul>
-                <div class="progress" id="loginloader" style="display:none">
+                <div class="progress" id="profileloader" style="display:none">
                     <div class="indeterminate amber" ></div>
                 </div>
             </div>
@@ -34,7 +34,80 @@
 @section('footer')
 <!--Import Google Recaptcha-->
     {!! Html::script('js/parsley.min.js') !!}
+    <script type="text/javascript">
+$.ajaxSetup({headers:{'X-CSRF-TOKEN':
+    $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
+$('#updateProfile').parsley();
+function loader( v ) {
+if (v == 'on') {
 
+    $('#profileloader').show();
+}
+else {
+
+    $('#profileloader').hide();
+}
+}
+function buttonloader(v)
+{
+
+if(v == 'on'){
+
+ $('.input-field').css({opacity : 0.2});
+ $('.buttonloader').hide();
+ $('.loading').show();
+
+}
+else{
+ $('.input-field').css({opacity : 1});
+ $('.loading').hide();
+ $('.buttonloader').show();
+
+}
+}
+$('#updateProfile').on('submit', function (e){
+            // PREVENT SUBMIT
+            e.preventDefault();
+
+            var form = $(this);
+            // Validate The Form
+            form.parsley().validate();
+            if (form.parsley().isValid()){
+                var profile_form = form.serializeArray();
+                var url = form.attr('action');
+                loader('on');
+                
+            // Start AJAX CALL
+            $.ajax( {
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: profile_form,
+                success: function (data) {
+                    loader('off');
+                    buttonloader('off');
+
+                    Materialize.toast(data.message, 4000,'',function () {
+                                //
+                            });
+                },
+                error: function (data) {
+                    loader('off');
+                    buttonloader('off');
+                    var errors = data.responseJSON;
+                    $.each( errors.errors, function (index, error) {
+                        Materialize.toast(error, 4000, '',function () {
+                                //
+                            });
+                    });
+
+                }
+            }); // End Login Ajax Call
+        }  // End PARSLEY isValid
+
+});
+//END LOGIN SUBMIT
+</script>
     
     
 @stop
