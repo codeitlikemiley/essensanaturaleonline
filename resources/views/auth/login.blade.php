@@ -17,7 +17,7 @@
                         <a class="{{ Session::get('login') }}" href="#login">Login</a>
                     </li>
                     <li class="tab col s3">
-                        <a class="{{ Session::get('signup') }}" href="#signup">Sign-up</a>
+                        <a class="{{ Session::get('signup') }}" href="#signup">New Customer?</a>
                     </li>
                 </ul>
                 <div class="progress" id="loginloader" style="display:none">

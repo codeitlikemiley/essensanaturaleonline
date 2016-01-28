@@ -8,6 +8,7 @@ use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Cart;
 use App\User;
+use Response;
 // use App\Bank;
 // use App\OnlineBank;
 // use App\MobileTransfer;
@@ -22,26 +23,80 @@ use Redirect;
 class OrderController extends Controller
 {
     protected $shippingfee = 150;
-    protected $taxrate = .12;
-
+    protected $taxrate = 0;
+    protected $method = array('pickup', 'deliver');
+    protected $bank_name = array('BDO', 'BPI', 'UNIONBANK', 'METROBANK', 'EASTWEST');
+    protected $online_bank_name = array('BDO', 'BPI', 'UNIONBANK');
+    protected $mobile_carrier = array('SMARTMONEY', 'GCASH');
+    protected $remittance_name = array('WESTER UNION','MONEY GRAM', 'CEBUANA LHUILLIER', 'CEBUANA MLHUILLIER', 'LBC REMITTANCE', 'PALAWAN EXPRESS');
+    protected $mop = [
+        'App\Bank' => 'Bank Deposit',
+        'App\OnlineBank' => 'Online Bank Transfer',
+        'App\MobileTransfer' => 'Mobile Cash Transfer',
+        'App\Remittance' => 'Money Remittance'
+        ];
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    public function getBank(Request $request){
+        if($request->ajax()){
+        $mop = $this->bank_name;
+        $type = 'Bank';
+        $option = "Bank Deposit";
+        // return response()->json(['html' => \View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render(), 'success' => true], 200);
+        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
+        
+        }
+        
+    }
+    public function getOnlineBank(Request $request){
+        if($request->ajax()){
+            $mop = $this->online_bank_name;
+            $type = 'Online Bank';
+            $option = "Online Bank Transfer";
+        // return response()->json(['html' => \View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render(), 'success' => true], 200);
+        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
+
+        }
+    }
+    public function getMobileTransfer(Request $request){
+        if($request->ajax()){
+          $mop = $this->mobile_carrier;
+          $type = 'Mobile Carrier';
+          $option = "Mobile Cash Transfer";
+
+        // return response()->json(['html' => \View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render(), 'success' => true], 200);
+        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
+        
+        }
+    }
+    public function getRemittance(Request $request){
+        if($request->ajax()){
+            $mop = $this->remittance_name;
+            $type = 'Remittance';
+            $option = "Money Remittance";
+
+        // return response()->json(['html' => \View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render(), 'success' => true], 200);
+        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
+        
+        }
+    }
+    
+    
+
     public function getCheckOut(Request $request)
     {
-        $mop = [
-        'App\Bank' => 'Bank',
-        'App\OnlineBank' => 'OnlineBank',
-        'App\Remittance' => 'Remittance',
-        'App\MobileTransfer' => 'MobileTransfer'
-        ];
-        $method = array('pickup', 'deliver');
-        $bank_name = array('BDO', 'BPI', 'UNIONBANK', 'METROBANK', 'EASTWEST');
-        $online_bank_name = array('BDO', 'BPI', 'UNIONBANK');
-        $mobile_carrier = array('SMARTMONEY', 'GCASH');
-        $remittance_name = array('WESTER UNION','MONEY GRAM', 'CEBUANA LHUILLIER', 'CEBUANA MLHUILLIER', 'LBC REMITTANCE', 'PALAWAN EXPRESS');
+        if(!Cart::count()){
+            return redirect('/');
+        }
+        $mop = $this->mop;
+        $method = $this->method;
+        $bank_name = $this->bank_name;
+        $online_bank_name = $this->online_bank_name;
+        $mobile_carrier = $this->mobile_carrier;
+        $remittance_name = $this->remittance_name;
 
 
         $message = "Review Your Order!";
@@ -80,6 +135,9 @@ class OrderController extends Controller
         if ($subtotal > 1150) {
             $shippingfee = 0;
         }
+        if($method === 'pickup'){
+            $shippingfee = 0;
+        }
 
         $taxrate = $this->taxrate;
         $tax = round($subtotal * $taxrate);
@@ -88,6 +146,7 @@ class OrderController extends Controller
         $order = new Order();
         $order->user_id = $userID;
         $order->status = $status;
+        $order->method = $method;
         $order->shipment_fee = $shippingfee;
         $order->sub_total = $subtotal;
         $order->tax = $tax;
@@ -96,13 +155,9 @@ class OrderController extends Controller
         
 
         $model = $request->input('mop');
-        if(!$request->input('mop')){
-            $model = 'App\Bank';
-        }
-        // $transaction = substr(md5(rand()), 0, 7);
+        
         $mop = new $model();
         $mop->name = $request->input('name');
-        // $mop->transaction_id = $transaction;
         $mop->amount =  $total;
         $mop->save();
         $mop->orderPayment()->save($order);

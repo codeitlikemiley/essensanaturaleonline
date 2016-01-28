@@ -10,7 +10,7 @@ use App\Product;
 class CartController extends Controller
 {
     protected $shippingfee = 150;
-    protected $taxrate = .12;
+    protected $taxrate = 0;
 
     public function showCart()
     {

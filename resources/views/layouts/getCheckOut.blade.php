@@ -6,6 +6,7 @@
 
 @section('content')
 <main>
+
 <div class="container">
 
     <div class="section">
@@ -35,6 +36,71 @@
 
 @section('footer')
 <!--Import Footer -->
+<script type="text/javascript">
+function loader( v ) {
+if (v == 'on') {
+
+    $('#paymentloader').show();
+}
+else {
+
+    $('#paymentloader').hide();
+}
+}
+
+$(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+    $(document).on('change','.loadPayment', function(e){
+            
+        var string = $(e.target).val();
+        list = string.replace("App\\","");
+        loader('on');
+        getMOP(list);
+    }); // Doc on change
+    function getMOP(list){
+        $.ajax({
+                url: '/get' + list
+            }).done(function(data){
+                $('#mop_list').empty();
+                $('#paymentdetails').empty();
+                $('#mop_list').append(data);
+                $('select').material_select('destroy');
+                $('select').material_select();
+                loader('off');
+                 Materialize.toast('Payment Gateway Loaded!', 4000,'',function(){console.log('Payment Gateway Loaded!');});
+                
+            }).fail(function () {
+            loader('off'); // if Fail
+                Materialize.toast('Fail To Load Payment Gateway!', 4000,'',function(){console.log('Failed to Load Payment Gateway!');});
+    });
+    }
+    $(document).on('change','.paymentDetails', function(e){
+            
+        var mop = $(e.target).val();
+        mop = mop.replace(/\s/g,'');
+        loader('on');
+        getPaymentDetails(mop);
+    });
+    function getPaymentDetails(mop){
+        $.ajax({
+                url: '/load' + mop
+            }).done(function(data){
+                console.log(data);
+                $('#paymentdetails').empty();
+                $('#paymentdetails').html(data);
+                loader('off');
+                 Materialize.toast('Payment Details Loaded!', 4000,'',function(){console.log('Payment Details Loaded!');});
+                
+            }).fail(function () {
+            loader('off'); // if Fail
+                Materialize.toast('Fail To Load Payment Details!', 4000,'',function(){console.log('Failed to Load Payment Details!');});
+    });
+    }
+   
+</script>
 @endsection
 
 

@@ -46,7 +46,32 @@ Route::group(['middleware' => 'web'], function () {
     // Not Being Used 
 	Route::get('showCart', 'CartController@showCart');
 
-    // AJAX Call
+    // MOP AJAX Call
+	Route::get('getBank', 'OrderController@getBank');
+	Route::get('getOnlineBank', 'OrderController@getOnlineBank');
+	Route::get('getMobileTransfer', 'OrderController@getMobileTransfer');
+	Route::get('getRemittance', 'OrderController@getRemittance');
+	// lOAD Payment Details
+	Route::get('loadBDO', 'PaymentDetailsController@loadBDO');
+	Route::get('loadBPI', 'PaymentDetailsController@loadBPI');
+	Route::get('loadEASTWEST', 'PaymentDetailsController@loadEASTWEST');
+	Route::get('loadUNIONBANK', 'PaymentDetailsController@loadUNIONBANK');
+	Route::get('loadMETROBANK', 'PaymentDetailsController@loadMETROBANK');
+	Route::get('loadSMARTMONEY', 'PaymentDetailsController@loadSMARTMONEY');
+	Route::get('loadGCASH', 'PaymentDetailsController@loadGCASH');
+	Route::get('loadWESTERUNION', 'PaymentDetailsController@loadWESTERUNION');
+	Route::get('loadMONEYGRAM', 'PaymentDetailsController@loadMONEYGRAM');
+	Route::get('loadCEBUANALHUILLIER', 'PaymentDetailsController@loadCEBUANALHUILLIER');
+	Route::get('loadCEBUANAMLHUILLIER', 'PaymentDetailsController@loadCEBUANAMLHUILLIER');
+	Route::get('loadLBCREMITTANCE', 'PaymentDetailsController@loadLBCREMITTANCE');
+	Route::get('loadPALAWANEXPRESS', 'PaymentDetailsController@loadPALAWANEXPRESS');
+
+
+
+
+
+    
+    // Cart AJAX Call
 	Route::post('destroyCart', 'CartController@destroyCart');
 	Route::post('addToCart', 'CartController@addToCart');
 	Route::post('updateItem', 'CartController@updateItem');
@@ -103,7 +128,7 @@ View::composer('layouts.cart', function($view) {
         if ($subtotal > 1150) {
             $shippingfee = 0;
         }
-        $taxrate = 0.12;
+        $taxrate = 0;
         $tax = round($subtotal * $taxrate);
         $total = $subtotal + $shippingfee + $tax;
 
