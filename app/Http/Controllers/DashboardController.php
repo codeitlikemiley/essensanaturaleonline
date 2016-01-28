@@ -26,9 +26,6 @@ class DashboardController extends Controller
 
     public function updateProfile(Request $request)
     {
-    	if($request->ajax){
-    		
-    	
     	$profilerequest = new ProfileRequest();
         $validator    = Validator::make($request->all(), $profilerequest->rules(), $profilerequest->messages());
     	if ($validator->fails()) {
@@ -51,6 +48,6 @@ class DashboardController extends Controller
         $profile->country = $country;
         $profile->save();
         return response()->json(['success' => true, 'message' => 'Profile Updated!'], 200);
-        }
+        
     }
 }
