@@ -10,8 +10,9 @@
                 <h5 class="header col s12 light">Please check your inbox, and Verify Your Email Account!</h5>
             </div>
             <div class="row center">
-                <a href="{{ route('/') }}"  class="btn-large waves-effect waves-light orange">Home</a>
+                <a href="/"  class="btn-large waves-effect waves-light orange">Home</a>
             </div>
+
             <br><br>
         </div>
     </div>

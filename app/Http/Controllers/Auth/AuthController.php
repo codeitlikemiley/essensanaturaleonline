@@ -18,6 +18,8 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\MailController as Mail;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Order;
+use App\ItemOrder;
 
 class AuthController extends Controller
 {
@@ -165,7 +167,7 @@ class AuthController extends Controller
         } else {
             $user->incrementResent();
             $this->mail->passwordResend($user);
-            Auth::logout();
+            // Auth::logout();
 
             return \View::make('auth.resend');
         }
@@ -214,8 +216,13 @@ class AuthController extends Controller
         $user->links()->save($link);
 
         // IF Error Occured Throw an Exception then Rollback!
+        $role = $user->assign('customer');
+        $ability1 = \Bouncer::allow($user)->to('add-order', Order::class);
+        $ability2 = \Bouncer::allow($user)->to('edit-order', Order::class);
+        $ability3 = \Bouncer::allow($user)->to('delete-order', Order::class);
+        $ability4 = \Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);
         try {
-            if (!$user && !$profile && !$link) {
+            if (!$user && !$profile && !$link && !$role && $ability1 && $ability2 && $ability3 && $ability4) {
                 throw new \Exception('Account Creation Failed ,Account is Rollback');
             }
         } catch (\Exception $e) {
@@ -223,7 +230,6 @@ class AuthController extends Controller
 
             $errors = [
             'ExceptionError' => $e->getMessage(),
-            'RefreshPage'    => trans('auth.refreshPage'),
             ];
 
             return response()->json(['success' => false, 'errors' => $errors], 400); // Failed Creation

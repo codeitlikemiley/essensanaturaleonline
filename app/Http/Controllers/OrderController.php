@@ -19,6 +19,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use Redirect;
+use Bouncer;
+
+
 
 class OrderController extends Controller
 {
@@ -50,6 +53,55 @@ class OrderController extends Controller
         
         }
         
+    }
+
+    public function viewItemOrder(Request $request){
+     
+     try {
+     $userID = \Auth::user()->id;
+     $user = User::find($userID);
+     $order = $user->orders()->findOrFail($request->input('id'));
+
+     } catch (\Exception $e) {
+        $errors = [
+            'ExceptionError' => $e->getMessage(),
+            ];
+     return response()->json(['success' => false, 'message' => $errors], 400);
+
+     }
+     
+     if(\Bouncer::allows('view-itemOrder', ItemOrder::class))
+     {
+     $itemOrder = $order->itemOrders()->get();
+     // return view('layouts.itemOrder')->with(compact('itemOrder', 'order'));
+     return response()->json(['success' => true, 'message' => 'Order Items Retrieve!', 'html' => \View::make('layouts.itemOrder')->with(compact('itemOrder', 'order'))->render()], 200);
+
+     }
+     $errors = [
+            'UnauthorizeError' => 'Unauthorized To View Order Item!',
+            ];
+     return response()->json(['success' => false, 'message' => $errors], 400);
+
+     
+
+    }
+    public function deleteOrder(Request $request){
+     $userID = \Auth::user()->id;
+     $user = User::find($userID);
+     $orderID = $request->input('id');
+     $order = Order::findOrFail($orderID);
+     if($user->is('admin')){
+        $user = User::find($request->user_id);
+        $user->orders()->find($orderID)->delete();
+        return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
+     }
+     if(\Bouncer::allows('delete-order', Order::class))
+      {
+        $user->orders()->find($orderID)->delete();
+        return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
+      }
+        return response()->json(['success' => false, 'message' => 'Unauthorized To Delete Order!'], 200);
+
     }
     public function getOnlineBank(Request $request){
         if($request->ajax()){
@@ -179,6 +231,9 @@ class OrderController extends Controller
             $itemOrder->options =$options;
             $order->itemOrders()->save($itemOrder);
         }
+        $user = User::find($userID);
+        Bouncer::allow($user)->to('remove-order', $order);
+        Bouncer::allow($user)->to('edit-order', $order);
         try {
             if (!$order && !$mop && !$itemOrder) {
                 throw new \Exception('Order Creation Failed!');

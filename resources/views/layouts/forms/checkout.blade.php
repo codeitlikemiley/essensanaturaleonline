@@ -23,7 +23,7 @@
 </div>
 <div class="row" id="paymentdetails">
 
-{{-- @include('layouts.forms.paymentdetails') --}}
+
 </div>
 
 </form>
