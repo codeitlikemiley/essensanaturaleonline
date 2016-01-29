@@ -50,7 +50,7 @@
         @endif
         @if(Auth::user())
         <li><a href="/orders" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to View Orders"><i class="material-icons">assignment</i></a></li>
-        <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Log Out Account!"><i class="material-icons">settings_power</i></a></li>
+        <li><a href="/logout" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Log Out Account!"><i class="material-icons">settings_power</i></a></li>
         @endif
       </ul>
 
