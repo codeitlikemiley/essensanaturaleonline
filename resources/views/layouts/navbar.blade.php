@@ -46,7 +46,7 @@
         <!-- MODAL TRIGGER INITIALIZE -->
         <li><a href="#cartbtn" id="nav-cart" class="modal-trigger tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To View Order"><i class="material-icons">shopping_cart</i></a></li>
         @if(Cart::count())
-        <li><a href="/checkout" id="nav-checkout" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To Check Out"><i class="material-icons">attach_money</i></a></li>
+        <li><a href="/checkout" id="nav-checkout" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To Check Out"><i class="material-icons">local_shipping</i></a></li>
         @endif
         @if(!Auth::user())
         <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Access Account"><i class="material-icons">account_circle</i></a></li>

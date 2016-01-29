@@ -36,6 +36,7 @@ function buttonloader(v)
             $('#qty'+id).val('1');
             $('#myCart').empty();
             $('#myCart').html(data);
+            $('#checkoutnavbtn').show();
             $('.qtype').on('keypress', function(e) {
         return e.which !== 13;
             });
@@ -77,6 +78,7 @@ function buttonloader(v)
         }).done(function(data){
             $('#myCart').empty();
             $('#myCart').html(data);
+            $('#checkoutnavbtn').hide();
             $('.qtype').on('keypress', function(e) {
             return e.which !== 13;
             });
