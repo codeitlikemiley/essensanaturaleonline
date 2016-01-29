@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       {{-- NavBar Logo Section --}}
       <a id="logo-container" href="#" class="brand-logo center fixed">
-      <h4>Essensa™</h4>
+      <h5>Essensa™</h5>
          {{-- <img src="img/logo.png" width="50" height="50" alt="Essensa Naturale Online"> --}}
       </a>
 
@@ -46,7 +46,7 @@
         <!-- MODAL TRIGGER INITIALIZE -->
         <li><a href="#cartbtn" id="nav-cart" class="modal-trigger tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To View Order"><i class="material-icons">shopping_cart</i></a></li>
 
-        <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Go to Profile!"><i class="material-icons">account_circle</i></a></li>
+        <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Login/Register"><i class="material-icons">account_circle</i></a></li>
 
       </ul>
 

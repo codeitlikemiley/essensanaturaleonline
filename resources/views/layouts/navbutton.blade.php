@@ -1,5 +1,5 @@
 {{-- Navigation Floating Button --}}
-  <div class="fixed-action-btn  click-to-toggle tooltipped" data-position="left" data-delay="0" data-tooltip="Click Navigation Button!" style="bottom: 40px; right: 50px; z-index: 996;">
+  <div class="fixed-action-btn  click-to-toggle tooltipped" data-position="left" data-delay="0" data-tooltip="Click Here to Navigate To" style="bottom: 40px; right: 50px; z-index: 996;">
     <a class="btn-floating btn-large amber darken-2">
       <i class="material-icons">navigation</i>
     </a>
