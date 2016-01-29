@@ -10,7 +10,7 @@
 <main>
 <div class="row">
 		<h4>Your Orders</h4>
-		
+		@if($user->orders)
 		<table class="bordered highlight responsive-table">
 		  <thead>
 		    <tr>
@@ -90,6 +90,9 @@
 		    @endforeach
 		  </tbody>
 		</table>
+		@else
+		<h4 class="header center orange-text">You Have No Order Yet!</h4>
+		@endif
 		
 		
 
