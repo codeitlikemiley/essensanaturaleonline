@@ -41,10 +41,12 @@
       {{-- Side Bar Toggle Button --}}
       <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">view_headline</i></a>
       <ul class="right">
-        <li id="searchable"><a href="#!"><i class="material-icons">search</i></a></li>
+        <li id="searchable"><a href="#!"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To Search Product!">search</i></a></li>
 
         <!-- MODAL TRIGGER INITIALIZE -->
-        <li><a href="#cartbtn" id="nav-cart" class="modal-trigger"><i class="material-icons">shopping_cart</i></a></li>
+        <li><a href="#cartbtn" id="nav-cart" class="modal-trigger tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To View Order"><i class="material-icons">shopping_cart</i></a></li>
+
+        <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Go to Profile!"><i class="material-icons">account_circle</i></a></li>
 
       </ul>
 
