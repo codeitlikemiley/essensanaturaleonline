@@ -10,7 +10,7 @@
 <main>
 <div class="row">
 		<h4>Your Orders</h4>
-		@if($user->orders)
+		@if($user->orders->count())
 		<table class="bordered highlight responsive-table">
 		  <thead>
 		    <tr>
