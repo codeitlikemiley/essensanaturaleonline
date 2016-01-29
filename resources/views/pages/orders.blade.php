@@ -8,9 +8,11 @@
 @section('content')
 <!--Import Content-->
 <main>
+@if($user->orders->count())
 <div class="row">
+
 		<h4>Your Orders</h4>
-		@if($user->orders->count())
+		
 		<table class="bordered highlight responsive-table">
 		  <thead>
 		    <tr>
@@ -90,14 +92,27 @@
 		    @endforeach
 		  </tbody>
 		</table>
-		@else
-		<h4 class="header center orange-text">You Have No Order Yet!</h4>
-		@endif
+		
 		
 		
 
 </div> <!-- End Div -->
+@else
+<div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h1 class="header center orange-text">YOU HAVE NO ORDER YET!</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Purchase Your First Order NOW</h5>
+            </div>
+            <div class="row center">
+                <a href="/"  class="btn-large waves-effect waves-light orange">Purchase Now!</a>
+            </div>
 
+            <br><br>
+        </div>
+    </div>
+@endif
 
 </main>
 @endsection
