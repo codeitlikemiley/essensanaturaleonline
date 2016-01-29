@@ -45,12 +45,15 @@
 
         <!-- MODAL TRIGGER INITIALIZE -->
         <li><a href="#cartbtn" id="nav-cart" class="modal-trigger tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To View Order"><i class="material-icons">shopping_cart</i></a></li>
+        @if(Cart::count())
+        <li><a href="/checkout" id="nav-checkout" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here To Check Out"><i class="material-icons">attach_money</i></a></li>
+        @endif
         @if(!Auth::user())
         <li><a href="/profile" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Access Account"><i class="material-icons">account_circle</i></a></li>
         @endif
         @if(Auth::user())
-        <li><a href="/orders" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to View Orders"><i class="material-icons">assignment</i></a></li>
-        <li><a href="/logout" id="navbar-login" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Log Out Account!"><i class="material-icons">settings_power</i></a></li>
+        <li><a href="/orders" id="navbar-order" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to View Orders"><i class="material-icons">assignment</i></a></li>
+        <li><a href="/logout" id="navbar-logout" class="tooltipped" data-position="left" data-delay="50" data-tooltip="Click Here to Log Out Account!"><i class="material-icons">settings_power</i></a></li>
         @endif
       </ul>
 
