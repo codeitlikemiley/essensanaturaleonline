@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Http\Requests\ProfileRequest;
 use Validator;
-use Input;
 use App\User;
 
 class DashboardController extends Controller
@@ -26,6 +25,7 @@ class DashboardController extends Controller
 
     public function updateProfile(Request $request)
     {
+
     	$profilerequest = new ProfileRequest();
         $validator    = Validator::make($request->all(), $profilerequest->rules(), $profilerequest->messages());
     	if ($validator->fails()) {
@@ -48,6 +48,6 @@ class DashboardController extends Controller
         $profile->country = $country;
         $profile->save();
         return response()->json(['success' => true, 'message' => 'Profile Updated!'], 200);
-        
+
     }
 }

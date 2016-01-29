@@ -14,7 +14,7 @@
                 <ul class="tabs z-depth-1">
 
                     <li class="tab col s3">
-                        <a class="{{ Session::get('profile') }}" href="#login">Shipping Details</a>
+                        <a class="{{ Session::get('profile') }}" href="#profile">Shipping Details</a>
                     </li>
                 </ul>
                 <div class="progress" id="profileloader" style="display:none">
@@ -34,7 +34,7 @@
 @section('footer')
 <!--Import Google Recaptcha-->
     {!! Html::script('js/parsley.min.js') !!}
-    <script type="text/javascript">
+<script>
 $.ajaxSetup({headers:{'X-CSRF-TOKEN':
     $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
 $('#updateProfile').parsley();
@@ -76,6 +76,7 @@ $('#updateProfile').on('submit', function (e){
                 var profile_form = form.serializeArray();
                 var url = form.attr('action');
                 loader('on');
+                buttonloader('on');
                 
             // Start AJAX CALL
             $.ajax( {

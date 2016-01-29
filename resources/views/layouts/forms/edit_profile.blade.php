@@ -66,7 +66,7 @@
 
   @include('layouts.loading')
   <div class="row buttonloader">
-  <button class="col s5 offset-s1 btn waves-effect waves-light form-submit" type="submit" id="updateprofileBTN" name="action">Update Profile <i class="material-icons right">send</i></button>
+  <button class="col s5 offset-s1 btn waves-effect waves-light form-submit" type="submit" id="updateprofileBTN">Update Profile <i class="material-icons right">send</i></button>
   @if(Cart::count())
     <a href="/checkout" class="activator col s5 btn waves-effect waves-light deep-orange darken-4" type="submit" name="action" >Checkout</a>
     @else
