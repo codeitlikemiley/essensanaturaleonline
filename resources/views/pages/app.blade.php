@@ -33,15 +33,15 @@
       <li>
         <img src="/img/parallax3.jpg"> <!-- random image -->
         <div class="caption left-align">
-          <h3 class="light teal-text">Save Lives</h3>
+          <h3 class="teal-text">Save Lives</h3>
           <h5 class="light teal-text">Strengthen the Body Natural Immune System to Fight Diseases</h5>
         </div>
       </li>
       <li>
         <img src="/img/parallax6.png"> <!-- random image -->
-        <div class="caption center-align">
-          <h3 class="light teal-text">100% Secure Shopping Online</h3>
-          <h5 class="light teal-text">Shop at the Comfort of Your Home</h5>
+        <div class="caption left-align">
+          <h3 class="teal-text">Shop Online</h3>
+          <h5 class="light teal-text">100% Secure Shopping</h5>
         </div>
       </li>
     </ul>
