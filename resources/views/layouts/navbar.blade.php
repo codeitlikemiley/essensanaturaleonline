@@ -2,7 +2,7 @@
   <nav>
     <div class="nav-wrapper">
       {{-- NavBar Logo Section --}}
-      <a id="logo-container" href="#" class="brand-logo center fixed">
+      <a id="logo-container" href="#" class="brand-logo center fixed hide-on-small-only">
       <h5>Essensa™</h5>
          {{-- <img src="img/logo.png" width="50" height="50" alt="Essensa Naturale Online"> --}}
       </a>
