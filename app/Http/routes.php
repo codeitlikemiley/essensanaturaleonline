@@ -67,7 +67,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('loadPALAWANEXPRESS', 'PaymentDetailsController@loadPALAWANEXPRESS');
 
 	Route::post('deleteOrder', 'OrderController@deleteOrder');
-	Route::get('viewItemOrder', 'OrderController@viewItemOrder');
+	Route::post('viewItemOrder', 'OrderController@viewItemOrder');
 
 	Route::post('postReceipt', 'OrderController@postReceipt');
 

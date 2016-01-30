@@ -25,7 +25,8 @@
 		      <th style="height:50px;">Tax</th>
 		      <th style="height:50px;">Total</th>
 		      <th style="height:50px;">Remarks</th>
-		      <th style="height:50px;">Attachment</th>
+		      <th style="height:50px; width:10px;"></th>
+		      <th style="height:50px; width:10px;"></th>
 		      <th style="height:50px; width:10px;"></th>
 		    </tr>
 
@@ -49,13 +50,39 @@
 		      <td style="height:50px;">{{ $order->comment }}
 		      </td>
 		      {{-- @endcan --}}
+			<td style="height:50px;">
+			<form action="viewItemOrder" method="POST" id="itemOrderForm{{ $order->id }}">
+			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+			  <input id="orderItem{{ $order->id }}" name="id" type="hidden" value="{{ $order->id }}" >
+		      <a href="#viewModalItemOrder{{ $order->id }}"  class="modal-trigger modal-itemorder waves-effect waves-circle waves-red btn-floating white left z-depth-0 tooltipped" data-position="left" data-delay="50" data-tooltip="View Your Order Items" ><i class="material-icons" style="color:teal;" onclick="viewItemOrder({{ $order->id }})">visibility</i></a>
+			 </form>
+			<div id="viewModalItemOrder{{ $order->id }}" class="modal">
+    		<div class="modal-content">
 
+
+	        <blockquote class="center">
+	          <h5>Your Order Specifics</h5>
+	        </blockquote>
+	          <div class="row">
+	          <div class ="col s8 offset-s2" id="itemOrderModal{{ $order->id }}">
+	           <h3>Loading Data...</h3>
+
+	          </div> <!-- ENd Col Div -->
+	          </div> <!-- ENd Div Row -->
+    		<div class="modal-footer">
+      <a href="#!" class="col s2 push-s5 m2 push-m5 push-l5 l2 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+        
+ 			</div><!-- ENd MOdal Content -->
+    
+  </div> <!-- ENd MOdal Div -->
+	      	</td>
 			<!-- Make AJAX CALL REQUEST ON CHANGE -->
 		      {{-- @can('edit-order', Order::class) --}}
-		      <td style="height:50px;">
+		      <td style="height:50px; width:10px;">
 		      <!-- Show Add Receipt MOdal -->
-	      <a href="#viewModelReceipt{{ $order->id }}" class="modal-trigger modal-receipt"><i class="material-icons right">file_upload</i></a>
-  			<div id="viewModelReceipt{{ $order->id }}" class="modal">
+	      <a href="#viewModalReceipt{{ $order->id }}" class="modal-trigger modal-receipt waves-effect waves-circle waves-green btn-floating white left z-depth-0 tooltipped" data-position="left" data-delay="50" data-tooltip="Upload Your Receipt"><i class="material-icons right" style="color:blue;">file_upload</i></a>
+  			<div id="viewModalReceipt{{ $order->id }}" class="modal">
     		<div class="modal-content">
 
 
@@ -63,7 +90,7 @@
 	          <h5>Upload Your Receipt</h5>
 	        </blockquote>
 	          <div class="row">
-	          <div class ="col s10 offset-s1">
+	          <div class ="col s8 offset-s2">
 	           {{-- {!! Form::open(array('url'=>'postReceipt','method'=>'POST', 'files'=>true, 'id' => 'postReceiptForm{{ $order->id }}')) !!} --}}
 	           <form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}" enctype="multipart/form-data" onsubmit="submitReceipt({{ $order->id }}); return false;">
 			   {{-- {!! Form::token() !!} --}}
@@ -71,7 +98,7 @@
 				  <input type="hidden" name="id" value="{{ $order->id }}"/>
 			      <div class="file-field input-field small">
 				      <div class="btn">
-				        <span>Upload Your Receipt</span>
+				        <span>Attach Receipt</span>
 				        <input type="file" name="attachment">
 				      </div>
 				      <div class="file-path-wrapper">
@@ -139,4 +166,5 @@
 
 @section('footer')
 @include('layouts.forms.submitreceipt')
+@include('layouts.forms.viewitemorder')
 @endsection

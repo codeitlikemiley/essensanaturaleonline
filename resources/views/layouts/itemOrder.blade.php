@@ -1,7 +1,6 @@
 <div class="row">
 		<div class="col s12 m12 l12">
 		@if($itemOrder->count())
-		<h4>Order Items</h4>
 		
 		<table class="bordered highlight responsive-table">
 		  <thead>
