@@ -33,7 +33,7 @@
 		  <tbody>
 		  	@foreach ($user->orders as $order)
 			
-		    <tr>
+		    <tr id="deleteOrder{{ $order->id }}">
 		      <td style="height:50px;">
     		  {{ $order->id }}
   			  </td>
@@ -98,7 +98,7 @@
       	 	  
 		      <!-- Make AJAX CALL ON CLICK -->
 		      {{-- @can('delete-orders', $order) --}}
-		      <td style="height:50px; width:10px;" id="deleteOrder{{ $order->id }}">
+		      <td style="height:50px; width:10px;">
 			  <form action="deleteOrder" method="POST" id="deleteOrderForm{{ $order->id }}">
 			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 			  <input id="deleteOrder{{ $order->id }}" name="order_id" type="hidden" value="{{ $order->id }}" >
