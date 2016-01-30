@@ -20,7 +20,6 @@ $.ajax({
             $('#itemOrderModal'+ id).html(data.html);
             
            Materialize.toast(data.message, 4000,'',function () {
-            console.log(data);
            });
 
         }).fail(function () { // if Fail
