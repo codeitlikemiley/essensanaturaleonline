@@ -64,7 +64,7 @@
 	          <h5>Your Order Specifics</h5>
 	        </blockquote>
 	          <div class="row">
-	          <div class ="col s8 offset-s2" id="itemOrderModal{{ $order->id }}">
+	          <div class ="col s12" id="itemOrderModal{{ $order->id }}">
 	           <h3>Loading Data...</h3>
 
 	          </div> <!-- ENd Col Div -->
