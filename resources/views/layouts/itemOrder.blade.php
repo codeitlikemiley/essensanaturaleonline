@@ -2,7 +2,7 @@
 		<div class="col s12 m12 l12">
 		@if($itemOrder->count())
 		
-		<table class="bordered highlight responsive-table">
+		<table class="bordered highlight">
 		  <thead>
 		    <tr>
 		      <th style="height:50px;">Name</th>
