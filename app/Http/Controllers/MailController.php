@@ -30,9 +30,11 @@ class MailController extends Controller
         $this->send($user, $template, $data);
     }
     /**
-     * [send email to sponsor]
-     * @param  User   $user [sp_id]
-     * @return [int]       [sponsor id]
+     * [send email to sponsor].
+     *
+     * @param User $user [sp_id]
+     *
+     * @return [int] [sponsor id]
      */
     public function sendToSponsor(User $user)
     {
@@ -80,7 +82,7 @@ class MailController extends Controller
         return $data;
     }
 
-     /**
+    /**
      * return the required data for the sign up email.
      *
      * @return array
@@ -90,17 +92,17 @@ class MailController extends Controller
         $profile = $user->profile;
         $firstname = $profile->first_name;
         $lastname = $profile->last_name;
-        $full_name = $firstname . ' ' . $lastname;
+        $full_name = $firstname.' '.$lastname;
         $email = $user->email;
         $sponsor = $user->sponsor();
         $sp_fn = $sponsor->profile->first_name;
         $sp_ln = $sponsor->profile->last_name;
-        $sp_fullname = $sp_fn . ' ' . $sp_ln;
+        $sp_fullname = $sp_fn.' '.$sp_ln;
         $data = array(
             'subject' => 'Essensa Naturale Online : You Have a New Referral!',
-            'body' => 'Your New Referred Customer is ' .$full_name,
-            'info' => 'You Can Welcome and Guide Your New Referred Customer/Affiliate by Contacting Thru His/Her Email At ' . $email,
-            'title' => 'Congratulations!'. ' ' . $sp_fullname ' You Have a New Referral!',
+            'body' => 'Your New Referred Customer is '.$full_name,
+            'info' => 'You Can Welcome and Guide Your New Referred Customer/Affiliate by Contacting Thru His/Her Email At '.$email,
+            'title' => 'Congratulations! '.$sp_fullname.' You Have a New Referral!',
             'email' => $sponsor->email,
         );
 
