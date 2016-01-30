@@ -330,6 +330,7 @@ $('#registration_form').on('submit', function(e){
                     $('#email').val('');
                     $("#powerselect").append('<option value="" disabled selected>Search Sponsor</option>');
                     $('select').material_select();
+                    authenticated( data.url );
 
 
                 },

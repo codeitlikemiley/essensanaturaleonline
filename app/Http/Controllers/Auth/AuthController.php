@@ -240,19 +240,13 @@ class AuthController extends Controller
 
         // Send Email To The New User
         $this->mail->registered($user);
+        $this->mail->sendToSponsor($user);
 
-        $data = [
-                'event' => 'UserSignedUp',
-                'data'  => [
-                    'display_name' => $profile->display_name,
-                    'created_at'   => $user->created_at,
-                ],
-            ];
-
-        // Forget the Set Cookie
         $cookie = \Cookie::forget('sponsor');
 
         // Return With a Response to Delete Cookie
-        return response()->json(['success' => true], 201)->withCookie($cookie);
+        Auth::LoginUsingId($user->id);
+        // return redirect()->route('profile');
+        return response()->json(['success' => true, 'url' => 'profile'], 201)->withCookie($cookie);
     }
 }

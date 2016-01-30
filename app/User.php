@@ -117,4 +117,10 @@ class User extends Authenticatable
         $this->resent = $this->resent + 1;
         $this->save();
     }
+
+    public function sponsor()
+    {
+        $user = self::find($this->sp_id);
+        return $user;
+    }
 }

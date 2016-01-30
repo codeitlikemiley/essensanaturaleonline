@@ -46,7 +46,7 @@ Route::group(['middleware' => 'web'], function () {
     // Not Being Used 
 	Route::get('showCart', 'CartController@showCart');
 
-    // MOP AJAX Call
+    // Get MOP AJAX Call
 	Route::get('getBank', 'OrderController@getBank');
 	Route::get('getOnlineBank', 'OrderController@getOnlineBank');
 	Route::get('getMobileTransfer', 'OrderController@getMobileTransfer');
@@ -68,6 +68,9 @@ Route::group(['middleware' => 'web'], function () {
 
 	Route::get('deleteOrder', 'OrderController@deleteOrder');
 	Route::get('viewItemOrder', 'OrderController@viewItemOrder');
+
+	Route::get('getReceipt', 'OrderController@getReceipt');
+	Route::get('postReceipt', 'OrderController@postReceipt');
 
 
     

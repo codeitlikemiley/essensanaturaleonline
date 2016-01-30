@@ -69,10 +69,16 @@ class OrderController extends Controller
      return response()->json(['success' => false, 'message' => $errors], 400);
 
      }
-     
+     $itemOrder = $order->itemOrders()->get();
+     // If User Admin
+     if(\Bouncer::is($user)->an('admin')){
+     // return view('layouts.itemOrder')->with(compact('itemOrder', 'order'));
+     return response()->json(['success' => true, 'message' => 'Order Items Retrieve!', 'html' => \View::make('layouts.itemOrder')->with(compact('itemOrder', 'order'))->render()], 200);
+  
+     }
+     // If User Owns the Items Order
      if(\Bouncer::allows('view-itemOrder', ItemOrder::class))
      {
-     $itemOrder = $order->itemOrders()->get();
      // return view('layouts.itemOrder')->with(compact('itemOrder', 'order'));
      return response()->json(['success' => true, 'message' => 'Order Items Retrieve!', 'html' => \View::make('layouts.itemOrder')->with(compact('itemOrder', 'order'))->render()], 200);
 
@@ -101,6 +107,59 @@ class OrderController extends Controller
         return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
       }
         return response()->json(['success' => false, 'message' => 'Unauthorized To Delete Order!'], 200);
+
+    }
+
+    public function editOrder(Request $request){
+     $userID = \Auth::user()->id;
+     $user = User::find($userID);
+     $orderID = $request->input('id');
+     
+     // if User is Admin
+     if(Bouncer::is($user)->an('admin')){
+        $order = Order::findOrFail($orderID);
+        $order->status = $status;
+        $order->method = $method;
+        $order->shipment_fee = $shippingfee;
+        $order->sub_total = $subtotal;
+        $order->tax = $tax;
+        $order->total = $total;
+        $order->save(); 
+     }
+     // if User Owns the Order
+     if(\Bouncer::allows('edit-order', Order::class)){
+        $order = $user->orders()->find($orderID);
+        $order->status = $status;
+        $order->method = $method;
+        $order->shipment_fee = $shippingfee;
+        $order->sub_total = $subtotal;
+        $order->tax = $tax;
+        $order->total = $total;
+        $order->save(); 
+     }
+    }
+    public function postReceipt(Request $request) {
+     $userID = \Auth::user()->id;
+     $user = User::find($userID);
+     $orderID = $request->input('id');
+     if(\Bouncer::allows('edit-order', Order::class)){
+        $order = $user->orders()->find($orderID);
+        $mop = $order->mop;
+        $mop->transaction_no = $request->transaction_no; // Reciept Transaction NO.
+        $mop->account_name  = $request->account_name; // Bank Account No
+        $mop->amount =  $request->total; // Total Amount Deposited
+        if (!$request->hasFile('receipt')) {
+        return response()->json(['success' => false, 'message' => 'Please Upload a Receipt'], 400);
+        }
+        $mop->receipt = $request->file('receipt');
+        $mop->date_paid = $request->date_paid;
+        $mop->save();
+        return response()->json(['success' => true, 'message' => 'Payment Details Uploaded!'], 200);
+
+     }
+    }
+    public function getReceipt(Request $request){
+        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
 
     }
     public function getOnlineBank(Request $request){
@@ -158,11 +217,7 @@ class OrderController extends Controller
 
     public function postCheckOut(Request $request)
     {
-        // $createOrderRequest = new CreateOrderRequest();
-        // $validator         = Validator::make($request->all(), $createOrderRequest->rules(), $createOrderRequest->messages());
-        // if ($validator->fails()) {
-        //     return response()->json(['success' => false, 'errors' => $validator->errors()->toArray()], 400);
-        // }
+        
         DB::beginTransaction();
         $userID = \Auth::user()->id; 
         $cart = Cart::content();
@@ -234,6 +289,7 @@ class OrderController extends Controller
         $user = User::find($userID);
         Bouncer::allow($user)->to('remove-order', $order);
         Bouncer::allow($user)->to('edit-order', $order);
+        Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);
         try {
             if (!$order && !$mop && !$itemOrder) {
                 throw new \Exception('Order Creation Failed!');
@@ -249,10 +305,9 @@ class OrderController extends Controller
             return response()->json(['success' => false, 'errors' => $errors], 400); // Failed Creation
         }
 
-        // Account Successfully Created
+        // Order Successfully Created
         DB::commit();
         Cart::destroy();
-        // return response()->json(['html' => \View::make('layouts.addToCart')->with(compact('item'))->render(), 'success' => true, 'message' => $message, 'itemID' => $itemID, 'subtotal' => $subtotal, 'tax' => $tax, 'shippingfee' => $shippingfee, 'total' => $total], 200);
         return Redirect::to('/orders');
     }
 

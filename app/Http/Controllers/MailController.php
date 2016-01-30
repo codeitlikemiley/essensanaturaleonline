@@ -29,6 +29,18 @@ class MailController extends Controller
         $data = $this->getSignupData($user);
         $this->send($user, $template, $data);
     }
+    /**
+     * [send email to sponsor]
+     * @param  User   $user [sp_id]
+     * @return [int]       [sponsor id]
+     */
+    public function sendToSponsor(User $user)
+    {
+        $template = ('mail.sponsor');
+        $data = $this->getSponsorData($user);
+        $sponsor = $user->sponsor();
+        $this->send($sponsor, $template, $data);
+    }
 
     /**
      * send the activation email.
@@ -63,6 +75,33 @@ class MailController extends Controller
             'activation_code' => $user->activation_code,
             'title' => 'Thanks for you registration',
             'email' => $user->email,
+        );
+
+        return $data;
+    }
+
+     /**
+     * return the required data for the sign up email.
+     *
+     * @return array
+     */
+    public function getSponsorData($user)
+    {
+        $profile = $user->profile;
+        $firstname = $profile->first_name;
+        $lastname = $profile->last_name;
+        $full_name = $firstname . ' ' . $lastname;
+        $email = $user->email;
+        $sponsor = $user->sponsor();
+        $sp_fn = $sponsor->profile->first_name;
+        $sp_ln = $sponsor->profile->last_name;
+        $sp_fullname = $sp_fn . ' ' . $sp_ln;
+        $data = array(
+            'subject' => 'Essensa Naturale Online : You Have a New Referral!',
+            'body' => 'Your New Referred Customer is ' .$full_name,
+            'info' => 'You Can Welcome and Guide Your New Referred Customer/Affiliate by Contacting Thru His/Her Email At ' . $email,
+            'title' => 'Congratulations!'. ' ' . $sp_fullname ' You Have a New Referral!',
+            'email' => $sponsor->email,
         );
 
         return $data;
