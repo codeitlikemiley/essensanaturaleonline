@@ -51,37 +51,57 @@
 		      {{-- @endcan --}}
 
 			<!-- Make AJAX CALL REQUEST ON CHANGE -->
-		      {{-- @can('upload-receipt', $order) --}}
+		      {{-- @can('edit-order', Order::class) --}}
 		      <td style="height:50px;">
-		      
-			  <form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}">
-			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-			  <input type="hidden" name="id" value="{{ $order->id }}"/>
+		      <!-- Show Add Receipt MOdal -->
+	      <a href="#viewModelReceipt{{ $order->id }}" class="modal-trigger modal-receipt"><i class="material-icons right">file_upload</i></a>
+  			<div id="viewModelReceipt{{ $order->id }}" class="modal">
+    		<div class="modal-content">
 
-		      <div class="file-field input-field small">
-			      <div class="btn">
-			        <span>Upload Your Receipt</span>
-			        <input type="file">
-			      </div>
-			      <div class="file-path-wrapper">
-			        <input class="file-path validate" id="attachReceipt{{ $order->id }}" name="attachment" type="text"
-			        @if($order->attachment)
-					value="{{ $order->attachment }}"
-			        @endif
-			        >
-		      	  </div>
-    		  </div>
-			  </form>
+
+	        <blockquote class="center">
+	          <h5>Upload Your Receipt</h5>
+	        </blockquote>
+	          <div class="row">
+	          <div class ="col s10 offset-s1">
+	           {{-- {!! Form::open(array('url'=>'postReceipt','method'=>'POST', 'files'=>true, 'id' => 'postReceiptForm{{ $order->id }}')) !!} --}}
+	           <form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}" enctype="multipart/form-data" onsubmit="submitReceipt({{ $order->id }}); return false;">
+			   {{-- {!! Form::token() !!} --}}
+			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+				  <input type="hidden" name="id" value="{{ $order->id }}"/>
+			      <div class="file-field input-field small">
+				      <div class="btn">
+				        <span>Upload Your Receipt</span>
+				        <input type="file" name="attachment">
+				      </div>
+				      <div class="file-path-wrapper">
+				        <input class="file-path validate" type="text">
+			      	  </div>
+	    		  </div>
+    		   <div class="modal-footer">
+    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload Receipt</button>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+    		</form>
+			  {{-- {!! Form::close() !!} --}}
+	          </div>
+	          </div>
+	    
+        
+ 			</div>
+    
+  </div> <!-- ENd MOdal Div -->
+
 		      </td>
 		      {{-- @endcan --}}
 		      
       	 	  
 		      <!-- Make AJAX CALL ON CLICK -->
 		      {{-- @can('delete-orders', $order) --}}
-		      <td style="height:50px; width:10px;">
+		      <td style="height:50px; width:10px;" id="deleteOrder{{ $order->id }}">
 			  <form action="deleteOrder" method="POST" id="deleteOrderForm{{ $order->id }}">
 			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-			  <input id="deleteOrder{{ $order->id }}" name="id" type="hidden" value="{{ $order->id }}" >
+			  <input id="deleteOrder{{ $order->id }}" name="order_id" type="hidden" value="{{ $order->id }}" >
 		      <a href="#!" onclick="deleteOrder({{ $order->id }});" class="waves-effect waves-circle waves-red btn-floating white left z-depth-0"><i class="material-icons" style="color:red;">close</i></a>
 			 </form>
 		      </td>
@@ -118,5 +138,5 @@
 @endsection
 
 @section('footer')
-
+@include('layouts.forms.submitreceipt')
 @endsection

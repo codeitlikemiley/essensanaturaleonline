@@ -26,7 +26,7 @@
 			  <form action="updateItem" method="POST" id="updateItemForm{{ $item->id }}">
 			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 			  <input type="hidden" name="product_id" value="{{ $item->id }}"/>
-		      <input id="updateQty{{ $item->id }}" name="qty" onchange="updateProduct({{ $item->id }})" value="{{ $item->qty }}" style="width:50px; position:relative; padding-top:-100px; padding-bottom:-100px;" class="qtype"></input>
+		      <input id="updateQty{{ $item->id }}" name="qty" onchange="updateProduct({{ $item->id }});" value="{{ $item->qty }}" style="width:50px; position:relative; padding-top:-100px; padding-bottom:-100px;" class="qtype"></input>
 			  </form>
 		      </td>
 		      <td style="height:50px;">₱ {{ $item->subtotal }}</td>

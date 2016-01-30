@@ -94,7 +94,7 @@ class OrderController extends Controller
     public function deleteOrder(Request $request){
      $userID = \Auth::user()->id;
      $user = User::find($userID);
-     $orderID = $request->input('id');
+     $orderID = $request->input('order_id');
      $order = Order::findOrFail($orderID);
      if($user->is('admin')){
         $user = User::find($request->user_id);
@@ -106,7 +106,7 @@ class OrderController extends Controller
         $user->orders()->find($orderID)->delete();
         return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
       }
-        return response()->json(['success' => false, 'message' => 'Unauthorized To Delete Order!'], 200);
+        return response()->json(['success' => false, 'message' => 'Unauthorized To Delete Order!'], 400);
 
     }
 
@@ -139,29 +139,42 @@ class OrderController extends Controller
      }
     }
     public function postReceipt(Request $request) {
-     $userID = \Auth::user()->id;
-     $user = User::find($userID);
-     $orderID = $request->input('id');
-     if(\Bouncer::allows('edit-order', Order::class)){
-        $order = $user->orders()->find($orderID);
-        $mop = $order->mop;
-        $mop->transaction_no = $request->transaction_no; // Reciept Transaction NO.
-        $mop->account_name  = $request->account_name; // Bank Account No
-        $mop->amount =  $request->total; // Total Amount Deposited
-        if (!$request->hasFile('receipt')) {
-        return response()->json(['success' => false, 'message' => 'Please Upload a Receipt'], 400);
+      $input = $request->all();
+        
+        // VALIDATION RULES
+        $rules = array(
+            'attachment' => 'image|max:3000',
+        );
+    
+       // PASS THE INPUT AND RULES INTO THE VALIDATOR
+        $validation = Validator::make($input, $rules);
+ 
+        // CHECK GIVEN DATA IS VALID OR NOT
+        if ($validation->fails()) {
+            // return Redirect::to('/')->with('message', $validation->errors->first());
+        return response()->json(['success' => false, 'message' => 'validation failed!'], 400);
+        
         }
-        $mop->receipt = $request->file('receipt');
-        $mop->date_paid = $request->date_paid;
-        $mop->save();
-        return response()->json(['success' => true, 'message' => 'Payment Details Uploaded!'], 200);
-
-     }
+        
+        
+           $file = array_get($input,'attachment');
+           // SET UPLOAD PATH
+            $destinationPath = 'uploads';
+            // GET THE FILE EXTENSION
+            $extension = $file->getClientOriginalExtension();
+            // RENAME THE UPLOAD WITH RANDOM NUMBER
+            $fileName = rand(11111, 99999) . str_random(12). '.' . $extension;
+            // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
+            $upload_success = $file->move($destinationPath, $fileName);
+        
+        // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
+        if ($upload_success) {
+            // return Redirect::to('/')->with('message', 'Image uploaded successfully');
+        return response()->json(['success' => true, 'message' => 'Uploaded Successfully!'], 200);
+        
+        }
     }
-    public function getReceipt(Request $request){
-        return \Response::json(\View::make('layouts.mop')->with(compact('mop', 'type', 'option'))->render());
-
-    }
+    
     public function getOnlineBank(Request $request){
         if($request->ajax()){
             $mop = $this->online_bank_name;

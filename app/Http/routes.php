@@ -66,11 +66,10 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('loadLBCREMITTANCE', 'PaymentDetailsController@loadLBCREMITTANCE');
 	Route::get('loadPALAWANEXPRESS', 'PaymentDetailsController@loadPALAWANEXPRESS');
 
-	Route::get('deleteOrder', 'OrderController@deleteOrder');
+	Route::post('deleteOrder', 'OrderController@deleteOrder');
 	Route::get('viewItemOrder', 'OrderController@viewItemOrder');
 
-	Route::get('getReceipt', 'OrderController@getReceipt');
-	Route::get('postReceipt', 'OrderController@postReceipt');
+	Route::post('postReceipt', 'OrderController@postReceipt');
 
 
     
