@@ -129,7 +129,7 @@
 			  <form action="deleteOrder" method="POST" id="deleteOrderForm{{ $order->id }}">
 			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 			  <input id="deleteOrder{{ $order->id }}" name="order_id" type="hidden" value="{{ $order->id }}" >
-		      <a href="#!" onclick="deleteOrder({{ $order->id }});" class="waves-effect waves-circle waves-red btn-floating white left z-depth-0"><i class="material-icons" style="color:red;">close</i></a>
+		      <a href="#!" onclick="deleteOrder({{ $order->id }});" class="waves-effect waves-circle waves-red btn-floating white left z-depth-0 tooltipped" data-position="left" data-delay="50" data-tooltip="Delete Order"><i class="material-icons" style="color:red;">close</i></a>
 			 </form>
 		      </td>
 		      {{-- @endcan --}}
