@@ -70,7 +70,7 @@
 	          </div> <!-- ENd Col Div -->
 	          </div> <!-- ENd Div Row -->
     		<div class="modal-footer">
-      <a href="#!" class="col s2 push-s5 m2 push-m5 push-l5 l2 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+      <a href="#!" class="col s10 push-s1 m2 push-m5 push-l5 l2 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
     		</div>
         
  			</div><!-- ENd MOdal Content -->
