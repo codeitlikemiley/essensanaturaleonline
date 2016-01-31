@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row reverttable">
 		<div class="col s12 m12 l12">
 		@if($itemOrder->count())
 		
-		<table>
+		<table class="bordered highlight responsive-table">
 		  <thead>
 		    <tr>
 		      <th style="height:50px;">Name</th>
