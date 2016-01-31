@@ -54,8 +54,7 @@ class AuthController extends Controller
      */
     public function __construct(Mail $mail)
     {
-        $this->middleware('auth', ['except' => ['authenticate', 'activate', 'create', 'logout']]);
-        $this->middleware('guest');
+        $this->middleware('auth', ['except' => ['authenticate', 'activate', 'create', 'login']]);
         $this->mail = $mail;
     }
 
