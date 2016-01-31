@@ -82,6 +82,7 @@
 {!! $body !!}</br>
 
 <a href="https://essensanaturaleonline.com/account/activate/{{ $email }}/{{ $activation_code }}">Activate Your Account</a>
+{{ url('account/activate', ['email' => $email, 'activation_code' => $activation_code]) }}
 </td>
 </tr>
 </table>
