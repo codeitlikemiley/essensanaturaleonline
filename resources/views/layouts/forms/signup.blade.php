@@ -9,7 +9,7 @@ id="registration_form" data-parsley-validate>
         <option value="{{ $cookie['link']  }}" selected>{{ $cookie['link']  }}</option>
         @endif
         @unless(\Cookie::has('sponsor'))
-        <option value="" disabled selected>Search Sponsor</option>
+        <option value="company" selected>company</option>
         @endunless
     	</select>
 

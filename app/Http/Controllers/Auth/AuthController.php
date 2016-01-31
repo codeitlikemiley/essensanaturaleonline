@@ -195,16 +195,28 @@ class AuthController extends Controller
 
         // Check Sponsor Cookie , Provide One if None
         if (\Cookie::get('sponsor') == false) {
+            try {
             $link   = Link::with('user', 'user.profile')->where('link', $request->sponsor_link)->first();
             $cookie = $link->toArray();
 
             $errors = [
             'CookieError' => trans('auth.cookieError'),
-            'cookieNew'   => trans('auth.cookieAttached'),
+            'cookieNew'   => trans('auth.cookieNew'),
+            'resubmitForm' => trans('auth.resubmitForm'),
 
             ];
 
             return response()->json(['success' => false, 'errors' => $errors], 400)->withCookie(\Cookie::forever('sponsor', $cookie));
+
+            } catch (\Exception $e){
+                $errors = [
+            'Warning' => 'Warning :Forbiden Link Forgery!',
+
+            ];
+            return response()->json(['success' => false, 'errors' => $errors], 400);
+
+            }
+            
         }
 
         // This Will Prevent Unnecessary Creation of Account if Something Failed!

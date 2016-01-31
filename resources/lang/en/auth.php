@@ -15,6 +15,9 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'tooManyEmails' => 'You Have Reached The Limit of Email Resend!'
+    'tooManyEmails' => 'You Have Reached The Limit of Email Resend!',
+    'cookieError' => 'Looks Like You Have No Sponsor',
+    'cookieNew'    => 'You Have Been Sponsored By The Company',
+    'resubmitForm' => 'Please Re-Submit the Form Again!',
 
 ];
