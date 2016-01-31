@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('head')
-    {!! HTML::style('css/parsley.css') !!}
+    {!! Html::style('css/parsley.css') !!}
 @stop
 
 @section('content')
@@ -84,7 +84,7 @@
 @endsection
 
 @section('footer')
-{!! HTML::script('js/parsley.min.js') !!}
+{!! Html::script('js/parsley.min.js') !!}
 <!--Import Google Recaptcha-->
 @include('layouts.precaptcha')
 @stop

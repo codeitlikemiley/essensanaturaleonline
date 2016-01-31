@@ -96,16 +96,29 @@ class OrderController extends Controller
      $user = User::find($userID);
      $orderID = $request->input('order_id');
      $order = Order::findOrFail($orderID);
-     if($user->is('admin')){
-        $user = User::find($request->user_id);
-        $user->orders()->find($orderID)->delete();
-        return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
-     }
+     
      if(\Bouncer::allows('delete-order', Order::class))
       {
+        $itemOrders = $user->orders()->find($orderID)->itemOrders()->get();
+        foreach ($itemOrders as $item) {
+            $item->delete();
+        }
+        $user->orders()->find($orderID)->mop->delete();
         $user->orders()->find($orderID)->delete();
         return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
       }
+
+      if(\Bouncer::is($user)->an('admin')){
+        $user = User::find($userID);
+        
+        $itemOrders = $user->orders()->find($orderID)->itemOrders()->get();
+        foreach ($itemOrders as $item) {
+            $item->delete();
+        }
+        $user->orders()->find($orderID)->mop->delete();
+        $user->orders()->find($orderID)->delete();
+        return response()->json(['success' => true, 'message' => 'Admin : Order Deleted!'], 200);
+     }
         return response()->json(['success' => false, 'message' => 'Unauthorized To Delete Order!'], 400);
 
     }
