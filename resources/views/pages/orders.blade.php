@@ -126,7 +126,7 @@
 		      <!-- Make AJAX CALL ON CLICK -->
 		      {{-- @can('delete-orders', $order) --}}
 		      <td style="height:50px; width:10px;" class="reverttable">
-		      <a href="#deleteOrderModal{{ $order->id }}" class="modal-trigger modal-receipt waves-effect waves-circle waves-green btn-floating white left z-depth-0"><i class="material-icons right" style="color:#b71c1c;">close</i></a>
+		      <a href="#deleteOrderModal{{ $order->id }}" class="modal-trigger modal-delete waves-effect waves-circle waves-green btn-floating white left z-depth-0"><i class="material-icons right" style="color:#b71c1c;">close</i></a>
 
 		      <div id="deleteOrderModal{{ $order->id }}" class="modal">
   			<!-- Confirm Deletion! -->
