@@ -133,10 +133,10 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function activate($email, $activation_code)
+    public function activate($activation_code)
     {
         try {
-            $user = User::where('email', $email)->where('activation_code', $activation_code)->firstOrFail();
+            $user = User::where('activation_code', $activation_code)->firstOrFail();
             $user->verifyEmail();
             $this->mail->activated($user);
 
