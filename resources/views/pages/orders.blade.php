@@ -83,6 +83,7 @@
 		      <!-- Show Add Receipt MOdal -->
 	      <a href="#viewModalReceipt{{ $order->id }}" class="modal-trigger modal-receipt waves-effect waves-circle waves-green btn-floating white left z-depth-0 tooltipped" data-position="left" data-delay="50" data-tooltip="Upload Your Receipt"><i class="material-icons right" style="color:blue;">file_upload</i></a>
   			<div id="viewModalReceipt{{ $order->id }}" class="modal">
+  			<form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}" enctype="multipart/form-data" onsubmit="submitReceipt({{ $order->id }}); return false;">
     		<div class="modal-content">
 
 
@@ -91,7 +92,7 @@
 	        </blockquote>
 	          <div class="row">
 	          <div class ="col s8 offset-s2">
-	           <form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}" enctype="multipart/form-data" onsubmit="submitReceipt({{ $order->id }}); return false;">
+	           
 			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 				  <input type="hidden" name="id" value="{{ $order->id }}"/>
 			      <div class="file-field input-field small">
@@ -103,18 +104,19 @@
 				        <input class="file-path validate" type="text">
 			      	  </div>
 	    		  </div>
-    		   <div class="modal-footer modal-fixed-footer">
-    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload</button>
-      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
-    		</div>
-    		</form>
+    		   
+    		
 
 	          </div>
 	          </div>
 	    
         
  			</div>
-    
+ 			<div class="modal-footer modal-fixed-footer">
+    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload</button>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+    </form>
   </div> <!-- ENd MOdal Div -->
 
 		      </td>
