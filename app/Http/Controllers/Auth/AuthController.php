@@ -54,7 +54,7 @@ class AuthController extends Controller
      */
     public function __construct(Mail $mail)
     {
-        $this->middleware('guest', ['except' => ['logout', 'resendEmail']]);
+        $this->middleware('auth', ['except' => ['authenticate', 'login', 'activate', 'create']]);
         $this->mail = $mail;
     }
 
@@ -133,16 +133,16 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function activate($activation_code)
+    public function activate($email, $activation_code)
     {
         try {
-            $user = User::where('activation_code', $activation_code)->firstOrFail();
+            $user = User::where('email', $email)->where('activation_code', $activation_code)->firstOrFail();
             $user->verifyEmail();
             $this->mail->activated($user);
 
             return \View::make('auth.active');
         } catch (ModelNotFoundException $e) {
-            return $e->getMessage();
+            return redirect()->route('login');
         }
     }
 

@@ -107,7 +107,7 @@ Route::get('password/reset/{email}/{activation_code}', ['as' => 'password/reset/
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' => 'Auth\PasswordController@save']);
 
 //Activates The User Account
-Route::get('activate/{activation_code}', 'Auth\AuthController@activate');
+Route::get('account/activate/{email}/{activation_code}', 'Auth\AuthController@activate');
 
 //Ask to Resend a Verification Email for Activation
 Route::get('/resendEmail', ['as' => 'resendEmail', 'uses' => 'Auth\AuthController@resendEmail']);
