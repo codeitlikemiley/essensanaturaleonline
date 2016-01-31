@@ -5,11 +5,18 @@ use App\User;
 use App\Product;
 use Cart;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Http\Controllers\MailController as Mail;
 
 class HomeController extends Controller
 {
+    public $mail;
     protected $shippingfee = 150;
     protected $taxrate = .12;
+
+    public function __construct(Mail $mail)
+    {
+        $this->mail = $mail;
+    }
 
     public function index()
     {
