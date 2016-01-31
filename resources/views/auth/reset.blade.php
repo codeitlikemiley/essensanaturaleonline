@@ -71,7 +71,7 @@
     
    				</div>
    				</div>
-   				@include('layouts.buttonloader')
+   				@include('layouts.loading')
    				<div class="row buttonloader">
 			  	<button class="col s6 offset-s3 btn waves-effect waves-light form-submit" type="submit" name="action">Reset password</button>
 			  	</div>
