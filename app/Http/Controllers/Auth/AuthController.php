@@ -54,7 +54,7 @@ class AuthController extends Controller
      */
     public function __construct(Mail $mail)
     {
-        $this->middleware('guest', ['except' => ['logout', 'resendEmail', 'activateAccount']]);
+        $this->middleware('guest', ['except' => ['logout', 'resendEmail']]);
         $this->mail = $mail;
     }
 
@@ -142,7 +142,7 @@ class AuthController extends Controller
 
             return \View::make('auth.active');
         } catch (ModelNotFoundException $e) {
-            return redirect()->route('login');
+            return $e->getMessage();
         }
     }
 
