@@ -2,12 +2,12 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://essensanaturaleonline.com/Material-Design-Icons.eot); /* For IE6-8 */
+  src: url(https://essensanaturaleonline.com/font/material-icons/Material-Design-Icons.eot); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url(https://essensanaturaleonline.com/Material-Design-Icons.woff2) format('woff2'),
-       url(https://essensanaturaleonline.com/Material-Design-Icons.woff) format('woff'),
-       url(https://essensanaturaleonline.com/Material-Design-Icons.ttf) format('truetype');
+       url(https://essensanaturaleonline.com/font/material-icons/Material-Design-Icons.woff2) format('woff2'),
+       url(https://essensanaturaleonline.com/font/material-icons/Material-Design-Icons.woff) format('woff'),
+       url(https://essensanaturaleonline.com/font/material-icons/Material-Design-Icons.ttf) format('truetype');
 }
 .material-icons {
   font-family: 'Material Icons';
