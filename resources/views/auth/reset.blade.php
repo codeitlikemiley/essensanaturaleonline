@@ -24,7 +24,7 @@
 			    {!! Form::hidden('token', $token) !!}
 			    <div class="row">
 			    <div class="input-field col s12">
-				    <i class="mdi-communication-email prefix"></i>
+				    <i class="material-icons prefix">email</i>
 				    {!! Form::email('email', $email, [
 				    	'readonly','required' => '', 
 				    	'data-parsley-required-message' => 'Dont Remove The Default Email Provided', 
