@@ -81,8 +81,8 @@
 <td class="content-block" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
 {!! $body !!}</br>
 
-<a href="https://essensanaturaleonline.com/account/activate/{{ $email }}/{{ $activation_code }}">Activate Your Account</a>
-{{ url('account/activate', ['email' => $email, 'activation_code' => $activation_code]) }}
+<a href="{!! url('activate', ['activation_code' => $activation_code]) !!}">Activate Your Account</a>
+
 </td>
 </tr>
 </table>
