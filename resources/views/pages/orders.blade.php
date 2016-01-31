@@ -91,9 +91,7 @@
 	        </blockquote>
 	          <div class="row">
 	          <div class ="col s8 offset-s2">
-	           {{-- {!! Form::open(array('url'=>'postReceipt','method'=>'POST', 'files'=>true, 'id' => 'postReceiptForm{{ $order->id }}')) !!} --}}
 	           <form action="postReceipt" method="POST" id="postReceiptForm{{ $order->id }}" enctype="multipart/form-data" onsubmit="submitReceipt({{ $order->id }}); return false;">
-			   {{-- {!! Form::token() !!} --}}
 			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 				  <input type="hidden" name="id" value="{{ $order->id }}"/>
 			      <div class="file-field input-field small">
@@ -106,11 +104,11 @@
 			      	  </div>
 	    		  </div>
     		   <div class="modal-footer">
-    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload Receipt</button>
-      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		   <button class="col s6 pull-s1 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload Receipt</button>
+      <a href="#!" class="col s6 push-s1 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
     		</div>
     		</form>
-			  {{-- {!! Form::close() !!} --}}
+
 	          </div>
 	          </div>
 	    
