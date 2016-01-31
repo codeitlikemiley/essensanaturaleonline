@@ -91,11 +91,11 @@
 	          <h5>Upload Your Receipt</h5>
 	        </blockquote>
 	          <div class="row">
-	          <div class ="col s8 offset-s2">
+	          <div class ="col s12">
 	           
 			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 				  <input type="hidden" name="id" value="{{ $order->id }}"/>
-			      <div class="file-field input-field small">
+			      <div class="file-field input-field">
 				      <div class="btn">
 				        <span>Attach Receipt</span>
 				        <input type="file" name="attachment">
