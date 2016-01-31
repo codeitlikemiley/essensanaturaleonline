@@ -49,14 +49,14 @@ if(v == 'on'){
  $('.non-input-field').css({opacity : 0.2});
  $('.g-recaptcha').css({opacity : 0.2});
  $('.buttonloader').hide();
- $('.animatebuttonloader').show();
+ $('.loading').show();
 
 }
 else{
  $('.input-field').css({opacity : 1});
  $('.non-input-field').css({opacity : 1});
  $('.g-recaptcha').css({opacity : 1});
- $('.animatebuttonloader').hide();
+ $('.loading').hide();
  $('.buttonloader').show();
 
 }
