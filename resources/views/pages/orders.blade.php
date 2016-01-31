@@ -103,7 +103,7 @@
 				        <input class="file-path validate" type="text">
 			      	  </div>
 	    		  </div>
-    		   <div class="modal-footer">
+    		   <div class="modal-footer reverttable">
     		   <button class="col s6 pull-s1 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload Receipt</button>
       <a href="#!" class="col s6 push-s1 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
     		</div>
