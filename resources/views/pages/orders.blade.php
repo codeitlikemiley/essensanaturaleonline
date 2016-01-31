@@ -126,11 +126,39 @@
 		      <!-- Make AJAX CALL ON CLICK -->
 		      {{-- @can('delete-orders', $order) --}}
 		      <td style="height:50px; width:10px;">
-			  <form action="deleteOrder" method="POST" id="deleteOrderForm{{ $order->id }}">
+		      <a href="#deleteOrderModal{{ $order->id }}" class="modal-trigger modal-receipt waves-effect waves-circle waves-green btn-floating white left z-depth-0"><i class="material-icons right" style="color:#b71c1c;">close</i></a>
+
+		      <div id="deleteOrderModal{{ $order->id }}" class="modal">
+  			<!-- Confirm Deletion! -->
+    		<div class="modal-content">
+
+
+	        <blockquote class="center">
+	          <h4>DELETE ORDER</h4>
+	        </blockquote>
+	          <div class="row">
+	          <div class="s12 center flow-text">
+
+	          Are You Sure You Want to Delete This Order?
+	          This Process is Irreversible... If You Have Pending Order 
+	          You Can Cancel this Action...
+
+	          </div>
+	          </div>
+	    
+        
+ 			</div>
+ 			<div class="modal-footer modal-fixed-footer">
+    		   <form action="deleteOrder" method="POST" id="deleteOrderForm{{ $order->id }}">
 			  <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 			  <input id="deleteOrder{{ $order->id }}" name="order_id" type="hidden" value="{{ $order->id }}" >
-		      <a href="#!" onclick="deleteOrder({{ $order->id }});" class="waves-effect waves-circle waves-red btn-floating white left z-depth-0"><i class="material-icons" style="color:red;">close</i></a>
+		      <a href="#!" onclick="deleteOrder({{ $order->id }});" class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat">Confirm</a>
 			 </form>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+    		</div>
+
+  </div>
+
 		      </td>
 		      {{-- @endcan --}}
 		       
