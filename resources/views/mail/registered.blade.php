@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Alerts e.g. approaching your limit</title>
+<title>Account Registration</title>
 
 <style type="text/css">
    img {
@@ -81,7 +81,26 @@
 <td class="content-block" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
 {!! $body !!}</br>
 
-<a href="{{ url('account/activate', ['email' => $email, 'activation_token' => $activation_code]) }}">Activate Your Account</a>
+<a href="{{ url('account/activate', ['email' => $email, 'activation_token' => $activation_code]) }}">Verify Your Email</a>
+
+<br>
+You Can Log in Using this Credentials<br>
+Username : <br>
+{{ $username }}<br>
+<br>
+</td>
+</tr>
+<tr>
+<td>
+Once Your Email is Verified You Can Start Filling Up Your Shipping Address. So We Know Where to Send Your Order. You Can Use Multiple Kind Of Payment Gateway During Check Out and Settle Your Payment. Once Your Payment is Verified You Can Wait 2-3 Business Days To Received Your Products. 
+<br>
+Note: We Offer <strong>Free Shipping</strong> For Orders with Amount Greater than <strong>1500 php</strong> and For <strong>Pickup/Meet Up</strong> within Metro Manila. For Pick Up You Can Call Our Hotline to Arrange Schedule
+<br>
+09054321510 - Globe<br>
+09473475921 -Smart<br>
+09435204828 - Sun<br> 
+<br>
+Enjoy Your Online Shopping Experience!
 </td>
 </tr>
 </table>

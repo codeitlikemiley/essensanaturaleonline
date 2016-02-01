@@ -72,11 +72,12 @@ class MailController extends Controller
     public function getSignupData($user)
     {
         $data = array(
-            'subject' => 'Activation required',
-            'body' => 'Thanks for signing up into our system, please go to the link bellow to activate your account',
+            'subject' => 'Welcome to Essensa Naturale Online! Your Email Needs to be Verified!',
+            'body' => 'Thanks for signing up into our system, please click this link to',
             'activation_code' => $user->activation_code,
             'title' => 'Thanks for you registration',
             'email' => $user->email,
+            'username' => $user->username,
         );
 
         return $data;
