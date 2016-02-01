@@ -45,10 +45,10 @@
     		<div class="modal-content reverttable">
 
 
-	        <blockquote class="center">
-	          <h4>Payment Gateway</h4>
+	        <blockquote class="center stripbutton">
+	          <h5>Payment Gateway</h5>
 	        </blockquote>
-	          <div class="row">
+	          <div class="row reverttable">
 	          <div class="s12 reverttable" id="viewMOP{{ $order->id }}">
 
 	          <h4 class=" center flow-text">LOADING DATA...</h4>
