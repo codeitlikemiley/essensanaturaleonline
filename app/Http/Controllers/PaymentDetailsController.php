@@ -40,7 +40,7 @@ class PaymentDetailsController extends Controller
     public function loadMETROBANK(Request $request)
     {
     if($request->ajax()){
-     $bank = Bank::where('account_id' ,'123456789')->select('account_id', 'name', 'account_name')->first();
+     $bank = Bank::where('account_id' ,'9876543210')->select('account_id', 'name', 'account_name')->first();
      $mop = 'Settle Payment at '. $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
@@ -52,7 +52,7 @@ class PaymentDetailsController extends Controller
     public function loadUNIONBANK(Request $request)
     {
     if($request->ajax()){
-     $bank = Bank::where('account_id' ,'987654321')->select('account_id', 'name', 'account_name')->first();
+     $bank = Bank::where('account_id' ,'1234567890')->select('account_id', 'name', 'account_name')->first();
      $mop = 'Settle Payment at '. $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
@@ -76,7 +76,7 @@ class PaymentDetailsController extends Controller
     public function loadGCASH(Request $request)
     {
     if($request->ajax()){
-     $mobile = MobileTransfer::where('mobile_no' ,'09063508097')->select('name', 'sender_name', 'mobile_no')->first();
+     $mobile = MobileTransfer::where('mobile_no' ,'09054321510')->select('name', 'sender_name', 'mobile_no')->first();
      $mop = 'Settle Payment at '. $mobile->name;
      $account_name = $mobile->sender_name;
      $account_id = null;
@@ -88,7 +88,7 @@ class PaymentDetailsController extends Controller
     public function loadSMARTMONEY(Request $request)
     {
     if($request->ajax()){
-     $mobile = MobileTransfer::where('mobile_no' ,'09299389628')->select('name', 'sender_name', 'mobile_no')->first();
+     $mobile = MobileTransfer::where('mobile_no' ,'5299676029033103')->select('name', 'sender_name', 'mobile_no')->first();
      $mop = 'Settle Payment at '. $mobile->name;
      $account_name = $mobile->sender_name;
      $account_id = null;
