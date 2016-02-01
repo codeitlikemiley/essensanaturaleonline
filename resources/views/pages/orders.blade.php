@@ -45,7 +45,7 @@
     		<div class="modal-content reverttable">
 
 
-	        <blockquote class="center stripbutton">
+	        <blockquote class="center">
 	          <h5>Payment Gateway</h5>
 	        </blockquote>
 	          <div class="row reverttable">
