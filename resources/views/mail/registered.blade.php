@@ -82,20 +82,31 @@
 {!! $body !!}</br>
 
 <a href="{{ url('account/activate', ['email' => $email, 'activation_token' => $activation_code]) }}">Verify Your Email</a>
-
-<br>
-You Can Log in Using this Credentials<br>
-Username : <br>
-{{ $username }}<br>
-<br>
 </td>
 </tr>
 <tr>
 <td>
-Once Your Email is Verified You Can Start Filling Up Your Shipping Address. So We Know Where to Send Your Order. You Can Use Multiple Kind Of Payment Gateway During Check Out and Settle Your Payment. Once Your Payment is Verified You Can Wait 2-3 Business Days To Received Your Products. 
-<br>
-Note: We Offer <strong>Free Shipping</strong> For Orders with Amount Greater than <strong>1500 php</strong> and For <strong>Pickup/Meet Up</strong> within Metro Manila. For Pick Up You Can Call Our Hotline to Arrange Schedule
-<br>
+You Can Log in Using this Credentials<br>
+Username : <strong>{{ $username }}</strong><br>
+</td>
+</tr>
+<tr>
+<td>
+Once Your <strong>Email is Verified</strong> <br>
+ <br><br>
+ 1. You Can Start by <strong>Filling Up Your Shipping Address</strong>. So We Know Where to Send Your Order. <br>
+ <br><br>
+ 2. Start Adding Products To Your Cart.<br>
+ <br><br>
+ 3. Check Out Your Order <br>
+ <br><br>
+ 4. Choose From <strong>Multiple Payment Gateway </strong><br>
+ <br><br>
+ 5. Settle Your Payment. Once Your Payment is Verified You Can Wait <strong>2-3 Business Days</strong> To Received Your Products. 
+<br><br>
+ <br><br>
+Note: We Offer <strong>Free Shipping</strong> For Orders with Amount Greater than <strong>1500 php</strong> and For <strong>Pickup/Meet Up</strong> within Metro Manila. <br><br>For Pick Up You Can Call Our Hotline to Arrange Schedule
+<br><br>
 09054321510 - Globe<br>
 09473475921 -Smart<br>
 09435204828 - Sun<br> 
