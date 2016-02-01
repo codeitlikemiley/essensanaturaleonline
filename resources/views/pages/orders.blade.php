@@ -49,7 +49,7 @@
 	          <h4>Payment Gateway</h4>
 	        </blockquote>
 	          <div class="row">
-	          <div class="s12" id="viewMOP{{ $order->id }}">
+	          <div class="s12 reverttable" id="viewMOP{{ $order->id }}">
 
 	          <h4 class=" center flow-text">LOADING DATA...</h4>
 
