@@ -92,9 +92,10 @@ Username : <strong>{{ $username }}</strong><br>
 </tr>
 <tr>
 <td>
-Once Your <strong>Email is Verified</strong> <br>
+ <br><br><br>
+<strong>After Email is Verified</strong> <br>
  <br><br>
- 1. You Can Start by <strong>Filling Up Your Shipping Address</strong>. So We Know Where to Send Your Order. <br>
+ 1. You Can Start by <strong>Filling Up Your Shipping Address</strong>. <br>So We Know Where to Send Your Order. <br>
  <br><br>
  2. Start Adding Products To Your Cart.<br>
  <br><br>
@@ -108,10 +109,11 @@ Once Your <strong>Email is Verified</strong> <br>
 Note: We Offer <strong>Free Shipping</strong> For Orders with Amount Greater than <strong>1500 php</strong> and For <strong>Pickup/Meet Up</strong> within Metro Manila. <br><br>For Pick Up You Can Call Our Hotline to Arrange Schedule
 <br><br>
 09054321510 - Globe<br>
-09473475921 -Smart<br>
+09473475921 - Smart<br>
 09435204828 - Sun<br> 
 <br>
-Enjoy Your Online Shopping Experience!
+Enjoy Your Online Shopping Experience with Us!
+
 </td>
 </tr>
 </table>
