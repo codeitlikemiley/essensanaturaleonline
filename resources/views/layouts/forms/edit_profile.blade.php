@@ -10,7 +10,7 @@
    
   <div class="input-field col s11">
         <i class="material-icons prefix icon-lower">phone</i>
-        <input id="mobile_no" type="text" name="contact_no" tabindex="2" required="" data-parsley-required-message="How Can We Contact You?" data-parsley-pattern="/(^0|[89]\d{2}-\d{3}\-?\d{4}$)|(^0|[89]\d{2}\d{3}\d{4}$)|(^63[89]\d{2}-\d{3}-\d{4}$)|(^63[89]\d{2}\d{3}\d{4}$)|(^[+]63[89]\d{2}\d{3}\d{4}$)|(^[+]63[89]\d{2}-\d{3}-\d{4}$)/i" data-parsley-pattern-message="Phone No. Invalid Format" data-parsley-trigger="change focusout"
+        <input id="mobile_no" type="text" name="contact_no" tabindex="2" required="" data-parsley-required-message="How Can We Contact You?" data-parsley-pattern="/(^0|[89]\d{2}-\d{3}\-?\d{4}$)|(^0|[89]\d{2}\d{3}\d{4}$)|(^63[89]\d{2}-\d{3}-\d{4}$)|(^63[89]\d{2}\d{3}\d{4}$)|(^[+]63[89]\d{2}\d{3}\d{4}$)|(^[+]63[89]\d{2}-\d{3}-\d{4}$)/i" data-parsley-pattern-message="Needs to Be Philippine Mobile No." data-parsley-trigger="change focusout"
         @if($user->profile->contact_no)
         value="{{ $user->profile->contact_no }}"
         @endif
