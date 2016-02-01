@@ -65,4 +65,33 @@ function deleteOrder(id){
                 ready: function() { console.log('Open'); }, // Callback for Modal open
                 complete: function() { console.log('Closed'); } // Callback for Modal close
                 });
+    $('.modal-mop').leanModal({
+                dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                opacity: '.6', // Opacity of modal background
+                in_duration: 300, // Transition in duration
+                out_duration: 200, // Transition out duration
+                ready: function() { console.log('Open'); }, // Callback for Modal open
+                complete: function() { console.log('Closed'); } // Callback for Modal close
+                });
+
+
+    function loadMOP(id){
+        var mop = $('#gateway'+id).text();
+        console.log(mop);
+        $.ajax({
+                url: '/load' + mop
+            }).done(function(data){
+                $('#viewMOP'+id).empty();
+                $('#viewMOP'+id).append(data);
+                $('.stripbutton').empty();
+                 Materialize.toast('Successfully Loaded '+mop, 4000,'',function(){;});
+                
+            }).fail(function () {
+            $('#viewMOP'+id).empty();
+            var m = '<p>Cant Retrieve the Payment Gateway!</p>';
+            $('#viewMOP'+id).append(m);
+            loader('off'); // if Fail
+                Materialize.toast('Fail To Load Payment Gateway!', 4000,'',function(){console.log('Failed to Load Payment Gateway!');});
+    });
+    }
 </script>

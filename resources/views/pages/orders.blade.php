@@ -38,7 +38,32 @@
 		      <td style="height:50px;">
     		  {{ $order->id }}
   			  </td>
-		      <td style="height:50px;">{{ $order->mop->name }}</td>
+		      <td style="height:50px;">
+		      <a href="#viewGateway{{ $order->id }}" class="modal-trigger modal-mop loadMOP" id="gateway{{ $order->id }}" onclick="loadMOP({{ $order->id }});">{{ $order->mop->name }}</a>
+		      <div id="viewGateway{{ $order->id }}" class="modal">
+  			<!-- Confirm Deletion! -->
+    		<div class="modal-content reverttable">
+
+
+	        <blockquote class="center">
+	          <h4>Payment Gateway</h4>
+	        </blockquote>
+	          <div class="row">
+	          <div class="s12" id="viewMOP{{ $order->id }}">
+
+	          <h4 class=" center flow-text">LOADING DATA...</h4>
+
+	          </div>
+	          </div>
+	    
+        
+ 			</div>
+ 			<div class="modal-footer modal-fixed-footer">
+    		   <a href="#!" class="col s10 push-s1 m2 push-m5 push-l5 l2 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+
+  </div>
+		      </td>
 		      <td style="height:50px;">{{ $order->status }}</td>
 		      <td style="height:50px;">{{ $order->method }}</td>
 		      <td style="height:50px;">₱ {{ $order->sub_total }}</td>

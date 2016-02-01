@@ -22,7 +22,7 @@
 
 
             </div>
-            <div class="card-action">
+            <div class="card-action stripbutton">
               <button class="col s12 btn waves-effect waves-light form-submit" type="submit" name="action" id="checkOutBtn">Place Order</button>
             </div>
           </div>

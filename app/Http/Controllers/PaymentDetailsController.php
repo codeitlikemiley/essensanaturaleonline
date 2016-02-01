@@ -17,7 +17,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $bank = Bank::where('account_id' ,'000661141497')->select('account_id', 'name', 'account_name')->first();
-     $mop = 'Settle Payment at '. $bank->name;
+     $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
@@ -29,7 +29,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $bank = Bank::where('account_id' ,'2689020383')->select('account_id', 'name', 'account_name')->first();
-     $mop = 'Settle Payment at '. $bank->name;
+     $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
@@ -41,7 +41,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $bank = Bank::where('account_id' ,'9876543210')->select('account_id', 'name', 'account_name')->first();
-     $mop = 'Settle Payment at '. $bank->name;
+     $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
@@ -53,7 +53,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $bank = Bank::where('account_id' ,'1234567890')->select('account_id', 'name', 'account_name')->first();
-     $mop = 'Settle Payment at '. $bank->name;
+     $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
@@ -65,7 +65,7 @@ class PaymentDetailsController extends Controller
     {
      if($request->ajax()){
      $bank = Bank::where('account_id' ,'200009019676')->select('account_id', 'name', 'account_name')->first();
-     $mop = 'Settle Payment at '. $bank->name;
+     $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
@@ -77,7 +77,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $mobile = MobileTransfer::where('mobile_no' ,'09054321510')->select('name', 'sender_name', 'mobile_no')->first();
-     $mop = 'Settle Payment at '. $mobile->name;
+     $mop = $mobile->name;
      $account_name = $mobile->sender_name;
      $account_id = null;
      $address = null;
@@ -89,7 +89,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
      $mobile = MobileTransfer::where('mobile_no' ,'5299676029033103')->select('name', 'sender_name', 'mobile_no')->first();
-     $mop = 'Settle Payment at '. $mobile->name;
+     $mop = $mobile->name;
      $account_name = $mobile->sender_name;
      $account_id = null;
      $address = null;
@@ -101,7 +101,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
     $remittance = Remittance::where('id', 1)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
@@ -113,7 +113,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
 	$remittance = Remittance::where('id', 2)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
@@ -125,7 +125,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
 	$remittance = Remittance::where('id', 3)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
@@ -137,7 +137,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
 	$remittance = Remittance::where('id', 4)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
@@ -150,7 +150,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
 	$remittance = Remittance::where('id', 5)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
@@ -162,7 +162,7 @@ class PaymentDetailsController extends Controller
     {
     if($request->ajax()){
     $remittance = Remittance::where('id', 6)->select('name', 'sender_name', 'mobile_no')->first();
-    $mop = 'Settle Payment at '. $remittance->name;
+    $mop = $remittance->name;
     $account_name = $remittance->sender_name;
     $account_id = null;
     $contact_no = $remittance->mobile_no;
