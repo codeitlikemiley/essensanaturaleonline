@@ -73,6 +73,10 @@ $(document).ready(function(){
                  Materialize.toast('Payment Gateway Loaded!', 4000,'',function(){console.log('Payment Gateway Loaded!');});
                 
             }).fail(function () {
+            $('#mop_list').empty();
+            $('#paymentdetails').empty();
+            $('select').material_select('destroy');
+            $('select').material_select();
             loader('off'); // if Fail
                 Materialize.toast('Fail To Load Payment Gateway!', 4000,'',function(){console.log('Failed to Load Payment Gateway!');});
     });
@@ -95,6 +99,7 @@ $(document).ready(function(){
                  Materialize.toast('Payment Details Loaded!', 4000,'',function(){console.log('Payment Details Loaded!');});
                 
             }).fail(function () {
+            $('#paymentdetails').empty();
             loader('off'); // if Fail
                 Materialize.toast('Fail To Load Payment Details!', 4000,'',function(){console.log('Failed to Load Payment Details!');});
     });
