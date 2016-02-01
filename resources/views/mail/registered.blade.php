@@ -112,7 +112,8 @@ Note: We Offer <strong>Free Shipping</strong> For Orders with Amount Greater tha
 09473475921 - Smart<br>
 09435204828 - Sun<br> 
 <br>
-Enjoy Your Online Shopping Experience with Us!
+<br>
+Enjoy Your Online Shopping Experience with Us!<br>
 
 </td>
 </tr>
