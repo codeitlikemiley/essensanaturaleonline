@@ -46,6 +46,9 @@ class OrderController extends Controller
 
     public function postFormReceipt(Request $request)
     {
+    if(\Bouncer::allows('edit-order', Order::class)){
+
+
      $input = $request->all();
      $submitreceipt = new SubmitReceiptInfoRequest();
         $validator         = Validator::make($request->all(), $submitreceipt->rules(), $submitreceipt->messages());
@@ -76,6 +79,8 @@ class OrderController extends Controller
 
         // return response()->json(['success' => true, 'message' => 'Receipt Info Sent!', 'sts' => $sts], 200);
     // }
+        return Redirect::back();
+        }
         return Redirect::back();
     }
 
