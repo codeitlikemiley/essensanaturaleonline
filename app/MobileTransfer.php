@@ -8,7 +8,7 @@ class MobileTransfer extends Model
 {
     protected $guarded = ["id"];
 	protected $table = "mobile_transfers";
-    protected $dates = ['created_at', 'updated_at', 'date_paid'];
+    protected $dates = ['created_at', 'updated_at'];
 	protected $mopType  = "App\MobileTransfer";
     public function orderPayment()
     {

@@ -8,7 +8,7 @@ class Bank extends Model
 {	
     protected $guarded = ["id"];
 	protected $table = "banks";
-    protected $dates = ['created_at', 'updated_at', 'date_paid'];
+    protected $dates = ['created_at', 'updated_at'];
 	protected $mopType  = "App\Bank";
     public function orderPayment()
     {
