@@ -147,6 +147,8 @@ class OrderController extends Controller
         }
         $user->orders()->find($orderID)->mop->delete();
         $user->orders()->find($orderID)->delete();
+        // Make Sure To Add this In the Future!
+        // \Bouncer::disallow($user)->to('edit-order', $order);
         return response()->json(['success' => true, 'message' => 'Order Deleted!'], 200);
       }
 
