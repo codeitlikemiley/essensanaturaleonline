@@ -43,7 +43,7 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
     }
-
+    // Later On improved this to be a AJAX Request with Parsley (bug)
     public function postFormReceipt(Request $request)
     {
     if(\Bouncer::allows('edit-order', Order::class)){
@@ -81,7 +81,8 @@ class OrderController extends Controller
     // }
         return Redirect::back();
         }
-        return "NO PERMISSION";
+        return response()->json(['success' => false, 'message' => 'Your are Unauthorized To Access This!'], 400);
+        
     }
 
     public function getBank(Request $request){

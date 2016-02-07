@@ -16,7 +16,7 @@ class PaymentDetailsController extends Controller
     public function loadBDO(Request $request)
     {
     if($request->ajax()){
-     $bank = Bank::where('account_id' ,'000661141497')->select('account_id', 'name', 'account_name')->first();
+     $bank = Bank::where('account_id' ,'010150019025')->select('account_id', 'name', 'account_name')->first();
      $mop = $bank->name;
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
