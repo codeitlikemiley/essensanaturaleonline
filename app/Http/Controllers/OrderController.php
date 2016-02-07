@@ -81,7 +81,7 @@ class OrderController extends Controller
     // }
         return Redirect::back();
         }
-        return Redirect::back();
+        return "NO PERMISSION";
     }
 
     public function getBank(Request $request){
