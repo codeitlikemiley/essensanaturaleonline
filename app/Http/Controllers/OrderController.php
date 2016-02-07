@@ -219,6 +219,9 @@ class OrderController extends Controller
             $upload_success = $file->move($destinationPath, $fileName);
 
             $order = Order::find($request->input('id'));
+            if ($order->attachment) {
+                \Storage::delete($order->attachment);
+            }
             $order->attachment = $receipt_url;
             $order->save();
             var_dump($order);
