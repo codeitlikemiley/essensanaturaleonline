@@ -3,6 +3,7 @@
 
 @section('head')
 <!--Import Custom CSS-->
+{!! Html::style('css/parsley.css') !!}
 @endsection
 
 @section('content')
@@ -25,6 +26,7 @@
 		      <th style="height:50px;">Tax</th>
 		      <th style="height:50px;">Total</th>
 		      <th style="height:50px;">Remarks</th>
+		      <th style="height:50px;">Payment Details</th>
 		      <th style="height:50px; width:10px;"></th>
 		      <th style="height:50px; width:10px;"></th>
 		      <th style="height:50px; width:10px;"></th>
@@ -64,7 +66,7 @@
 
   </div>
 		      </td>
-		      <td style="height:50px;">{{ $order->status }}</td>
+		      <td style="height:50px;" id="status{{ $order->id }}">{{ $order->status }}</td>
 		      <td style="height:50px;">{{ $order->method }}</td>
 		      <td style="height:50px;">₱ {{ $order->sub_total }}</td>
 		      <td style="height:50px;">₱ {{ $order->shipment_fee }}</td>
@@ -74,6 +76,91 @@
 		      {{-- @can('add-order-comment', $order) --}}
 		      <td style="height:50px;">{{ $order->comment }}
 		      </td>
+
+		      <!-- Dynamic Form Submit -->
+
+		      <td>
+				<!-- Show Form Receipt Info Submit -->
+	      <a href="#viewModalFormReceipt{{ $order->mop->id }}" class="modal-trigger modal-form-receipt waves-effect waves-circle waves-amber btn-floating white left z-depth-0 tooltipped" data-position="left" data-delay="50" data-tooltip="Submit Receipt Info"><i class="material-icons right" style="color:teal;">receipt</i></a>
+
+	      <!-- Initialize modal-form-receipt in jquery -->
+  			<div id="viewModalFormReceipt{{ $order->mop->id }}" class="modal">
+
+  			<form action="postFormReceipt" method="POST" id="postFormReceipt{{ $order->mop->id }}" data-parsley-validate>
+
+    		<div class="modal-content">
+
+
+	        <blockquote>
+	          <h5>Submit Your {{ $order->mop->name }} Receipt</h5>
+	        </blockquote>
+	          <div class="row">
+	          <div class ="col s12">
+	           
+			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+			   <input type="hidden" name="order_id" value="{{ $order->id }}"/>
+				 
+			   <div class="input-field col s12">
+		    	  <input id="transaction_no{{ $order->id }}" type="text" name="transaction_no" tabindex="1" required="" data-parsley-required-message="Transaction No. is Required" data-parsley-maxlength="60" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-type="alphanum" data-parsley-type-message="Alpha Numeric Characters Only" data-parsley-trigger="change focusout"
+				  @if($order->mop->transaction_no)
+				  value = "{{ $order->mop->transaction_no }}"
+				  @endif
+		    	  />
+          		<label for="transaction_no{{ $order->id }}">Transaction No. / Receipt No.</label>
+   			   </div>	  
+			   <div class="input-field col s12">
+		    	  <input id="account_name{{ $order->id }}" type="text" name="account_name" tabindex="2" required="" data-parsley-required-message="AccountName/SenderName" data-parsley-minlength="2" data-parsley-minlength-message="AccountName/SenderName Too Short!" data-parsley-maxlength="60" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[a-zA-Z0-9\s]*$/" data-parsley-pattern-message="Alpha Numeric and space Only" data-parsley-trigger="change focusout"
+				  @if($order->mop->account_name)
+				  value = "{{ $order->mop->account_name }}"
+				  @endif
+		    	  />
+          		<label for="account_name{{ $order->id }}">Account Name / Sender Name</label>
+   			   </div>
+   			   <div class="input-field col s12">
+		    	  <input id="account_id{{ $order->id }}" type="text" name="account_id" tabindex="3" required="" data-parsley-required-message="AccountID/MobileNo." data-parsley-minlength="2" data-parsley-minlength-message="AccountID/MobileNo Too Short!" data-parsley-maxlength="60" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-type="alphanum" data-parsley-type-message="Alpha Numeric Characters Only" data-parsley-trigger="change focusout"
+				  @if($order->mop->account_id)
+				  value = "{{ $order->mop->account_id }}"
+				  @endif
+		    	  />
+          		<label for="account_id{{ $order->id }}">Card ID/ Mobile No.</label>
+   			   </div>
+   			   <div class="input-field col s12">
+		    	  <input id="amount{{ $order->id }}" type="text" name="amount" tabindex="4" required="" data-parsley-required-message="AccountID/MobileNo." data-parsley-maxlength="60" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="^[1-9]\d*(\.\d+)?$"
+		    	  data-parsley-pattern-message="Should be an Integer 100.00" data-parsley-trigger="change focusout"
+				  @if($order->mop->amount)
+				  value = "{{ $order->mop->amount }}"
+				  @endif
+		    	  />
+          		<label for="amount{{ $order->id }}">Amount Transfered</label>
+   			   </div>
+   			   
+   			   <div class="input-field col s12">
+		    	  <input id="datepaid{{ $order->id }}" type="text" name="date_paid" tabindex="5" required="" data-parsley-required-message="Date Paid Required" data-parsley-trigger="change focusout"
+		    	  data-parsley-pattern="/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/"
+		    	  data-parsley-pattern-message="Must be a Valid Date Format dd/mm/yyyy"
+				  @if($order->mop->date_paid)
+				  value = "{{ $order->mop->date_paid }}"
+				  @endif
+		    	  />
+          		<label for="datepaid{{ $order->id }}">Date Paid</label>
+   			   </div>
+
+    		
+
+	          </div>
+	          </div>
+	    
+        
+ 			</div>
+ 			<div class="modal-footer modal-fixed-footer">
+    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large  waves-effect waves-light btn-flat" type="submit" name="action" >Upload</button>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+
+    </form>
+  </div> <!-- ENd MOdal Div -->
+		      </td>
+		      <!-- End of Dynamic Form Submit -->
 		      {{-- @endcan --}}
 			<td style="height:50px;">
 			<form action="viewItemOrder" method="POST" id="itemOrderForm{{ $order->id }}">
@@ -216,6 +303,7 @@
 @endsection
 
 @section('footer')
+{!! Html::script('js/parsley.min.js') !!}
 @include('layouts.forms.submitreceipt')
 @include('layouts.forms.viewitemorder')
 @endsection

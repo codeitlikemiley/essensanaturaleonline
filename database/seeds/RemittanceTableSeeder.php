@@ -14,33 +14,33 @@ class RemittanceTableSeeder extends Seeder
         DB::table('remittances')->insert([
             [
                 'name' 			=> 'WESTERNUNION',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             [
                 'name' 			=> 'MONEYGRAM',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             [
                 'name' 			=> 'CEBUANALHUILLIER',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             [
                 'name' 			=> 'CEBUANAMLHUILLIER',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             [
                 'name' 			=> 'LBCREMITTANCE',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             [
                 'name' 			=> 'PALAWANEXPRESS',
-                'sender_name' 	=> 'Jonalyn Evangelista',
-                'mobile_no'	=> '09054321510',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '09054321510',
             ],
             
         ]);
