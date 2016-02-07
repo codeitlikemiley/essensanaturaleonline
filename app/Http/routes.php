@@ -69,7 +69,14 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('deleteOrder', 'OrderController@deleteOrder');
 	Route::post('viewItemOrder', 'OrderController@viewItemOrder');
 
-	Route::post('postReceipt', 'OrderController@postReceipt');
+
+	Route::post('postFormReceipt', [
+  	"as"   => "formreceipt",
+  	"uses" => "OrderController@postFormReceipt"]);
+
+  	Route::post('postReceipt', [
+  	"as"   => "postReceipt",
+  	"uses" => "OrderController@postReceipt"]);
 
 
     

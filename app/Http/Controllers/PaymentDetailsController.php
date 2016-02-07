@@ -21,8 +21,7 @@ class PaymentDetailsController extends Controller
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
-     $contact_no = null;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
      }
     }
     public function loadBPI(Request $request)
@@ -33,8 +32,7 @@ class PaymentDetailsController extends Controller
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
-     $contact_no = null;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadMETROBANK(Request $request)
@@ -45,8 +43,7 @@ class PaymentDetailsController extends Controller
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
-     $contact_no = null;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadUNIONBANK(Request $request)
@@ -57,8 +54,7 @@ class PaymentDetailsController extends Controller
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
-     $contact_no = null;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadEASTWEST(Request $request)
@@ -69,105 +65,96 @@ class PaymentDetailsController extends Controller
      $account_name = $bank->account_name;
      $account_id = $bank->account_id;
      $address = null;
-     $contact_no = null;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadGCASH(Request $request)
     {
     if($request->ajax()){
-     $mobile = MobileTransfer::where('mobile_no' ,'09054321510')->select('name', 'sender_name', 'mobile_no')->first();
-     $mop = $mobile->name;
-     $account_name = $mobile->sender_name;
-     $account_id = null;
+     $mobile = MobileTransfer::where('account_id' ,'09063508097')->select('name', 'account_name', 'account_id')->first();
+      $mop = $mobile->name;
+     $account_name = $mobile->account_name;
+     $account_id = $mobile->account_id;
      $address = null;
-     $contact_no = $mobile->mobile_no;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadSMARTMONEY(Request $request)
     {
     if($request->ajax()){
-     $mobile = MobileTransfer::where('mobile_no' ,'5299676029033103')->select('name', 'sender_name', 'mobile_no')->first();
+     $mobile = MobileTransfer::where('account_id' ,'5299676029033103')->select('name', 'account_name', 'account_id')->first();
      $mop = $mobile->name;
-     $account_name = $mobile->sender_name;
-     $account_id = null;
+     $account_name = $mobile->account_name;
+     $account_id = $mobile->account_id;
      $address = null;
-     $contact_no = $mobile->mobile_no;
-    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'address'))->render());
     }
     }
     public function loadWESTERUNION(Request $request)
     {
     if($request->ajax()){
-    $remittance = Remittance::where('id', 1)->select('name', 'sender_name', 'mobile_no')->first();
+    $remittance = Remittance::where('id', 1)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+ 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
     }
     public function loadMONEYGRAM(Request $request)
     {
     if($request->ajax()){
-	$remittance = Remittance::where('id', 2)->select('name', 'sender_name', 'mobile_no')->first();
+	$remittance = Remittance::where('id', 2)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
 	}
     public function loadCEBUANALHUILLIER(Request $request)
     {
     if($request->ajax()){
-	$remittance = Remittance::where('id', 3)->select('name', 'sender_name', 'mobile_no')->first();
+	$remittance = Remittance::where('id', 3)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
 }
     public function loadCEBUANAMLHUILLIER(Request $request)
     {
     if($request->ajax()){
-	$remittance = Remittance::where('id', 4)->select('name', 'sender_name', 'mobile_no')->first();
+	$remittance = Remittance::where('id', 4)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
 }
 
     public function loadLBCREMITTANCE(Request $request)
     {
     if($request->ajax()){
-	$remittance = Remittance::where('id', 5)->select('name', 'sender_name', 'mobile_no')->first();
+	$remittance = Remittance::where('id', 5)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
 	}
     public function loadPALAWANEXPRESS(Request $request)
     {
     if($request->ajax()){
-    $remittance = Remittance::where('id', 6)->select('name', 'sender_name', 'mobile_no')->first();
+    $remittance = Remittance::where('id', 6)->select('name', 'account_name', 'account_id')->first();
     $mop = $remittance->name;
-    $account_name = $remittance->sender_name;
-    $account_id = null;
-    $contact_no = $remittance->mobile_no;
+    $account_name = $remittance->account_name;
+    $account_id = $remittance->account_id;
     $address = $this->address;
- 	return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id', 'contact_no', 'address'))->render());
+    return \Response::json(\View::make('layouts.forms.paymentdetails')->with(compact('mop', 'account_name', 'account_id','address'))->render());
     }
     }
 }

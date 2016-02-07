@@ -20,6 +20,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Redirect;
 use Bouncer;
+use App\Http\Requests\SubmitReceiptInfoRequest;
 
 
 
@@ -41,6 +42,41 @@ class OrderController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function postFormReceipt(Request $request)
+    {
+     $input = $request->all();
+     $submitreceipt = new SubmitReceiptInfoRequest();
+        $validator         = Validator::make($request->all(), $submitreceipt->rules(), $submitreceipt->messages());
+
+        // Validate Form
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()->toArray()], 400);
+        }
+
+     // if($request->ajax()){
+        $order = Order::find($request->input('order_id'));
+        if($order->status === 'unpaid'){
+        $order->status = 'verification';
+        $order->save();
+        }
+        $sts = $order->status; // Create admin panel where you can change status of order
+        
+
+        $mop = $order->mop;
+        
+        $mop->transaction_no = $request->input('transaction_no');
+        $mop->account_name = $request->input('account_name');
+        $mop->account_id = $request->input('account_id');
+        $mop->amount =  $request->input('amount');
+        $mop->date_paid = $request->input('date_paid');
+        // $mop->receipt =  $request->input('receipt');
+        $mop->save();
+
+        // return response()->json(['success' => true, 'message' => 'Receipt Info Sent!', 'sts' => $sts], 200);
+    // }
+        return Redirect::back();
     }
 
     public function getBank(Request $request){
