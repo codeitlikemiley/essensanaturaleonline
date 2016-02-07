@@ -220,8 +220,8 @@ class OrderController extends Controller
 
             $order = Order::find($request->input('id'));
             if ($order->attachment) {
-                $file = str_replace("uploads/","",$order->attachment);
-                \Storage::delete($file);
+                // $file = str_replace("uploads/","",$order->attachment);
+                \File::delete($order->attachment);
             }
             $order->attachment = $receipt_url;
             $order->save();
