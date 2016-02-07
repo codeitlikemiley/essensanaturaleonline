@@ -215,7 +215,7 @@
 				      <div class="file-path-wrapper">
 				        <input class="file-path validate" type="text"
 						@if($order->attachment)
-						{{ $order->attachment }}
+						{!! $order->attachment !!}
 						@endif
 				        >
 			      	  </div>
