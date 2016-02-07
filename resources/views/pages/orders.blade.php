@@ -215,7 +215,6 @@
 				         value="{{ $order->attachment }}"
 				        @endif
 				        >
-				        >
 				      </div>
 				      <div class="file-path-wrapper">
 				        <input class="file-path validate" type="text"
