@@ -221,6 +221,7 @@ class OrderController extends Controller
             $order = Order::find($request->input('id'));
             $order->attachment = $receipt_url;
             $order->save();
+            var_dump($order);
         
         // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
         if ($upload_success) {
