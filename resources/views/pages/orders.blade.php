@@ -213,7 +213,11 @@
 				        <input type="file" name="attachment">
 				      </div>
 				      <div class="file-path-wrapper">
-				        <input class="file-path validate" type="text">
+				        <input class="file-path validate" type="text"
+						@if($order->attachment)
+						{{ $order->attachement }}
+						@endif
+				        >
 			      	  </div>
 	    		  </div>
     		   
