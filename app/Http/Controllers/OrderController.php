@@ -213,12 +213,19 @@ class OrderController extends Controller
             $extension = $file->getClientOriginalExtension();
             // RENAME THE UPLOAD WITH RANDOM NUMBER
             $fileName = rand(11111, 99999) . str_random(12). '.' . $extension;
+
+            $receipt_url = $destinationPath.'/'.$fileName;
             // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
             $upload_success = $file->move($destinationPath, $fileName);
+
+            $order = Order::find($request->input('id'));
+            $order->attachment = $receipt_url;
+            $order->save();
         
         // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
         if ($upload_success) {
             // return Redirect::to('/')->with('message', 'Image uploaded successfully');
+        
         return response()->json(['success' => true, 'message' => 'Uploaded Successfully!'], 200);
         
         }

@@ -14,8 +14,8 @@ class BankTableSeeder extends Seeder
         DB::table('banks')->insert([
             [
                 'name' 			=> 'BDO',
-                'account_name' 	=> 'Jasmin Bello',
-                'account_id'	=> '000661141497',
+                'account_name' 	=> 'Jonalyn Evangelista',
+                'account_id'	=> '010150019025',
             ],
             [
                 'name' => 'BPI',
