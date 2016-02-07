@@ -205,7 +205,6 @@ class OrderController extends Controller
         
         }
         
-        
            $file = array_get($input,'attachment');
            // SET UPLOAD PATH
             $destinationPath = 'uploads';
@@ -219,14 +218,16 @@ class OrderController extends Controller
             $upload_success = $file->move($destinationPath, $fileName);
 
             $order = Order::find($request->input('id'));
-            if ($order->attachment) {
-                // $file = str_replace("uploads/","",$order->attachment);
+            // Assign Old File Variable
+            $oldfile = $order->attachment;
+            // Delete Old Receipt if There is
+            if ($oldfile) {
                 \File::delete($order->attachment);
             }
+            // Attach the New Receipt
             $order->attachment = $receipt_url;
             $order->save();
-            var_dump($order);
-        
+            
         // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
         if ($upload_success) {
             // return Redirect::to('/')->with('message', 'Image uploaded successfully');
