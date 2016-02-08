@@ -14,6 +14,11 @@ class Profile extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
+    protected $casts = [
+        'social_links' => 'array',
+        'contact_options' => 'array',
+    ];
+
     public static function boot()
     {
         parent::boot();
