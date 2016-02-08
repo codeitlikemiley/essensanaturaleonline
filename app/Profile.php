@@ -24,7 +24,11 @@ class Profile extends Model
         parent::boot();
 
         static::creating(function ($profile) {
-            $profile->profile_pic = asset('img/avatar.png');
+            $string = preg_replace('/\s+/', '', $profile->display_name);
+            $filename  = time() . '-' . $string . '.png';
+            $path = public_path('img/avatar/' . $filename);
+            \Avatar::create($profile->display_name)->save($path,100);
+            $profile->profile_pic = asset('img/avatar/'.$filename);
 
         });
     }

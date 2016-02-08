@@ -31,7 +31,7 @@
                   @else --}}
                   {{ Avatar::create($name)->toBase64() }}
                   {{-- @endif --}}
-                  " class="circle responsive-img" style="height:150px; width:150px; margin-left: 60px; border-radius: 75px; background-color: #ef9a9a;">
+                  " class="circle responsive-img" style="height:150px; width:150px; margin-left: 60px; border-radius: 75px;">
               </div>
 
               {{-- Company Finder Button --}}
@@ -92,7 +92,7 @@
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_shipping</i>Courrier List</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">ondemand_video</i>Business Presentation</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">theaters</i><span style="font-size: 13px">Powerpoint Presentation</span></a></li>
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">group_add</i>Join FB Group</a></li>
+        <li><a href="https://www.facebook.com/1650392288544295" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">group_add</i>Join FB Group</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">location_searching</i>Visit Nearest Center</a></li>
 
         <li class="no-padding ">
