@@ -151,6 +151,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Silber\Bouncer\BouncerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -210,6 +212,7 @@ return [
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
+        'Avatar'    => Laravolt\Avatar\Facade::class,
         
 
 
