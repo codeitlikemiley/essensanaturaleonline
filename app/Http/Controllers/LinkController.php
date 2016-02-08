@@ -32,7 +32,10 @@ class LinkController extends Controller
 
         //  // If it has a Sponsor Cookie
          if (\Cookie::has('sponsor')) {
-             return Redirect::to('/'); // Load Referral Link View
+            $cookie = \Cookie::get('sponsor');
+            $link = $cookie['link'];
+            $link  = Link::findByLink($link)->load('user.profile');
+             return view('pages.referralLink')->with(compact('link')); // Load Referral Link View
          }
          if (is_null($link)) {
              return Redirect::to('/'); // Redirect To HomePage
@@ -41,12 +44,12 @@ class LinkController extends Controller
          try {
              // If has $Link then Look in Database if Exist
             $link  = Link::findByLink($link)->load('user.profile');
-            $link = $link->toArray();
+            $splink = $link->toArray();
             // Note Cookie Wont Be Created if Exceeded More than 4kb
-            \Cookie::queue('sponsor', $link, 2628000);
+            $cookie = \Cookie::queue('sponsor', $splink, 2628000);
 
             // Return Referral View with Variable Link
-              return Redirect::to('/')->with('link', $link);
+              return view('pages.referralLink')->with(compact('link'));
 
         // If No Record Found Throw Exception!
          } catch (ModelNotFoundException $e) {

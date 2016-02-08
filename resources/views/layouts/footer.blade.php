@@ -10,7 +10,7 @@
         <div class="col l3 s12">
           <h5 class="white-text">Follow Us On!</h5>
           <ul>
-            <li><a class="white-text" href="#!">Facebook</a></li>
+            <li><a class="white-text" href="https://www.facebook.com/essensanaturaleonlinedotcom">Facebook</a></li>
             <li><a class="white-text" href="#!">Twitter</a></li>
             <li><a class="white-text" href="#!">Instagram</a></li>
           </ul>
@@ -32,7 +32,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-       Copyright © 2016 All Rights Reserved <a class="teal-text text-lighten-3" href="#">Essensa Naturale Online ™</a>
+       Copyright © 2016 All Rights Reserved <a class="teal-text text-lighten-3" href="#">Essensa Naturale Online ™</a> | Elegantly Coded By: <a class="amber-text text-lighten-3" href="https://www.facebook.com/uriah.haki">Uriah Galang</a>
       </div>
     </div>
   </footer>

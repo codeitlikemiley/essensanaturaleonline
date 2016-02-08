@@ -2,14 +2,14 @@
 (function($){
   $(function(){       //Start of function
   $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      accordion : true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
   $('ul.tabs').tabs(); 
    $('select').material_select();
 
   // initialize sidenav button
    $('.button-collapse').sideNav({
-      menuWidth: 240, // Default is 240
+      menuWidth: 280, // Default is 240
       edge: 'left', // Choose the horizontal origin
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }); //End Button Collapse
