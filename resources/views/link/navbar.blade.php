@@ -62,10 +62,28 @@
                 
                 <!-- Options (json) -->
                   <ul class="teal lighten-5">
-                    @foreach ($link->user->profile->contact_options as 
+                  {{-- @foreach ($link->user->profile->contact_options as  
                   $key => $contact_options)
                     <li><a href="tel:{{ $contact_options }}" class="waves-effect waves-light waves-red lighten-5 teal-text">{{ $key }}: {{ $contact_options }}</a></li>
-                  @endforeach
+                  @endforeach --}}
+                  @if($link->user->profile->contact_options['globe'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['globe'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Globe: {{ $link->user->profile->contact_options['globe'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->contact_options['smart'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['smart'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Smart: {{ $link->user->profile->contact_options['smart'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->contact_options['sun'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['sun'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Sun: {{ $link->user->profile->contact_options['sun'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->contact_options['tm'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['tm'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">TM: {{ $link->user->profile->contact_options['tm'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->contact_options['skype'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['skype'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Skype: {{ $link->user->profile->contact_options['skype'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->contact_options['viber'])
+                    <li><a href="tel:{{ $link->user->profile->contact_options['viber'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Viber: {{ $link->user->profile->contact_options['viber'] }}</a></li>
+                  @endif
                     
                   </ul>
                   
@@ -84,9 +102,15 @@
                 <!-- Options (json) -->
                 
                   <ul class="teal lighten-5">
+                  @if($link->user->profile->social_links['facebook'])
                     <li><a href="https://www.facebook.com/{{ $link->user->profile->social_links['facebook'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['facebook'] }}</a></li>
-                    <li><a href="https://twitter.com/{{ $link->user->profile->social_links['twitter'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['twitter'] }}</a></li>
-                    <li><a href="https://www.instagram.com/{{ $link->user->profile->social_links['instagram'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['instagram'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->social_links['twitter'])
+                    <li><a href="https://twitter.com/{{ $link->user->profile->social_links['twitter'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Twitter: {{ $link->user->profile->social_links['twitter'] }}</a></li>
+                  @endif
+                  @if($link->user->profile->social_links['instagram'])  
+                    <li><a href="https://www.instagram.com/{{ $link->user->profile->social_links['instagram'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Instagram: {{ $link->user->profile->social_links['instagram'] }}</a></li>
+                  @endif
                   </ul>
                   
                 </div>
