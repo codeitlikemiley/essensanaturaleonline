@@ -53,22 +53,28 @@
         <li><a href="#company profile" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">business</i>Company Profile</a></li>
         <li><a href="http://iregister.sec.gov.ph/MainServlet?param=search" class="waves-effect waves-light waves-red lighten-5 teal-text" target="_blank"><i class="material-icons left">verified_user</i>Verify SEC</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">description</i>Legalities</a></li>
+        @if($link->user->profile->contact_options)
         <li class="no-padding ">
             <ul class="collapsible collapsible-accordion ">
               <li>
                 <a class="collapsible-header waves-effect waves-light waves-red lighten-5 teal-text "><i class="material-icons left">contact_phone</i>Contact Me<i class="material-icons right" style="margin-right: -22px;">keyboard_arrow_down</i></a>
                 <div class="collapsible-body">
+                
                 <!-- Options (json) -->
                   <ul class="teal lighten-5">
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Globe: {{ $link->user->profile->contact_no }}</a></li>
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Smart: {{ $link->user->profile->contact_no }}</a></li>
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Sun :{{ $link->user->profile->contact_no }}</a></li>
+                    @foreach ($link->user->profile->contact_options as 
+                  $key => $contact_options)
+                    <li><a href="tel:{{ $contact_options }}" class="waves-effect waves-light waves-red lighten-5 teal-text">{{ $key }}: {{ $contact_options }}</a></li>
+                  @endforeach
+                    
                   </ul>
+                  
                 </div>
               </li>
             </ul>
         </li>
-
+        @endif
+        @if($link->user->profile->social_links)
         <li class="no-padding ">
             <ul class="collapsible collapsible-accordion ">
               <li>
@@ -76,15 +82,18 @@
                 <span style="font-size: 13.2px;">Social Media Accounts</span><i class="material-icons right" style="margin-right: -22px;">keyboard_arrow_down</i></a>
                 <div class="collapsible-body">
                 <!-- Options (json) -->
+                
                   <ul class="teal lighten-5">
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->contact_no }}</a></li>
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Twitter: {{ $link->user->profile->contact_no }}</a></li>
-                    <li><a href="tel:{{ $link->user->profile->contact_no }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Instagram :{{ $link->user->profile->contact_no }}</a></li>
+                    <li><a href="https://www.facebook.com/{{ $link->user->profile->social_links['facebook'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['facebook'] }}</a></li>
+                    <li><a href="https://twitter.com/{{ $link->user->profile->social_links['twitter'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['twitter'] }}</a></li>
+                    <li><a href="https://www.instagram.com/{{ $link->user->profile->social_links['instagram'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text">Facebook: {{ $link->user->profile->social_links['instagram'] }}</a></li>
                   </ul>
+                  
                 </div>
               </li>
             </ul>
         </li>
+        @endif
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">accessibility</i>Testimonials</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_drink</i><span style="font-size: 12px;">Dosage Intake of Buah Merah</span></a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">speaker_notes</i>FAQ's Section</a></li>

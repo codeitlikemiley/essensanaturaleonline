@@ -94,6 +94,9 @@ Route::group(['middleware' => 'web'], function () {
 
 	Route::get('profile',['as' => 'profile', 'uses' =>  'DashboardController@showProfile']);
 	Route::post('profile', 'DashboardController@updateProfile');
+	Route::get('edit-profile',['as' => 'show-profile', 'uses' => 'DashboardController@viewProfile']);
+	Route::put('edit-profile',['as' => 'update-profile', 'uses' => 'DashboardController@editProfile']);
+
 // Route::get('profile', ['as' => 'profile', 'uses' => 'UserController@edit']);
 
 //show login/signup form
