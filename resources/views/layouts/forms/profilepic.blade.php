@@ -1,0 +1,1 @@
+<img src="{{ $data['profile_pic'] }}" alt="myprofilepic" class="circle responsive-img">

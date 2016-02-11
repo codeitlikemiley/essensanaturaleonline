@@ -8,7 +8,7 @@
       @if($link)
       <h6 style="margin-top: 15px; font-size: 25px;">{{ $link->user->profile->display_name.'\'s Buah Merah Mix Online Shop' }} 
       <span style="font-size:15px; margin-top:20px; color:#e8eaf6;">
-      @include('link.navbartop-contact')
+      {{-- @include('link.navbartop-contact') --}}
       </span>
       </h6>
       @endif
@@ -26,33 +26,31 @@
               <div class="card-image waves-effect waves-block waves-light">
                   <img src=
                   "
-                  {{-- @if($link->user->profile->profile_pic)
+                  @if($link->user->profile->profile_pic)
                   {{ $link->user->profile->profile_pic }}
-                  @else --}}
+                  @else
                   {{ Avatar::create($name)->toBase64() }}
-                  {{-- @endif --}}
+                  @endif
                   " class="circle responsive-img" style="height:150px; width:150px; margin-left: 60px; border-radius: 75px;">
               </div>
 
               {{-- Company Finder Button --}}
               <div class="card-content">
                   <p class="teal-text center" style="margin-top: -30px;">{{ $link->user->profile->first_name.' '.$link->user->profile->last_name }}</p>
-                  <p class="card-title activator teal-text">Main Office<i class="material-icons left" style="margin-left: 10px; margin-top: -10px;">map</i></p>
+                  <p class="card-title activator teal-text">About Me<i class="material-icons left" style="margin-left: 10px; margin-top: -10px;">camera_front</i></p>
 
               </div>
 
               {{-- Google Map --}}
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Main Office<i class="material-icons left">close</i></span>
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=zkYyseM1DRiQ.kLrjC08br2XU" width="220" height="150"></iframe>
+                <span class="card-title grey-text text-darken-4">About Me<i class="material-icons left">close</i></span>
+                {{-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=zkYyseM1DRiQ.kLrjC08br2XU" width="220" height="150"></iframe> --}}
+                <p class="teal-text">{{  $link->user->profile->about_me }}</p>
               </div>
         </div>
 
 
         {{-- Side Bar Nav Menu --}}
-        <li><a href="#company profile" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">business</i>Company Profile</a></li>
-        <li><a href="http://iregister.sec.gov.ph/MainServlet?param=search" class="waves-effect waves-light waves-red lighten-5 teal-text" target="_blank"><i class="material-icons left">verified_user</i>Verify SEC</a></li>
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">description</i>Legalities</a></li>
         @if($link->user->profile->contact_options)
         <li class="no-padding ">
             <ul class="collapsible collapsible-accordion ">
@@ -97,7 +95,7 @@
             <ul class="collapsible collapsible-accordion ">
               <li>
                 <a class="collapsible-header waves-effect waves-light waves-red lighten-5 teal-text "><i class="material-icons left">public</i>
-                <span style="font-size: 13.2px;">Social Media Accounts</span><i class="material-icons right" style="margin-right: -22px;">keyboard_arrow_down</i></a>
+                <span style="font-size: 14px;">My Social Network</span><i class="material-icons right" style="margin-right: -22px;">keyboard_arrow_down</i></a>
                 <div class="collapsible-body">
                 <!-- Options (json) -->
                 
@@ -118,14 +116,24 @@
             </ul>
         </li>
         @endif
+        @if($link->user->profile->social_links['fb-groups'])
+        <li><a href="{{ $link->user->profile->social_links['fb-groups'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">group_add</i>Join FB Group</a></li>
+        @endif
+        @if($link->user->profile->social_links['fb-fanpage'])
+        <li><a href="{{ $link->user->profile->social_links['fb-fanpage'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">pages</i>My FB Fan Page</a></li>
+        @endif
+        <li><a href="#company profile" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">business</i>Company Profile</a></li>
+        <li><a href="http://iregister.sec.gov.ph/MainServlet?param=search" class="waves-effect waves-light waves-red lighten-5 teal-text" target="_blank"><i class="material-icons left">verified_user</i>Verify SEC</a></li>
+        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">description</i>Legalities</a></li>
+        
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">accessibility</i>Testimonials</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_drink</i><span style="font-size: 12px;">Dosage Intake of Buah Merah</span></a></li>
+        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_hospital</i>Free Consultation</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">speaker_notes</i>FAQ's Section</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">add_shopping_cart</i>How to Order?</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_shipping</i>Courrier List</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">ondemand_video</i>Business Presentation</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">theaters</i><span style="font-size: 13px">Powerpoint Presentation</span></a></li>
-        <li><a href="https://www.facebook.com/1650392288544295" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">group_add</i>Join FB Group</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">location_searching</i>Visit Nearest Center</a></li>
 
         <li class="no-padding ">

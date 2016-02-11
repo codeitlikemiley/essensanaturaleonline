@@ -11,13 +11,89 @@
 <main>
     <div class="section">
 	    <div class="row">
+	    
 	    <div class="col l6 offset-l3 m8 offset-m2 s12">
-	    	<div class="col s12 login-form"><h3 class="amber-text center">Member's Account Profile</h3>
+
+	    	<div class="col s12 login-form">
+
+	    	<div class="col s12">
+	    	<h5 class="amber-text center">My Profile</h5>
+	    	</div>
+	    	<div class="col s12 m4 l4">
+	    	<div id="picture_wrapper">
+	    	<div id="profile_picture">
+	    	<img src="{{ $data['profile_pic'] }}" alt="myprofilepic" class="circle responsive-img">
+	    	</div>
+	    	<button href="#viewModalPic{{ $data['id'] }}" class="modal-trigger modal-profile-pic col s12 btn waves-effect waves-light form-submit left z-depth-0 tooltipped" data-position="top" data-delay="50" data-tooltip="Upload Profile Pic" type="btn" style="margin-bottom: 25px; magin-top: 25px;">Upload Photo</button>
+	    	</div>
+  			<div id="viewModalPic{{ $data['id'] }}" class="modal">
+  			<form action="updateProfilePic" method="POST" id="postProfilePic{{ $data['id'] }}" enctype="multipart/form-data" onsubmit="submitProfilePic({{ $data['id'] }}); return false;">
+    		<div class="modal-content">
+
+
+	        <blockquote class="center">
+	          <h5>Profile Pic</h5>
+	        </blockquote>
+	          <div class="row">
+	          <div class ="col s12">
+	           
+			   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+				  <input type="hidden" name="id" value="{{ $data['id'] }}"/>
+			      <div class="file-field input-field">
+				      <div class="btn">
+				        <span>Image</span>
+				        <input type="file" name="attachment"
+				        @if($data['profile_pic'])
+				         value="{{ $data['profile_pic'] }}"
+				        @endif
+				        >
+				      </div>
+				      <div class="file-path-wrapper">
+				        <input class="file-path validate" type="text"
+						@if($data['profile_pic'])
+				         value="{{ $data['profile_pic'] }}"
+				        @endif
+				        >
+			      	  </div>
+	    		  </div>
+    		   
+    		
+
+	          </div>
+	          </div>
+	    
+        
+ 			</div>
+ 			<div class="modal-footer modal-fixed-footer">
+    		   <button class="col s6 pull-m1 m5 pull-l1 l5 teal lighten-3 btn-large modal-action modal-close waves-effect waves-light btn-flat" type="submit" name="action" >Upload</button>
+      <a href="#!" class="col s6 push-m1 m5 push-l1 l5 left red lighten-2 btn-large modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+    		</div>
+    </form>
+  </div>
+
+	    	</div>
+	    	<div class="col s12 m8 l8">
+	    	
+		    <form class="col s12" action="updateAboutMe" method="POST" id="updateAboutMe" onchange="updateAboutMe(); return false;">
+		      <div class="row">
+		      <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+		        <div class="input-field">
+		          <i class="material-icons prefix">mode_edit</i>
+		          <textarea id="icon_prefix2" name="about_me" class="materialize-textarea tooltipped" data-position="top" data-delay="50" data-tooltip="Profile About Me Will Be Updated Automatically!">{{ $data['about_me'] }}</textarea>
+		          <label for="icon_prefix2">About Me</label>
+		        </div>
+		      </div>
+		     
+		    </form>
+
+	    	</div>
+	    	
+        
 	    	</div>
 			{!! Form::model($data, 
 					[
 						'route'=> 'update-profile', 
-						'class' => 'col s12 login-form', 
+						'class' => 'col s12', 
 					]) !!}
 				{!! Form::hidden('_method', 'PUT') !!}
 				<div class="row z-depth-2 center">
@@ -96,6 +172,24 @@
 				</div>
 				</div>
 				<div class="row z-depth-2 center tooltipped" 
+				data-position="top" data-delay="50" data-tooltip="Add Here Your Team Facebook Group Link">
+				<h6 class="teal-text">Your Team's Fb Group Link</h6>
+				<div class="input-field col s12">
+				    <i class="material-icons prefix icon-lower">link</i>
+				    {!! Form::text("social_links[fb-groups]",null ,['placeholder' => 'https://www.facebook.com/groups/grouplink', 'id' => "social_links[fb-groups]"]) !!}
+				    {!! Form::label("social_links[fb-groups]", 'Facebook Group', array('class' => 'awesome')); !!}
+				</div>	
+				</div>
+				<div class="row z-depth-2 center tooltipped" 
+				data-position="top" data-delay="50" data-tooltip="Type Here Your Facebook Fan Page Link">
+				<h6 class="teal-text">Your FB Fan Page</h6>
+				<div class="input-field col s12">
+				    <i class="material-icons prefix icon-lower">link</i>
+				    {!! Form::text("social_links[fb-fanpage]",null ,['placeholder' => 'https://www.facebook.com/FANPAGELINK', 'id' => "social_links[fb-fanpage]"]) !!}
+				    {!! Form::label("social_links[fb-fanpage]", 'Facebook Fan Page', array('class' => 'awesome')); !!}
+				</div>	
+				</div>
+				<div class="row z-depth-2 center tooltipped" 
 				data-position="top" data-delay="50" data-tooltip="How Can Your Customer Reach You Thru Phone? All Info Here Will Be Displayed Publicly unlike Your Personal Contact No. Above">
 				<h6 class="teal-text">Business Phone No.</h6>
 				
@@ -145,6 +239,75 @@
 
 @section('footer')
 <!-- Start Custom Footer (JS) -->
+<script>
+$.ajaxSetup({headers:{'X-CSRF-TOKEN':
+        $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
+$('.modal-profile-pic').leanModal({
+                dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                opacity: '.6', // Opacity of modal background
+                in_duration: 300, // Transition in duration
+                out_duration: 200, // Transition out duration
+                ready: function() { console.log('Open'); }, // Callback for Modal open
+                complete: function() { console.log('Closed'); } // Callback for Modal close
+                });
+
+function submitProfilePic(id){
+    var url = $('#postProfilePic'+ id).attr('action');
+    var form = document.querySelector('#postProfilePic'+ id);
+    var formdata = new FormData(form);
+        $.ajax({
+            url: url,
+            dataType:'JSON',
+            data: formdata,
+            type:'post',
+            processData: false,
+            contentType: false,
+        }).done(function(data){
+           $('#profile_picture').empty();
+           $('#profile_picture').html(data.html);
+           Materialize.toast(data.message, 4000,'',function () {
+            // console.log(data);
+           });
+
+        }).fail(function () { // if Fail
+            var errors = data.responseJSON;
+
+            $.each(errors.message, function(index, error)
+            {
+             Materialize.toast(error, 4000,'',function(){
+                //
+            });
+            });
+            
+          });
+    }
+    function updateAboutMe(){
+    var url = $('#updateAboutMe').attr('action');
+    var aboutMeForm = $('#updateAboutMe').serializeArray();
+        $.ajax({
+            url: url,
+            dataType:'JSON',
+            data: aboutMeForm,
+            type:'post',
+        }).done(function(data){
+            
+           Materialize.toast(data.message, 4000,'',function () {
+            console.log(data);
+           });
+
+        }).fail(function () { // if Fail
+            var errors = data.responseJSON;
+
+            $.each(errors.message, function(index, error)
+            {
+             Materialize.toast(error, 4000,'',function(){
+                //
+            });
+            });
+            
+          });
+    }
+</script>
 
 <!-- End Custom Footer (JS) -->
 @stop

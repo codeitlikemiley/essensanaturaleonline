@@ -25,7 +25,7 @@ class LinkController extends Controller
      *
      * @param [text] $link [referral link]
      *
-     * @return [json] [all info abou the link]
+     * @return [json] [all info about the link]
      */
      public function showRefLink($link = null)
      {
@@ -44,7 +44,12 @@ class LinkController extends Controller
          try {
              // If has $Link then Look in Database if Exist
             $link  = Link::findByLink($link)->load('user.profile');
-            $splink = $link->toArray();
+            // $splink = $link->toArray();
+            $splink = [];
+            $splink['id'] = $link->id;
+            $splink['user_id'] = $link->user_id;
+            $splink['link'] = $link->link;
+            
             // Note Cookie Wont Be Created if Exceeded More than 4kb
             $cookie = \Cookie::queue('sponsor', $splink, 2628000);
 

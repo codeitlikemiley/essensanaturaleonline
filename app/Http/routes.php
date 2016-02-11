@@ -78,7 +78,7 @@ Route::group(['middleware' => 'web'], function () {
   	"as"   => "postReceipt",
   	"uses" => "OrderController@postReceipt"]);
 
-
+// \Auth::loginUsingId(1);
     
     // Cart AJAX Call
 	Route::post('destroyCart', 'CartController@destroyCart');
@@ -96,6 +96,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('profile', 'DashboardController@updateProfile');
 	Route::get('edit-profile',['as' => 'show-profile', 'uses' => 'DashboardController@viewProfile']);
 	Route::put('edit-profile',['as' => 'update-profile', 'uses' => 'DashboardController@editProfile']);
+	Route::post('updateProfilePic',['as' => 'update-profile-pic', 'uses' => 'DashboardController@updateProfilePic']);
+	Route::post('updateAboutMe',['as' => 'update-about-me', 'uses' => 'DashboardController@updateAboutMe']);
 
 // Route::get('profile', ['as' => 'profile', 'uses' => 'UserController@edit']);
 
