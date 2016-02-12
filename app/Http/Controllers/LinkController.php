@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Link;
 use Redirect;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Product;
 
 class LinkController extends Controller
 {
@@ -35,7 +36,8 @@ class LinkController extends Controller
             $cookie = \Cookie::get('sponsor');
             $link = $cookie['link'];
             $link  = Link::findByLink($link)->load('user.profile');
-             return view('pages.referralLink')->with(compact('link')); // Load Referral Link View
+            $product = Product::find(1);
+             return view('pages.referralLink')->with(compact('link','product')); // Load Referral Link View
          }
          if (is_null($link)) {
              return Redirect::to('/'); // Redirect To HomePage
@@ -49,12 +51,13 @@ class LinkController extends Controller
             $splink['id'] = $link->id;
             $splink['user_id'] = $link->user_id;
             $splink['link'] = $link->link;
+            $product = Product::find(1);
             
             // Note Cookie Wont Be Created if Exceeded More than 4kb
             $cookie = \Cookie::queue('sponsor', $splink, 2628000);
 
             // Return Referral View with Variable Link
-              return view('pages.referralLink')->with(compact('link'));
+              return view('pages.referralLink')->with(compact('link','product'));
 
         // If No Record Found Throw Exception!
          } catch (ModelNotFoundException $e) {
