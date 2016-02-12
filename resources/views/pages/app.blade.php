@@ -93,7 +93,7 @@
 @endsection
 
 @section('footer')
-{!! Html::script('js/cart.js') !!}
+{{-- {!! Html::script('js/cart.js') !!} --}}
 @include('layouts.pagination')
 <!--Import Custom JS-->
 @include('layouts.logoslider')
