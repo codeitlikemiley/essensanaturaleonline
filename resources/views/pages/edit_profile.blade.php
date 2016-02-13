@@ -176,7 +176,7 @@
 				<h6 class="teal-text">Your Team's Fb Group Link</h6>
 				<div class="input-field col s12">
 				    <i class="material-icons prefix icon-lower">link</i>
-				    {!! Form::text("social_links[fb-groups]",null ,['placeholder' => 'https://www.facebook.com/groups/grouplink', 'id' => "social_links[fb-groups]"]) !!}
+				    {!! Form::url("social_links[fb-groups]",null ,['placeholder' => 'https://www.facebook.com/groups/grouplink', 'id' => "social_links[fb-groups]"]) !!}
 				    {!! Form::label("social_links[fb-groups]", 'Facebook Group', array('class' => 'awesome')); !!}
 				</div>	
 				</div>
@@ -185,8 +185,22 @@
 				<h6 class="teal-text">Your FB Fan Page</h6>
 				<div class="input-field col s12">
 				    <i class="material-icons prefix icon-lower">link</i>
-				    {!! Form::text("social_links[fb-fanpage]",null ,['placeholder' => 'https://www.facebook.com/FANPAGELINK', 'id' => "social_links[fb-fanpage]"]) !!}
+				    {!! Form::url("social_links[fb-fanpage]",null ,['placeholder' => 'https://www.facebook.com/FANPAGELINK', 'id' => "social_links[fb-fanpage]"]) !!}
 				    {!! Form::label("social_links[fb-fanpage]", 'Facebook Fan Page', array('class' => 'awesome')); !!}
+				</div>	
+				</div>
+				<div class="row z-depth-2 center tooltipped" 
+				data-position="top" data-delay="50" data-tooltip="Fill This Up if You Want to Receive Message in Your FB Fanpage">
+				<h6 class="teal-text">FB Apps API</h6>
+				<div class="input-field col s6">
+				    <i class="material-icons prefix icon-lower">fingerprint</i>
+				    {!! Form::text("social_links[app_id]",null ,['placeholder' => 'YOUR FB APP ID', 'id' => "social_links[fb-fanpage]"]) !!}
+				    {!! Form::label("social_links[fb-app_id]", 'App ID', array('class' => 'awesome')); !!}
+				</div>
+				<div class="input-field col s6">
+				    <i class="material-icons prefix icon-lower">vpn_lock</i>
+				    {!! Form::text("social_links[app_secret]",null ,['placeholder' => 'Dont Share This With Anyone', 'id' => "social_links[app_secret]"]) !!}
+				    {!! Form::label("social_links[app_secret]", 'SECRET KEY', array('class' => 'awesome')); !!}
 				</div>	
 				</div>
 				<div class="row z-depth-2 center tooltipped" 

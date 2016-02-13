@@ -140,8 +140,11 @@ select option {
     top: 0;
     z-index: 995;
 }
+.tabs .tab a {
+  color: #4db6ac;
+}
 
-
-
-
+/*.tabs .indicator {
+    background-color: #4db6ac;
+}*/
 

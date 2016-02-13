@@ -122,15 +122,15 @@
         @if($link->user->profile->social_links['fb-fanpage'])
         <li><a href="{{ $link->user->profile->social_links['fb-fanpage'] }}" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">pages</i>My FB Fan Page</a></li>
         @endif
-        <li><a href="#company profile" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">business</i>Company Profile</a></li>
+        <li><a href="#tab2" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">business</i>Company Profile</a></li>
         <li><a href="http://iregister.sec.gov.ph/MainServlet?param=search" class="waves-effect waves-light waves-red lighten-5 teal-text" target="_blank"><i class="material-icons left">verified_user</i>Verify SEC</a></li>
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">description</i>Legalities</a></li>
+        <li><a href="#tab3" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">description</i>Legalities</a></li>
         
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">accessibility</i>Testimonials</a></li>
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_drink</i><span style="font-size: 12px;">Dosage Intake of Buah Merah</span></a></li>
+        <li><a href="#tab5" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">accessibility</i>Testimonials</a></li>
+        <li><a href="#tab6" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_drink</i><span style="font-size: 12px;">Dosage Intake of Buah Merah</span></a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_hospital</i>Free Consultation</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">speaker_notes</i>FAQ's Section</a></li>
-        <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">add_shopping_cart</i>How to Order?</a></li>
+        <li><a href="#tab7" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">add_shopping_cart</i>How to Order?</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">local_shipping</i>Courrier List</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">ondemand_video</i>Business Presentation</a></li>
         <li><a href="#!" class="waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">theaters</i><span style="font-size: 13px">Powerpoint Presentation</span></a></li>
