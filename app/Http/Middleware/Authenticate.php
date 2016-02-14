@@ -24,6 +24,11 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
+        // if User Link is Paid and Active
+       if (\Auth::user()->links->first()->active) {
+            return redirect()->action('DashboardController@viewProfile');
+        }
+        // If User Account is a Customer 
         if (!\Auth::user()->active) {
             return view('auth.guestactivate')
                 ->with( 'email', \Auth::user()->email )
