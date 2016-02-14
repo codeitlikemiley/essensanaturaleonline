@@ -11,14 +11,14 @@
 <main>
   <div class="row">
     <div class="col l9 m9 s12">
-      <ul class="tabs light-blue lighten-5" style="border-radius: 25px;">
-        <li class="tab col s3" style="width=250px;"><a class="active" href="#tab1">Buah Merah</a></li>
-        <li class="tab col s3" style="width=250px;"><a href="#tab2">Company</a></li>
-        <li class="tab col s3" style="width=250px;"><a href="#tab3">Legalities</a></li>
-        <li class="tab col s3" style="width=150px;"><a href="#tab4">Awards</a></li>
-        <li class="tab col s3" style="width=250px;"><a href="#tab5">Testimonials</a></li>
-        <li class="tab col s3" style="width=300px;"><a href="#tab6">How To Drink</a></li>
-        <li class="tab col s3" style="width=300px;"><a href="#tab7">How To Order</a></li>
+      <ul class="tabs light-blue lighten-5 z-depth-2">
+        <li class="tab col s3" style="min-width: 120px;"><a class="active" href="#tab1">Buah Merah</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab2">Company</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab3">Legalities</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab4">Awards</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab5">Testimonials</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab6">How To Drink</a></li>
+        <li class="tab col s3" style="min-width: 120px;"><a href="#tab7">How To Order</a></li>
       </ul>
     </div>
     <div id="tab1" class="col l9 m9 s12"> 
