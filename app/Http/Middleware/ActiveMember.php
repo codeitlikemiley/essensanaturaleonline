@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Authenticate
+class ActiveMember
 {
     /**
      * Handle an incoming request.
@@ -17,6 +17,8 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
@@ -24,12 +26,18 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
-        // If User Account is a Customer 
-        if (!\Auth::user()->active) {
+        
+            if (!\Auth::user()->active) {
             return view('auth.guestactivate')
                 ->with( 'email', \Auth::user()->email )
                 ->with( 'date', \Auth::user()->created_at);
-        }
+            }
+            if (!\Auth::user()->links->first()->active) {
+            return $this->nocache( $next($request) );
+            }
+            if (\Auth::user()->links->first()->active) {
+            return redirect()->action('DashboardController@viewProfile');
+            }
 
         return $this->nocache( $next($request) );
     }
