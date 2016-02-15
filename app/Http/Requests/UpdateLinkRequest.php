@@ -33,7 +33,7 @@ class UpdateLinkRequest extends Request
     public function messages()
     {
         return [
-            'links.*.link.unique'           => 'Link Name Already Exist!',
+            'links.*.link.unique'           => 'Link :value Name Already Exist!',
             'links.*.link.required'     => 'Link Name is Empty!',
             'links.*.link.min'           => 'Link Name Should Be More than 8 Characters!',
             'links.*.link.max'   => 'Link Name Exceeded Allowable Character Limit of 30!',
