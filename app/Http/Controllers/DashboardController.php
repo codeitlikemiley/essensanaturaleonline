@@ -112,6 +112,7 @@ class DashboardController extends Controller
         }
         $userID = $request->user_id;
         $links = $request->links;
+        return $links;
         // Save All Links! id with link
         \DB::beginTransaction();
         $link = User::find($userID)->links;
