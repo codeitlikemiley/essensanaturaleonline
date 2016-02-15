@@ -125,7 +125,7 @@ class AuthController extends Controller
 
         $messages = ['success' => 'Welcome Back!'];
         // Successfully Login Without Any Problem
-        return response()->json(['success' => true, 'messages' => $messages, 'url' => 'profile'], 200);
+        return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200);
     }
 
     public function login()
