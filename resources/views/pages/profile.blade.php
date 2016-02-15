@@ -37,7 +37,7 @@
 <script>
 $.ajaxSetup({headers:{'X-CSRF-TOKEN':
     $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
-$('#updateProfile').parsley();
+$('#shipping-address').parsley();
 function loader( v ) {
 if (v == 'on') {
 
