@@ -304,12 +304,12 @@ function updateLinks(){
         }).done(function(data){
             
            Materialize.toast(data.message, 4000,'',function () {
-            console.log(data);
+            
            });
 
         }).fail(function (data) { // if Fail
             var errors = data.responseJSON;
-            console.log(errors);
+            
 
             $.each(errors.errors, function(index, error)
             {
