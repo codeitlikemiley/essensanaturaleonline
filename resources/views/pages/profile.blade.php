@@ -14,7 +14,7 @@
                 <ul class="tabs z-depth-1">
 
                     <li class="tab col s3">
-                        <a class="{{ Session::get('profile') }}" href="#profile">Shipping Details</a>
+                        <a class="{{ Session::get('shipping-address') }}" href="#shipping-address">Shipping Details</a>
                     </li>
                 </ul>
                 <div class="progress" id="profileloader" style="display:none">

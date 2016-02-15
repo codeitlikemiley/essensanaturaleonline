@@ -41,7 +41,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo          = 'profile';
+    protected $redirectTo          = 'edit-profile';
     protected $loginPath           = 'login';
     protected $redirectAfterLogout = 'login';
 
@@ -246,6 +246,6 @@ class AuthController extends Controller
         // Return With a Response to Delete Cookie
         Auth::LoginUsingId($user->id);
         // return redirect()->route('profile');
-        return response()->json(['success' => true, 'url' => 'profile'], 201)->withCookie($cookie);
+        return response()->json(['success' => true, 'url' => 'shipping-address'], 201)->withCookie($cookie);
     }
 }
