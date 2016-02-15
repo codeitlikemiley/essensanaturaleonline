@@ -114,6 +114,8 @@ class DashboardController extends Controller
         $links = $request->links;
         return $links;
         // Save All Links! id with link
+        // Change Edit_Profile on updateLinks to make it One Form Only
+        // Right Now We Are Using Multiple Form
         \DB::beginTransaction();
         $link = User::find($userID)->links;
 

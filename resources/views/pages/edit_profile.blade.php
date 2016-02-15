@@ -95,23 +95,27 @@
 				data-position="top" data-delay="50" data-tooltip="You May Edit Your Referral Link/s Here"
 				>Referral Link/s</h6>
 			
-			
+			<form class="col s12" action="updateLinks" method="POST" id="updateLinks">
+			<input type="hidden" name="user_id" value="{{ $data['id'] }}"/>
+			{!! Form::token() !!}
 			<!-- POWER -->
 			@for ($i = 0; $i < count($data['links']); $i++)
-			<form class="col s12" action="updateLinks" method="POST" id="updateLinks{{ $data['links'][$i]['id'] }}">
-			{!! Form::token() !!}
-			<input type="hidden" name="user_id" value="{{ $data['id'] }}"/>
+			
 			<input type="hidden" name="links[{{ $i }}][id]" value="{{ $data['links'][$i]['id'] }}"/>
 		        <div class="input-field col s10">
 		          <input placeholder="Your Referral Link" id="link{{ $data['links'][$i]['id'] }}" type="text" class="validate" value="{{ $data['links'][$i]['link'] }}" name="links[{{ $i }}][link]">
 		          <label for="link{{ $data['links'][$i]['id'] }}">Link{{ $i + 1 }}</label>
 		        </div>
-		        <div class="col s2">
-		        <a href="#editLink{{ $data['links'][$i]['id'] }}" class="waves-effect waves-circle waves-green btn-floating white left z-depth-0" style="margin-top: 35px;" onclick="updateLinks({{ $data['links'][$i]['id'] }}); return false;" type="submit"><i class="material-icons right" style="color:#90caf9;">save</i></a>
-		        </div>
-	        </form>
-	        @endfor			
 
+	        @endfor	
+
+	        <div class="col s12">
+		        {{-- <a href="#editLink{{ $data['links'][$i]['id'] }}" class="waves-effect waves-circle waves-green btn-floating white left z-depth-0" style="margin-top: 35px;" onclick="updateLinks({{ $data['links'][$i]['id'] }}); return false;" type="submit"><i class="material-icons right" style="color:#90caf9;">save</i></a> --}}
+		        <button class="col s6 offset-s3 btn waves-effect waves-light form-submit z-depth-2"
+			         type="submit" name="action" onclick="updateLinks(); return false;">Update
+	           </button>
+	        </div>		
+			</form>
 			
 	    	</div>
 			{!! Form::model($data, 
@@ -289,9 +293,9 @@ $('.modal-profile-pic').leanModal({
                 complete: function() { console.log('Closed'); } // Callback for Modal close
                 });
 <!-- YEAH -->
-function updateLinks(id){
-    var url = $('#updateLinks'+ id).attr('action');
-    var links = $('#updateLinks' +id).serializeArray();
+function updateLinks(){
+    var url = $('#updateLinks').attr('action');
+    var links = $('#updateLinks').serializeArray();
         $.ajax({
             url: url,
             dataType:'JSON',
