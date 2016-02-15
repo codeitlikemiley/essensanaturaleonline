@@ -35,11 +35,8 @@ class ActiveMember
             if (!\Auth::user()->links->first()->active) {
             return redirect()->action('DashboardController@showProfile');
             }
-            if (\Auth::user()->links->first()->active) {
-            return redirect()->action('DashboardController@viewProfile');
-            }
-
-        return $this->nocache( $next($request) );
+    
+        return redirect()->action('DashboardController@viewProfile');
     }
 
     protected function nocache($response)
