@@ -36,7 +36,7 @@ class ActiveMember
             return redirect()->action('DashboardController@showProfile');
             }
     
-        return redirect()->action('DashboardController@viewProfile');
+        return $this->nocache( $next($request) );
     }
 
     protected function nocache($response)
