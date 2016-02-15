@@ -63,5 +63,27 @@
 $(document).ready(function(){
       $('.carousel').carousel();
     });
+function viewcompany(){
+$('ul.tabs').tabs('select_tab', 'tab2');
+
+}
+function viewlegalities(){
+$('ul.tabs').tabs('select_tab', 'tab3');
+
+}
+function viewtestimonials(){
+$('ul.tabs').tabs('select_tab', 'tab5');
+
+}
+function viewdosage(){
+$('ul.tabs').tabs('select_tab', 'tab6');
+
+}
+function viewhowtoorder(){
+$('ul.tabs').tabs('select_tab', 'tab7');
+
+}
+
+
 </script>
 @stop
