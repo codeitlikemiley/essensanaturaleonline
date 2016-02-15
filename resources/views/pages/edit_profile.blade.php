@@ -112,7 +112,7 @@
 	        <div class="col s12">
 		        {{-- <a href="#editLink{{ $data['links'][$i]['id'] }}" class="waves-effect waves-circle waves-green btn-floating white left z-depth-0" style="margin-top: 35px;" onclick="updateLinks({{ $data['links'][$i]['id'] }}); return false;" type="submit"><i class="material-icons right" style="color:#90caf9;">save</i></a> --}}
 		        <button class="col s6 offset-s3 btn waves-effect waves-light form-submit z-depth-2"
-			         type="submit" name="action" onclick="updateLinks(); return false;">Update
+			         type="submit" name="action" onclick="updateLinks(); return false;" style="margin-bottom: 25px; magin-top: 25px;">Rename Link
 	           </button>
 	        </div>		
 			</form>
