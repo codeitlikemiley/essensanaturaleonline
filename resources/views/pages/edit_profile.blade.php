@@ -98,11 +98,11 @@
 			<form class="col s12" action="updateLinks" method="POST" id="updateLinks">
 			<input type="hidden" name="user_id" value="{{ $data['id'] }}"/>
 			{!! Form::token() !!}
-			<!-- POWER -->
+			
 			@for ($i = 0; $i < count($data['links']); $i++)
 			
 			<input type="hidden" name="links[{{ $i }}][id]" value="{{ $data['links'][$i]['id'] }}"/>
-		        <div class="input-field col s10">
+		        <div class="input-field col s12">
 		          <input placeholder="Your Referral Link" id="link{{ $data['links'][$i]['id'] }}" type="text" class="validate" value="{{ $data['links'][$i]['link'] }}" name="links[{{ $i }}][link]">
 		          <label for="link{{ $data['links'][$i]['id'] }}">Link{{ $i + 1 }}</label>
 		        </div>
@@ -110,7 +110,6 @@
 	        @endfor	
 
 	        <div class="col s12">
-		        {{-- <a href="#editLink{{ $data['links'][$i]['id'] }}" class="waves-effect waves-circle waves-green btn-floating white left z-depth-0" style="margin-top: 35px;" onclick="updateLinks({{ $data['links'][$i]['id'] }}); return false;" type="submit"><i class="material-icons right" style="color:#90caf9;">save</i></a> --}}
 		        <button class="col s6 offset-s3 btn waves-effect waves-light form-submit z-depth-2"
 			         type="submit" name="action" onclick="updateLinks(); return false;" style="margin-bottom: 25px; magin-top: 25px;">Rename Link
 	           </button>
@@ -292,7 +291,7 @@ $('.modal-profile-pic').leanModal({
                 ready: function() { console.log('Open'); }, // Callback for Modal open
                 complete: function() { console.log('Closed'); } // Callback for Modal close
                 });
-<!-- YEAH -->
+
 function updateLinks(){
     var url = $('#updateLinks').attr('action');
     var links = $('#updateLinks').serializeArray();
