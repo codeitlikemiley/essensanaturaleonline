@@ -92,8 +92,8 @@ Route::group(['middleware' => 'web'], function () {
 	// Product Pagination
 	Route::get('api/products', 'ProductController@show');
 
-	Route::get('shipping-address',['as' => 'profile', 'uses' =>  'DashboardController@showProfile']);
-	Route::post('profile', 'DashboardController@updateProfile');
+	Route::get('shipping-address',['as' => 'shipping-address', 'uses' =>  'DashboardController@showShippingAddress']);
+	Route::post('shipping-address',['as' => 'shipping-address', 'uses' =>  'DashboardController@updateShippingAddress']);
 	Route::get('edit-profile',['as' => 'show-profile', 'uses' => 'DashboardController@viewProfile']);
 	Route::put('edit-profile',['as' => 'update-profile', 'uses' => 'DashboardController@editProfile']);
 	Route::post('updateProfilePic',['as' => 'update-profile-pic', 'uses' => 'DashboardController@updateProfilePic']);

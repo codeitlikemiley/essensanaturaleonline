@@ -1,8 +1,8 @@
 {{-- Start Card Div --}}
-
+  
 <div class="card">
 {{-- Login Form --}}
-<form action="shipping-address" method="POST" class="col s12 login-form" id="updateProfile" data-parsley-validate>
+<form action="shipping-address" method="POST" class="col s12 login-form" id="shipping-address" data-parsley-validate>
 
    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 

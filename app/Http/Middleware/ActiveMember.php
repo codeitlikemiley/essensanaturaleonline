@@ -21,7 +21,7 @@ class ActiveMember
             if (\Auth::user()->links->first()->active) {
             return $this->nocache( $next($request) );
             }
-            return redirect()->action('DashboardController@showProfile');
+            return redirect()->action('DashboardController@showShippingAddress');
     }
 
     protected function nocache($response)

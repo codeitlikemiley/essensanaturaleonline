@@ -15,16 +15,16 @@ class DashboardController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('member', ['only' => ['viewProfile']]);
+        $this->middleware('member', ['only' => ['viewProfile','editProfile','updateProfilePic','updateAboutMe']]);
         $this->middleware('auth');
     }
 
-    public function showProfile()
+    public function showShippingAddress()
     {
     	return view('pages.profile');
     }
 
-    public function updateProfile(Request $request)
+    public function updateShippingAddress(Request $request)
     {
 
     	$profilerequest = new ProfileRequest();

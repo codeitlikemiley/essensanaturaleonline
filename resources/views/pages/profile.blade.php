@@ -65,7 +65,7 @@ else{
 
 }
 }
-$('#updateProfile').on('submit', function (e){
+$('#shipping-address').on('submit', function (e){
             // PREVENT SUBMIT
             e.preventDefault();
 
@@ -73,7 +73,7 @@ $('#updateProfile').on('submit', function (e){
             // Validate The Form
             form.parsley().validate();
             if (form.parsley().isValid()){
-                var profile_form = form.serializeArray();
+                var shipping_address = form.serializeArray();
                 var url = form.attr('action');
                 loader('on');
                 buttonloader('on');
@@ -83,7 +83,7 @@ $('#updateProfile').on('submit', function (e){
                 url: url,
                 type: 'POST',
                 dataType: 'json',
-                data: profile_form,
+                data: shipping_address,
                 success: function (data) {
                     loader('off');
                     buttonloader('off');
