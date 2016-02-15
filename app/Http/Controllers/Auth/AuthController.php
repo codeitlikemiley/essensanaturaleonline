@@ -120,7 +120,7 @@ class AuthController extends Controller
         if (!$active) {
             $messages = ['NotActive' => 'Account is Not Active Yet Please Verify Your Email'];
 
-            return response()->json(['success' => true, 'messages' => $messages, 'url' => 'profile'], 200);
+            return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200);
         }
 
         $messages = ['success' => 'Welcome Back!'];
