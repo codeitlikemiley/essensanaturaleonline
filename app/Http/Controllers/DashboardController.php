@@ -15,8 +15,8 @@ class DashboardController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('member', ['only' => ['showProfile']]);
-        $this->middleware('auth', ['except' => ['viewProfile']]);
+        $this->middleware('member', ['only' => ['viewProfile']]);
+        $this->middleware('auth');
     }
 
     public function showProfile()
