@@ -22,8 +22,8 @@ class UpdateLinkRequest extends Request
     public function rules()
     {
         return [
-                'links.*.link' => array('unique:links,link', 'required', 'min:8', 'max:30', 'regex:/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/'),
-                'links.*.id' => 'exists:links,id|required',
+                'link.*' => array('unique:links,link', 'required', 'min:8', 'max:30', 'regex:/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/'),
+                'lid.*' => 'exists:links,id|required',
 
 
 
