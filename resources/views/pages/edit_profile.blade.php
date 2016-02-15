@@ -309,11 +309,12 @@ function updateLinks(){
 
         }).fail(function () { // if Fail
             var errors = data.responseJSON;
+            console.log(errors);
 
             $.each(errors.errors, function(index, error)
             {
              Materialize.toast(error, 4000,'',function(){
-                console.log(data);
+
             });
             });
             
