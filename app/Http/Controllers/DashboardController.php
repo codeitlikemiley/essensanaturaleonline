@@ -15,7 +15,7 @@ class DashboardController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('member');
+        $this->middleware('member', ['except' => ['updateAboutMe', 'updateProfilePic', 'viewProfile']]);
     }
 
     public function showProfile()
