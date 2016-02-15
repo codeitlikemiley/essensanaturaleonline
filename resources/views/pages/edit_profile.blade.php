@@ -22,7 +22,7 @@
 	    	<div class="col s12 m4 l4">
 	    	<div id="picture_wrapper">
 	    	<div id="profile_picture" class="center">
-	    	<img src="{{ $data['profile_pic'] }}" alt="myprofilepic" class="responsive-img" width="150px" height="150px" style="border-radius: 150px">
+	    	<img src="{{ $data['profile_pic'] }}" alt="myprofilepic" width="250px" height="250px" style="border-radius: 125px">
 	    	</div>
 	    	<button href="#viewModalPic{{ $data['id'] }}" class="modal-trigger modal-profile-pic col s12 btn waves-effect waves-light form-submit left z-depth-0 tooltipped" data-position="top" data-delay="50" data-tooltip="Upload Profile Pic" type="btn" style="margin-bottom: 25px; magin-top: 25px;">Upload Photo</button>
 	    	</div>
