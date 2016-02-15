@@ -1,5 +1,5 @@
 {{-- Navigation Floating Button --}}
-  <div class="fixed-action-btn  click-to-toggle tooltipped" data-position="left" data-delay="0" data-tooltip="Click Here to Navigate To" style="bottom: 40px; right: 50px; z-index: 996;">
+  <div class="fixed-action-btn  click-to-toggle" style="bottom: 40px; right: 50px; z-index: 996;">
     <a class="btn-floating btn-large amber darken-2">
       <i class="material-icons">navigation</i>
     </a>
@@ -15,7 +15,7 @@
       {{-- <li><a href="#!" class="btn-floating green"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Products">store</i></a></li> --}}
       
 
-      <li><a href="/profile" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
+      <li><a href="/shipping-address" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
 
       <li><a href="/" class="btn-floating red lighten-1"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Home">home</i></a></li>
 

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Link;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Http\Requests\ProfileRequest;
 use Validator;
 use App\User;
+use App\Http\Requests\UpdateLinkRequest;
 
 class DashboardController extends Controller
 {
@@ -77,26 +79,64 @@ class DashboardController extends Controller
     {
         $data=array();
 
-        $user = Profile::find(\Auth::user()->id);
+        $user = User::with('links','profile')->find(\Auth::user()->id);
         $data['id'] = $user->id;
-        $data['profile_pic'] = $user->profile_pic;
-        $data['about_me'] = $user->about_me;
-        $data['first_name'] = $user->first_name;
-        $data['last_name'] = $user->last_name;
-        $data['display_name'] = $user->display_name;
-        $data['contact_no'] = $user->contact_no;
-        $data['address'] = $user->address;
-        $data['city'] = $user->city;
-        $data['province_state'] = $user->province_state;
-        $data['zip_code'] = $user->zip_code;
-        $data['country'] = $user->country;
-        $social_links= $user->social_links;
+        $data['profile_pic'] = $user->profile->profile_pic;
+        $data['about_me'] = $user->profile->about_me;
+        $data['first_name'] = $user->profile->first_name;
+        $data['last_name'] = $user->profile->last_name;
+        $data['display_name'] = $user->profile->display_name;
+        $data['contact_no'] = $user->profile->contact_no;
+        $data['address'] = $user->profile->address;
+        $data['city'] = $user->profile->city;
+        $data['province_state'] = $user->profile->province_state;
+        $data['zip_code'] = $user->profile->zip_code;
+        $data['country'] = $user->profile->country;
+        $social_links= $user->profile->social_links;
         $data['social_links'] = $social_links;
 
-        $contact_options= $user->contact_options;
+        $contact_options= $user->profile->contact_options;
         $data['contact_options'] = $contact_options;
+        $links = $user->links;
+        $data['links'] =$links;
+        
 
         return view('pages.edit_profile')->with(compact('data'));
+    }
+
+    public function updateLinks(Request $request){
+         $updatelink = new UpdateLinkRequest();
+         $validator         = Validator::make($request->all(), $updatelink->rules(), $updatelink->messages());
+         if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()->toArray()], 400);
+        }
+        $userID = $request->user_id;
+        $links = $request->links;
+        // Save All Links! id with link
+        \DB::beginTransaction();
+        $link = User::find($userID)->links;
+
+        for ($i = 0; $i < count($links); $i++){
+            $reflink = $link->find($links[$i]['id']);
+            $reflink->link = $links[$i]['link'];
+            $reflink->save();
+            try {
+            if (!$reflink) {
+                throw new \Exception('We Have Restricted You From Editing Others Link!');
+            }
+        } catch (\Exception $e) {
+            \DB::rollback();
+
+            $errors = [
+            'ExceptionError' => $e->getMessage(),
+            ];
+
+            return response()->json(['success' => false, 'errors' => $errors], 400); // Failed Creation
+        }
+        }
+        \DB::commit();
+        return response()->json(['success' => true, 'message' => 'Link Have Been Renamed!'], 200);
+
     }
 
     public function updateProfilePic(Request $request){

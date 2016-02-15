@@ -74,7 +74,7 @@
 	    	</div>
 	    	<div class="col s12 m8 l8">
 	    	
-		    <form class="col s12" action="updateAboutMe" method="POST" id="updateAboutMe" onchange="updateAboutMe(); return false;">
+		    <form class="col s12" action="updateAboutMe" method="POST" id="updateAboutMe">
 		      <div class="row">
 		      <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 		        <div class="input-field">
@@ -89,6 +89,30 @@
 	    	</div>
 	    	
         
+	    	</div>
+	    	<div class="col s12 login-form">
+	    	<h6 class="teal-text tooltipped center" 
+				data-position="top" data-delay="50" data-tooltip="You May Edit Your Referral Link/s Here"
+				>Referral Link/s</h6>
+			
+			
+			<!-- POWER -->
+			@for ($i = 0; $i < count($data['links']); $i++)
+			<form class="col s12" action="updateLinks" method="POST" id="updateLinks{{ $data['links'][$i]['id'] }}" onsubmit="updateLinks(); return false;">
+			{!! Form::token() !!}
+			<input type="hidden" name="user_id" value="{{ $data['id'] }}"/>
+			<input type="hidden" name="links[{{ $i }}][id]" value="{{ $data['links'][$i]['id'] }}"/>
+		        <div class="input-field col s10">
+		          <input placeholder="Your Referral Link" id="link{{ $data['links'][$i]['id'] }}" type="text" class="validate" value="{{ $data['links'][$i]['link'] }}" name="links[{{ $i }}][link]">
+		          <label for="link{{ $data['links'][$i]['id'] }}">Link{{ $i + 1 }}</label>
+		        </div>
+		        <div class="col s2">
+		        <a href="#editLink{{ $data['links'][$i]['id'] }}" class="waves-effect waves-circle waves-green btn-floating white left z-depth-0" style="margin-top: 35px;" onclick="updateLinks({{ $data['links'][$i]['id'] }}); return false;" type="submit"><i class="material-icons right" style="color:#90caf9;">save</i></a>
+		        </div>
+	        </form>
+	        @endfor			
+
+			
 	    	</div>
 			{!! Form::model($data, 
 					[
@@ -264,7 +288,33 @@ $('.modal-profile-pic').leanModal({
                 ready: function() { console.log('Open'); }, // Callback for Modal open
                 complete: function() { console.log('Closed'); } // Callback for Modal close
                 });
+<!-- YEAH -->
+function updateLinks(id){
+    var url = $('#updateLinks'+ id).attr('action');
+    var links = $('#updateLinks' +id).serializeArray();
+        $.ajax({
+            url: url,
+            dataType:'JSON',
+            data: links,
+            type:'post',
+        }).done(function(data){
+            
+           Materialize.toast(data.message, 4000,'',function () {
+            console.log(data);
+           });
 
+        }).fail(function () { // if Fail
+            var errors = data.responseJSON;
+
+            $.each(errors.errors, function(index, error)
+            {
+             Materialize.toast(error, 4000,'',function(){
+                //
+            });
+            });
+            
+          });
+    }
 function submitProfilePic(id){
     var url = $('#postProfilePic'+ id).attr('action');
     var form = document.querySelector('#postProfilePic'+ id);
