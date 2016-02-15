@@ -101,9 +101,9 @@
 			<!-- POWER -->
 			@for ($i = 0; $i < count($data['links']); $i++)
 			
-			<input type="hidden" name="lid[{{ $i }}]" value="{{ $data['links'][$i]['id'] }}"/>
+			<input type="hidden" name="links[{{ $i }}][id]" value="{{ $data['links'][$i]['id'] }}"/>
 		        <div class="input-field col s10">
-		          <input placeholder="Your Referral Link" id="link{{ $data['links'][$i]['id'] }}" type="text" class="validate" value="{{ $data['links'][$i]['link'] }}" name="link[{{ $i }}]">
+		          <input placeholder="Your Referral Link" id="link{{ $data['links'][$i]['id'] }}" type="text" class="validate" value="{{ $data['links'][$i]['link'] }}" name="links[{{ $i }}][link]">
 		          <label for="link{{ $data['links'][$i]['id'] }}">Link{{ $i + 1 }}</label>
 		        </div>
 
