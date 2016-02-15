@@ -98,7 +98,7 @@
 			
 			<!-- POWER -->
 			@for ($i = 0; $i < count($data['links']); $i++)
-			<form class="col s12" action="updateLinks" method="POST" id="updateLinks{{ $data['links'][$i]['id'] }}" onsubmit="updateLinks(); return false;">
+			<form class="col s12" action="updateLinks" method="POST" id="updateLinks{{ $data['links'][$i]['id'] }}">
 			{!! Form::token() !!}
 			<input type="hidden" name="user_id" value="{{ $data['id'] }}"/>
 			<input type="hidden" name="links[{{ $i }}][id]" value="{{ $data['links'][$i]['id'] }}"/>
