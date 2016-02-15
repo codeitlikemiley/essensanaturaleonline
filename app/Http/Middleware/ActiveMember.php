@@ -33,7 +33,7 @@ class ActiveMember
                 ->with( 'date', \Auth::user()->created_at);
             }
             if (!\Auth::user()->links->first()->active) {
-            return $this->nocache( $next($request) );
+            return redirect()->action('DashboardController@showProfile');
             }
             if (\Auth::user()->links->first()->active) {
             return redirect()->action('DashboardController@viewProfile');
