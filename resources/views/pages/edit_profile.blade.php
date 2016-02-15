@@ -313,7 +313,7 @@ function updateLinks(){
             $.each(errors.errors, function(index, error)
             {
              Materialize.toast(error, 4000,'',function(){
-                //
+                console.log(errors);
             });
             });
             
