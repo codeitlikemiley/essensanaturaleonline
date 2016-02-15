@@ -307,7 +307,7 @@ function updateLinks(){
             console.log(data);
            });
 
-        }).fail(function () { // if Fail
+        }).fail(function (data) { // if Fail
             var errors = data.responseJSON;
             console.log(errors);
 
