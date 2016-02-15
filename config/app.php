@@ -213,6 +213,7 @@ return [
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
         'Avatar'    => Laravolt\Avatar\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         
 
 
