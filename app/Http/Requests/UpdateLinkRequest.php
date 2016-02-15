@@ -32,14 +32,12 @@ class UpdateLinkRequest extends Request
     }
     public function messages()
     {
-        return [
-            'links.*.link.unique'           => 'Link :value Name Already Exist!',
-            'links.*.link.required'     => 'Link Name is Empty!',
-            'links.*.link.min'           => 'Link Name Should Be More than 8 Characters!',
-            'links.*.link.max'   => 'Link Name Exceeded Allowable Character Limit of 30!',
-            'links.*.link.regex'      =>'Link Name Has an Invalid Character Present!',
-            'links.*.id.exists' => 'Link ID Does Not Exist!',
-            'links.*.id.required' => 'Link ID is Missing!',
-        ];
+      $messages = [];
+      foreach($this->request->get('links') as $key => $val)
+      {
+        $messages['links.'.$key.'.link'.'unique'] = 'The field labeled "Link '.$key + 1 .'" must be Unique';
+      }
+      return $messages;
+        
     }
 }
