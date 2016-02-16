@@ -169,7 +169,7 @@
         <li><a href="/login" id="navbar-login" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to Access Account"><i class="material-icons">account_circle</i></a></li>
         @endif
         @if(Auth::user())
-        <li><a href="/orders" id="navbar-order" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to View Orders"><i class="material-icons">assignment</i></a></li>
+        <li><a href="/orders" id="navbar-order" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to View Purchased Orders"><i class="material-icons">assignment</i></a></li>
         <li><a href="/logout" id="navbar-logout" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to Log Out Account!"><i class="material-icons">settings_power</i></a></li>
         @endif
       </ul>
