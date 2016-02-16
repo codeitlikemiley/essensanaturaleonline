@@ -30,10 +30,6 @@ class LinkController extends Controller
      */
     public function showRefLink($link = null)
     {
-        // Link is NULL 
-        if (is_null($link)) {
-            return Redirect::to('/');
-        }
         //  // If it has a Sponsor Cookie
         if (\Cookie::has('sponsor')) {
             $cookie = \Cookie::get('sponsor');
