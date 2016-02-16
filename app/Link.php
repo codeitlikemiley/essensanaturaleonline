@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Link extends Model
 {
+
 	/**
      * The database table used by the model.
      *
@@ -36,6 +38,8 @@ class Link extends Model
         parent::boot();
 
         static::creating(function ($link) {
+            $link->sp_user_id = 1;
+            $link->sp_link_id = 1;
             $cookie = \Cookie::get('sponsor');
             if ($cookie) {
                 $link->sp_user_id = $cookie['user_id'];

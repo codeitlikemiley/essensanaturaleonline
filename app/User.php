@@ -4,10 +4,21 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use SammyK\LaravelFacebookSdk\SyncableGraphNodeTrait;
 
 class User extends Authenticatable
 {
     use HasRolesAndAbilities;
+    use SyncableGraphNodeTrait;
+    /**
+     * [$graph_node_field_aliases Declare Here All Your Database Column Name With respect to FB Graph Node Field]
+     * @var [mix]
+     */
+    protected static $graph_node_field_aliases = [
+        'id' => 'facebook_user_id',
+        'email' => 'email',
+        'verified' => 'active',
+    ];
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +33,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    // protected $hidden = ['id' ,'password', 'remember_token', 'updated_at', 'activation_code', 'resent', 'status', 'active', 'sp_id', 'email', 'created_at', 'username'];
+    // protected $hidden = ['id' ,'password', 'remember_token', 'updated_at', 'activation_code', 'resent', 'status', 'active', 'sp_id', 'email', 'created_at', 'username', 'access_token'];
     
     protected $dates = ['created_at', 'updated_at'];
 
@@ -45,11 +56,13 @@ class User extends Authenticatable
         parent::boot();
 
         static::creating(function ($user) {
+            $user->sp_id = 1;
             $cookie = \Cookie::get('sponsor');
             if ($cookie) {
                 $user->sp_id = $cookie['user_id'];
             }
             $user->activation_code = str_random(60);
+
 
         });
     }

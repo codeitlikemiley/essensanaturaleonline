@@ -1,20 +1,9 @@
 <?php
 
-Route::get('/editOrder', function(){
-	// if !Auth User then it return f	// Use this For Editting Your Own Order!
-
-	// $user = \Auth::loginUsingId(1);
-	// Auth::logout();
-	  $order = App\Order::findOrFail(1);
-	  if(\Bouncer::allows('power', $order))
-	  {
-	  	return view('welcome')->with(compact('order', 'user'));
-	  }
-	  return Response::json(['message' => 'Your Are Not Authorize To Do This Action!'], 403);
-
-});
 
 Route::group(['middleware' => 'web'], function () {
+// Endpoint that is redirected to after an authentication attempt
+
 	Route::post('searchProduct', 'SearchController@searchProduct');
 
 	Route::get('search/autocomplete', 'SearchController@autocomplete');
@@ -101,6 +90,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('updateLinks',['as' => 'updateLinks', 'uses' => 'DashboardController@updateLinks']);
 // Route::get('profile', ['as' => 'profile', 'uses' => 'UserController@edit']);
 
+Route::get('/facebook/callback', ['as' => 'fbcallback', 'uses' => 'Auth\AuthController@fbcallback']);
 //show login/signup form
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@login']);
 

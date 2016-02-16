@@ -20,6 +20,8 @@ use App\Http\Controllers\MailController as Mail;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Order;
 use App\ItemOrder;
+use Facebook;
+use Session;
 
 class AuthController extends Controller
 {
@@ -58,6 +60,96 @@ class AuthController extends Controller
         $this->mail = $mail;
     }
 
+    public function fbcallback()
+    {
+    try {
+        $token = Facebook::getAccessTokenFromRedirect();
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+
+    // Access token will be null if the user denied the request
+    // or if someone just hit this URL outside of the OAuth flow.
+    if (! $token) {
+        // Get the redirect helper
+        $helper = Facebook::getRedirectLoginHelper();
+
+        if (! $helper->getError()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // User denied the request
+        dd(
+            $helper->getError(),
+            $helper->getErrorCode(),
+            $helper->getErrorReason(),
+            $helper->getErrorDescription()
+        );
+    }
+
+    if (! $token->isLongLived()) {
+        // OAuth 2.0 client handler
+        $oauth_client = Facebook::getOAuth2Client();
+
+        // Extend the access token.
+        try {
+            $token = $oauth_client->getLongLivedAccessToken($token);
+        } catch (Facebook\Exceptions\FacebookSDKException $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    Facebook::setDefaultAccessToken($token);
+
+    // Save for later
+    Session::put('fb_user_access_token', (string) $token);
+
+    // Get basic info on the user from Facebook.
+    try {
+        $response = Facebook::get('/me?fields=id,email,verified');
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+
+    // Convert the response to a `Facebook/GraphNodes/GraphUser` collection
+    $facebook_user = $response->getGraphUser();
+    try {
+        $response = Facebook::get('/me?fields=first_name,last_name,name');
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+    $facebook_profile = $response->getGraphUser();
+
+    try {
+        $response = Facebook::get('/me?fields=name');
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
+        dd($e->getMessage());
+    }
+    $facebook_link = $response->getGraphUser();
+    $facebook_link = preg_replace('/\s+/', '', $facebook_link['name']);
+    // Create the user if it does not exist or update the existing entry.
+    // This will only work if you've added the SyncableGraphNodeTrait to your User model.
+    // $profile = App\Profile::createOrUpdateGraphNode($facebook_user);
+        $user = User::createOrUpdateGraphNode($facebook_user);
+        $profile = $user->profile()->firstOrNew([
+            'first_name' => $facebook_profile['first_name'],
+            'last_name' =>  $facebook_profile['last_name'],
+            'display_name'  => $facebook_profile['name'],
+            ]);
+        $user->profile()->save($profile);
+        $link = $user->links()->firstOrNew([
+            'link'  => $facebook_link,
+            ]);
+        $user->links()->save($link);
+        $user->username = $facebook_link;
+        $user->save();
+        
+
+    // Log the user into Laravel
+    \Auth::login($user);
+
+    return redirect('/shipping-address');   
+    }
     public function authenticate(Request $request)
     {
         $loginRequest = new LoginRequest();
@@ -129,8 +221,9 @@ class AuthController extends Controller
     }
 
     public function login()
-    {
-        return view('auth.login');
+    {   
+        $login_url = \Facebook::getLoginUrl(['email','public_profile']);
+        return view('auth.login')->with(compact('login_url'));
     }
 
     // Needs a Good Template

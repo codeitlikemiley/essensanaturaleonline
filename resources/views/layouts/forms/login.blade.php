@@ -33,6 +33,9 @@
 
   </div>
   </div>
+  <div class="row center">
+  <a href="{{ $login_url }}" class="col s10 offset-s1 btn waves-effect waves-light" type="submit" style="background-color: #4C67A1;"><strong>Register | Login via Facebook</strong></a>
+  </div>
   @include('layouts.loading')
   <div class="row buttonloader">
   <button class="col s5 offset-s1 btn waves-effect waves-light form-submit" type="submit" id="sign_in" name="action">Login <i class="material-icons right">power_settings_new</i></button>

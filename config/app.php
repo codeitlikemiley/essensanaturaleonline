@@ -153,6 +153,7 @@ return [
         Silber\Bouncer\BouncerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
+        SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -214,6 +215,7 @@ return [
         'Bouncer' => Silber\Bouncer\BouncerFacade::class,
         'Avatar'    => Laravolt\Avatar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
         
 
 
