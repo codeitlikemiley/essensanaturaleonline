@@ -166,7 +166,7 @@
         <li><a href="/checkout" id="nav-checkout" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here To Check Out"><i class="material-icons">local_shipping</i></a></li>
         @endif
         @if(!Auth::user())
-        <li><a href="/edit-profile" id="navbar-login" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to Access Account"><i class="material-icons">account_circle</i></a></li>
+        <li><a href="/login" id="navbar-login" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to Access Account"><i class="material-icons">account_circle</i></a></li>
         @endif
         @if(Auth::user())
         <li><a href="/orders" id="navbar-order" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click Here to View Orders"><i class="material-icons">assignment</i></a></li>
