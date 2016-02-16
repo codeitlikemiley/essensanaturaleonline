@@ -14,8 +14,13 @@
 
       {{-- <li><a href="#!" class="btn-floating green"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Products">store</i></a></li> --}}
       
-
+      @if(!Auth::user())
+      <li><a href="/login" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
+      @elseif(Auth::user()->links->first()->active)
       <li><a href="/edit-profile" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
+      @else
+      <li><a href="/shipping-address" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
+      @endif
 
       <li><a href="/" class="btn-floating red lighten-1"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Home">home</i></a></li>
 
