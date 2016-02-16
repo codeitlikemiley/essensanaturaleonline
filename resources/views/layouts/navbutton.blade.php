@@ -15,7 +15,7 @@
       {{-- <li><a href="#!" class="btn-floating green"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Products">store</i></a></li> --}}
       
 
-      <li><a href="/shipping-address" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
+      <li><a href="/edit-profile" class="btn-floating orange"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Dashboard">account_circle</i></a></li>
 
       <li><a href="/" class="btn-floating red lighten-1"><i class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Home">home</i></a></li>
 
