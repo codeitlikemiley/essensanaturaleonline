@@ -17,6 +17,13 @@ class ActiveMember
      */
     public function handle($request, Closure $next, $guard = null)
     {
+            if (Auth::guard($guard)->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('login');
+            }
+            }
         
             if (\Auth::user()->links->first()->active) {
             return $this->nocache( $next($request) );
