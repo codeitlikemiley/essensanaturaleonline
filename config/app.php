@@ -154,6 +154,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
+        Netshell\Paypal\PaypalServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -216,6 +217,7 @@ return [
         'Avatar'    => Laravolt\Avatar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
+        'PayPal' => Netshell\Paypal\Facades\Paypal::class,
         
 
 

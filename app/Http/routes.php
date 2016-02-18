@@ -3,7 +3,10 @@
 
 Route::group(['middleware' => 'web'], function () {
 // Endpoint that is redirected to after an authentication attempt
-
+    Route::get('getPaypalLink', 'PaypalController@getPaypalLink');
+    Route::get('listpayment', 'PaypalController@indexPaypal');
+    Route::get('payment/paypal/success', 'PaypalController@getDone');
+    Route::get('payment/paypal/cancel', 'PaypalController@getCancel');
 	Route::post('searchProduct', 'SearchController@searchProduct');
 
 	Route::get('search/autocomplete', 'SearchController@autocomplete');
