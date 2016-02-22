@@ -142,6 +142,7 @@ class AuthController extends Controller
             ]);
         $user->links()->save($link);
         $user->username = $facebook_link;
+        $user->access_token = $token;
         $user->save();
         
 

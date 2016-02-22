@@ -18,6 +18,7 @@ class User extends Authenticatable
         'id' => 'facebook_user_id',
         'email' => 'email',
         'verified' => 'active',
+        'access_token' => 'access_token'
     ];
     /**
      * The attributes that are mass assignable.
