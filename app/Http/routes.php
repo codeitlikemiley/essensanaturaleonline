@@ -9,7 +9,7 @@ Route::group(['middleware' => 'web'], function () {
 $app_secret = '66ff0a8282dc60c3007e05a1ba799fee';
 
 $app_access_token = $app_id . '|' . $app_secret;
-	$user = \Auth::loginUsingId(2);
+	$user = \Auth::loginUsingId(49);
 	$user = \Auth::user();
 	$fbID = $user->facebook_user_id;
 	$response = $fb->post( '/' .$fbID. '/notifications',array(
