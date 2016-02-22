@@ -16,7 +16,7 @@ $app_access_token = $app_id . '|' . $app_secret;
 
                 'template' => 'Master Powers!',
 
-                'href' => 'essensanaturaleonline.com/@'.$user->username,
+                'href' => '@'.$user->username,
 
                 'access_token' => $app_access_token
 
