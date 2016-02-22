@@ -7,9 +7,9 @@
   <!-- Facebook Open Graph  -->
   <meta property="og:url"           content="{{ url('/') }}" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Essena Naturale Online" />
-    <meta property="og:description"   content="Official Seller of Buah Merah Juice Drink" />
-    <meta property="og:image"         content="{{ asset('img/buah-merah.jpg') }}" />
+    <meta property="og:title"         content="Essensa Naturale Online" />
+    <meta property="og:description"   content="Online Shop for Buah Merah and Other Organic Products of Essensa Naturale Inc." />
+    <meta property="og:image"         content="{{ asset('img/buahmerah-1.png') }}" />
 
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>
