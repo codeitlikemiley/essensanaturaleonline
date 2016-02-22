@@ -34,6 +34,7 @@ print_r($response);
 	Route::get('search/autocomplete', 'SearchController@autocomplete');
     
     Route::get('/', 'HomeController@index');
+    Route::post('/','HomeController@index');
    
 	Route::get('/admin/product/new', 'ProductController@newProduct');
 	Route::get('/admin/products', 'ProductController@index');
@@ -144,6 +145,7 @@ Route::post('signup', ['as' => 'signup', 'uses' => 'Auth\AuthController@create']
 
 //Load Referral Link of A User {NOTE: ALWAYS MAKE THIS THE LAST LINE IN ROUTE!}
 Route::get('@{link?}', ['as' => 'reflink', 'uses' => 'LinkController@showRefLink']);
+Route::post('@{link?}', ['as' => 'reflink', 'uses' => 'LinkController@showRefLink']);
 
 View::composer('layouts.cart', function($view) {
 		$cart = Cart::content();
