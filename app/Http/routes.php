@@ -1,29 +1,29 @@
 <?php
 
 
-Route::group(['middleware' => 'web'], function () {
-	Route::get('/notify', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
-{
-	$app_id = 167776416934911;
+// Route::group(['middleware' => 'web'], function () {
+// 	Route::get('/notify', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
+// {
+// 	$app_id = 167776416934911;
 
-$app_secret = '66ff0a8282dc60c3007e05a1ba799fee';
+// $app_secret = '66ff0a8282dc60c3007e05a1ba799fee';
 
-$app_access_token = $app_id . '|' . $app_secret;
-	$user = \Auth::loginUsingId(49);
-	$user = \Auth::user();
-	$fbID = $user->facebook_user_id;
-	$response = $fb->post( '/' .$fbID. '/notifications',array(
+// $app_access_token = $app_id . '|' . $app_secret;
+// 	$user = \Auth::loginUsingId(49);
+// 	$user = \Auth::user();
+// 	$fbID = $user->facebook_user_id;
+// 	$response = $fb->post( '/' .$fbID. '/notifications',array(
 
-                'template' => 'Master Powers!',
+//                 'template' => 'Master Powers!',
 
-                'href' => '@'.$user->username,
+//                 'href' => '@'.$user->username,
 
-                'access_token' => $app_access_token
+//                 'access_token' => $app_access_token
 
-            ) );    
+//             ) );    
 
-print_r($response);
-});
+// print_r($response);
+// });
 // Endpoint that is redirected to after an authentication attempt
     Route::get('getPaypalLink', 'PaypalController@getPaypalLink');
     Route::get('listpayment', 'PaypalController@indexPaypal');
