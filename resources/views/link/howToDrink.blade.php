@@ -1,9 +1,8 @@
 <div class="row">
 <h5 class="amber-text center">How to prepare Buah Merah Mix Health Juice Drink</h5>
 <div class="col l6 m6 s12 left">
-<div class="video-container">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/HvNC-zypLU8?rel=0" frameborder="0" allowfullscreen></iframe>
-      </div>
+<div class="video-container youtube" id="HvNC-zypLU8" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720" style="width:560px;height:315px;">
+</div>
 </div>
 <div class="col l6 m6 s12 right">
 <p>(1) Dilute the powder, or fill the bottle with 300ml water (cold or normal), or up to the label</p>

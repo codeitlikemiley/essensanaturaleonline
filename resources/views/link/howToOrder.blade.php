@@ -5,9 +5,8 @@
 <br><br>
 </div>
 <div class="col l6 m6 s12 right">
-<div class="video-container">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/u9P_f4laLok?rel=0" frameborder="0" allowfullscreen></iframe>
-      </div>
+<div class="video-container youtube" id="u9P_f4laLok" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720" style="width:560px;height:315px;">
+</div>
 </div>
 <div class="col l6 m6 s12 left teal-text text-lighten-2">
 <p>(1) Add to Cart a Product i.e.(10 Buah Merah Mix)</p>
