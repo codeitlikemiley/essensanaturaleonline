@@ -13,11 +13,7 @@
 
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>
-  <style>
-      body {
-        font-family: 'Material Icons', normal;
-      }
-    </style>
+
    <!--Import all Css-->   
   {!! Html::style('css/vendor.css') !!}
   {!! Html::style('css/custom.css') !!}
