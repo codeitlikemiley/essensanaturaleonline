@@ -1,7 +1,7 @@
 <?php
 
 
-// Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'web'], function () {
 // 	Route::get('/notify', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
 // {
 // 	$app_id = 167776416934911;
