@@ -41,7 +41,7 @@
               </li>
               <li>
               <a class="active collapsible-header waves-effect waves-light waves-red lighten-5 teal-text"><i class="material-icons left">pages</i>Message Me in Facebook<i class="material-icons right">keyboard_arrow_down</i></a>
-              @include('layouts.forms.fb-fanpage')
+              <!-- @include('layouts.forms.fb-fanpage') -->
               </li>
             </ul>
         </div>

@@ -49,7 +49,7 @@
     
     </div>
   </div>
-    @include('link.fbcomment')
+    <!-- @include('link.fbcomment') -->
   
 </main>
 <!-- END Main Content -->
