@@ -2,7 +2,8 @@
 
 @section('head')
 <!-- Start Custom Header (CSS) -->
-
+<meta property="fb:admins" content="{{ $link->user->facebook_user_id }}"/>
+<meta property="fb:app_id" content="{{ $link->user->profile->social_links['app_id'] }}" />
 <!-- End Custom Header (CSS) -->
 @stop
 
