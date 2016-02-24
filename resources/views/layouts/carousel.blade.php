@@ -11,7 +11,7 @@
 <img data-u="image" src="img/mop/bdo.jpg" />
 </div>
 <div style="display: none;">
-<img data-u="image" src="img/mop/bpi.png" />
+<img data-u="image" src="img/mop/bpi.jpg" />
 </div>
 <div style="display: none;">
 <img data-u="image" src="img/mop/cebuana-lhuillier.jpg" />
@@ -41,17 +41,15 @@
 <img data-u="image" src="img/mop/smart-money.jpg" />
 </div>
 <div style="display: none;">
-<img data-u="image" src="img/mop/paypal.png" />
+<img data-u="image" src="img/mop/paypal.jpg" />
 </div>
 <div style="display: none;">
-<img data-u="image" src="img/mop/master.png" />
+<img data-u="image" src="img/mop/master.jpg" />
 </div>
 <div style="display: none;">
-<img data-u="image" src="img/mop/visa.png" />
+<img data-u="image" src="img/mop/visa.jpg" />
 </div>
-<div style="display: none;">
-<img data-u="image" src="img/mop/bitcoin.jpg" />
-</div>
+
 
 </div>
 <a href="{{ url('/') }}" style="display:none">Essensa Natural Online</a>
