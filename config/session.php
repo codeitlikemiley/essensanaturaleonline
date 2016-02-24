@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'domain' => null,
+    'domain' => env('COOKIE_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,6 @@ return [
     |
     */
 
-    'secure' => false, // Turn it On Production
+    'secure' => env('SECURE_COOKIE', 'false'), // Turn it On Production
 
 ];
