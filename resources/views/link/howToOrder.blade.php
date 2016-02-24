@@ -5,7 +5,7 @@
 <br><br>
 </div>
 <div class="col l6 m6 s12 right">
-<div class="video-container youtube" id="u9P_f4laLok" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720" style="width:560px;height:315px;">
+<div class="video-container youtube" id="u9P_f4laLok" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720">
 </div>
 </div>
 <div class="col l6 m6 s12 left teal-text text-lighten-2">

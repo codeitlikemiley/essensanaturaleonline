@@ -1,7 +1,7 @@
 <div class="row">
 <h5 class="amber-text center">How to prepare Buah Merah Mix Health Juice Drink</h5>
 <div class="col l6 m6 s12 left">
-<div class="video-container youtube" id="HvNC-zypLU8" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720" style="width:560px;height:315px;">
+<div class="video-container youtube" id="HvNC-zypLU8" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720">
 </div>
 </div>
 <div class="col l6 m6 s12 right">
