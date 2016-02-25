@@ -4,8 +4,9 @@
 <h5 class="amber-text center">How to Order?</h5>
 <br><br>
 </div>
-<div class="col l6 m6 s12 right">
-<div class="video-container youtube" id="u9P_f4laLok" data-params="modestbranding=1&showinfo=0&controls=0&vq=hd720">
+<div class="col l6 m6 s12 left">
+<div class="video-container" id="youtube2">
+<iframe width="853" height="480" src="//www.youtube.com/embed/u9P_f4laLok?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div class="col l6 m6 s12 left teal-text text-lighten-2">
