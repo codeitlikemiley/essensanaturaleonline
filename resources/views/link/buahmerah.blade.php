@@ -35,10 +35,10 @@ Various doctors, scientists and even tourists from all over the world started fl
 </div>
 
 <div class="col s12 center hide-on-med-and-down">
-<img src="img/buahmerah-1.png" alt="" class="responsive-img">
+<img src="img/buahmerah-1.jpg" alt="" class="responsive-img">
 </div>
 <div class="col s12 center hide-on-large-only" >
-<img src="img/buahmerahmix.png" alt="" class="responsive-img">
+<img src="img/buahmerahmix.jpg" alt="" class="responsive-img">
 </div>
 <div class="col s12">
  <p>
