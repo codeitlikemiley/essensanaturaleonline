@@ -57,7 +57,7 @@
 @stop
 
 @section('footer')
-@include('layouts.forms.fb-sdk')
+
 <script>
 $(document).ready(function(){
       $('.carousel').carousel();
