@@ -22,15 +22,15 @@ var elixir = require('laravel-elixir');
 // });
 
 
-// elixir(function(mix) {
-//     mix.styles([
-//     'materialize.min.css',
-//     'jquery.lazyloadxt.fadein.min.css',
-//     'jquery.lazyloadxt.spinner.min.css',
-//     'jqueryui.css',
-//     'grecaptcha.css',
-//     'custom.css'
-//     ],'public/css/vendor.css');
-// });
+elixir(function(mix) {
+    mix.styles([
+    'materialize.min.css',
+    'jquery.lazyloadxt.fadein.min.css',
+    'jquery.lazyloadxt.spinner.min.css',
+    'jqueryui.css',
+    'grecaptcha.css',
+    'custom.css'
+    ],'public/css/vendor.css');
+});
 
 
