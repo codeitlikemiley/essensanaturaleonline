@@ -1,5 +1,5 @@
 <div class="row container">
-<h3>Facebook Comments</h3>
+<h5 style="color: #3b5998">Facebook Comments</h5>
 <div>
     <div data-lazy-widget="fb_2" class="fb-comments" data-href="https://essensanaturaleonline.com/@{{ $link->link }}" data-numposts="5" data-colorscheme="light" data-mobile="true"></div>
     <div id="fb_2"><!--
