@@ -63,7 +63,6 @@
 <script>
 $(document).ready(function(){
       $('.carousel').carousel();
-      optimizeYouTubeEmbeds();
     });
 function viewcompany(){
 $('ul.tabs').tabs('select_tab', 'tab2');
