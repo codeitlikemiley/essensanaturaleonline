@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col l6 m6 s12">
 <div class="col s12 left">
-<img src="img/president.png" alt="" class="responsive-img">
+<img src="img/president.jpg" alt="" class="responsive-img">
 </div>
 <p>
 ✓ Ms. Jocelyn Alcasabas<br>
@@ -15,7 +15,7 @@
 </div>
 <div class="col l6 m6 s12">
 <div class="col s12 left">
-<img src="img/Chemist.png" alt="" class="responsive-img">
+<img src="img/Chemist.jpg" alt="" class="responsive-img">
 </div>
 <p>
 ✓ Mr Jim Paulo Alcasabas<br>
