@@ -1,7 +1,9 @@
 <div class="row">
 <div id="fb-root"></div>
-<div style="width: 239px;">
-<div data-lazy-widget="fb_1" class="fb-page collapsible-body" data-href="{{ $link->user->profile->social_links['fb-fanpage'] }}" data-tabs="messages" data-width="314" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+<div style="width: 100%;">
+<div data-lazy-widget="fb_1" class="fb-page collapsible-body" data-href="{{ $link->user->profile->social_links['fb-fanpage'] }}" data-tabs="messages" data-width="100%" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+<div class="fb-xfbml-parse-ignore"><blockquote cite="{{ $link->user->profile->social_links['fb-fanpage'] }}"><a href="{{ $link->user->profile->social_links['fb-fanpage'] }}">{{ $link->user->profile->social_links['fb-fanpage'] }}</a></blockquote></div>
+</div>
 </div>
 <div id="fb_1"><!--
     <script>(function(d, s, id) {
@@ -14,3 +16,4 @@
     -->
 </div>
 </div>
+
