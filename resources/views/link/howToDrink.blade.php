@@ -2,7 +2,7 @@
 <h5 class="amber-text center">How to prepare Buah Merah Mix Health Juice Drink</h5>
 <div class="col l6 m6 s12 left">
 <div class="video-container">
-<iframe width="480" height="360" src="//www.youtube.com/embed/HvNC-zypLU8?rel=0" frameborder="0" allowfullscreen  id="youtube1"></iframe>
+<iframe width="480" height="360" src="//www.youtube.com/embed/HvNC-zypLU8?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div class="col l6 m6 s12 right">
