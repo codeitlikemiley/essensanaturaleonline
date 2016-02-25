@@ -4,10 +4,10 @@
 <h5 class="amber-text center">How to Order?</h5>
 <br><br>
 </div>
-<div class="col l6 m6 s12 left">
-<a href="https://www.youtube.com/v/u9P_f4laLok?rel=0" target="_blank">
-<img border="0" alt="How to Order in Essensa Naturale Online" src="/img/howtoorder.jpg" width="473" height="267" class="responsive-img">
-</a>
+<div class="col l6 m6 s12 right">
+<div class="video-container">
+<iframe width="853" height="480" data-src=="https://www.youtube.com/v/u9P_f4laLok?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
 </div>
 <div class="col l6 m6 s12 left teal-text text-lighten-2">
 <p>(1) Add to Cart a Product i.e.(10 Buah Merah Mix)</p>

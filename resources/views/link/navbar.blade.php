@@ -2,7 +2,7 @@
   <nav>
     <div class="nav-wrapper">
       {{-- NavBar Logo Section --}}
-      <a id="logo-container" href="#" class="brand-logo fixed hide-on-small-only"
+      <a id="logo-container" href="#" class="brand-logo fixed hide-on-med-and-down"
       style="text-align: right; margin-left: 50px;"
       >
       @if($link)
