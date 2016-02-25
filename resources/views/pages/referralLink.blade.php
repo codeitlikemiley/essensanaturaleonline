@@ -57,13 +57,12 @@
 @stop
 
 @section('footer')
-<!-- Start Custom Footer (JS) -->
 @include('layouts.forms.fb-sdk')
-<!-- End Custom Footer (JS) -->
 <script>
 $(document).ready(function(){
       $('.carousel').carousel();
     });
+
 function viewcompany(){
 $('ul.tabs').tabs('select_tab', 'tab2');
 
@@ -84,6 +83,13 @@ function viewhowtoorder(){
 $('ul.tabs').tabs('select_tab', 'tab7');
 
 }
-
+$(window).on('ajaxComplete', function() {
+  setTimeout(function() {
+    $(window).lazyLoadXT();
+  }, 50);
+});
 </script>
 @stop
+
+
+

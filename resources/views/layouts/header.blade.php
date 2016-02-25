@@ -16,7 +16,6 @@
 
    <!--Import all Css-->   
   {!! Html::style('css/vendor.css') !!}
-  {!! Html::style('css/custom.css') !!}
   
   
 

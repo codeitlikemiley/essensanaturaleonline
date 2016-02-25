@@ -9,8 +9,6 @@
     @include('link.navbar')
     <!--Import Search Bar-->
     @include('layouts.search')
-   <!--Import Page Loader-->
-    @include('layouts.loader')
 
     <!--Your Content Here -->
     
@@ -24,6 +22,10 @@
 
     @include('layouts.navbutton')
 
+    
+    
+
+    </body>
     <!--Import all JS Usable in All Page-->
     {!! Html::script('js/vendor.js') !!}
     <!--Import Initialize Js Components-->
@@ -35,7 +37,5 @@
 
     <!--Custom Script On Desired Page -->
     @yield('footer')
-
-    </body>
     
   </html>

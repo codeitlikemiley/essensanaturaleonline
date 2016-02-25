@@ -11,19 +11,26 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.scripts([
-    'jquery-2.1.1.min.js',
-    'materialize.min.js',
-    'jquery-ui.min.js'
-    ],'public/js/vendor.js');
-});
+// elixir(function(mix) {
+//     mix.scripts([
+//     'jquery-2.1.1.min.js',
+//     'materialize.min.js',
+//     'jquery-ui.min.js',
+//     'lazyloadxt.extra.min.js',
+//     'lazyloadxt.widget.min.js'
+//     ],'public/js/vendor.js');
+// });
 
-/*
-elixir(function(mix) {
-    mix.styles([
-    'materialize.min.css',
-    ],'public/css/vendor.css');
-});
-*/
+
+// elixir(function(mix) {
+//     mix.styles([
+//     'materialize.min.css',
+//     'jquery.lazyloadxt.fadein.min.css',
+//     'jquery.lazyloadxt.spinner.min.css',
+//     'jqueryui.css',
+//     'grecaptcha.css',
+//     'custom.css'
+//     ],'public/css/vendor.css');
+// });
+
 

@@ -10,7 +10,7 @@
         <div class="col l3 s12">
           <h5 class="white-text">Follow Us On!</h5>
           <ul>
-            <li><a class="white-text" href="https://www.facebook.com/essensanaturaleonlinedotcom">Facebook</a></li>
+            <li><a class="white-text" href="https://www.facebook.com/uriah.haki">Facebook</a></li>
             <li><a class="white-text" href="#!">Twitter</a></li>
             <li><a class="white-text" href="#!">Instagram</a></li>
           </ul>
