@@ -6,7 +6,7 @@
 </div>
 <div class="col l6 m6 s12 right">
 <div class="video-container">
-<iframe width="853" height="480" data-src=="https://www.youtube.com/v/u9P_f4laLok?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" data-src="https://www.youtube.com/v/u9P_f4laLok?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div class="col l6 m6 s12 left teal-text text-lighten-2">
