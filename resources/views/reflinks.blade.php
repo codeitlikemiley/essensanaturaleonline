@@ -22,11 +22,7 @@
 
     @include('layouts.navbutton')
 
-    
-    
-
-    </body>
-    <!--Import all JS Usable in All Page-->
+     <!--Import all JS Usable in All Page-->
     {!! Html::script('js/vendor.js') !!}
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
@@ -37,5 +33,9 @@
 
     <!--Custom Script On Desired Page -->
     @yield('footer')
+    
+
+    </body>
+   
     
   </html>
