@@ -5,11 +5,6 @@
 <meta property="fb:admins" content="{{ $link->user->facebook_user_id }}"/>
 <meta property="fb:app_id" content="{{ $link->user->profile->social_links['app_id'] }}" />
 <!-- End Custom Header (CSS) -->
-<style>
-fb-page {
-            min-width: 240px;
-        }
-</style>
 @stop
 
 @section('content')
