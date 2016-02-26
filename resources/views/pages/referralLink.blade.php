@@ -84,11 +84,7 @@ function viewhowtoorder(){
 $('ul.tabs').tabs('select_tab', 'tab7');
 
 }
-$(window).on('ajaxComplete', function() {
-  setTimeout(function() {
-    $(window).lazyLoadXT();
-  }, 50);
-});
+
 </script>
 @stop
 
