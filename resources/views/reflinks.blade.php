@@ -25,6 +25,14 @@
      <!--Import all JS Usable in All Page-->
      <script async src="/js/vendor.js"></script>
      <script>
+(function() {
+    var link = document.createElement('link');
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+    document.querySelector("head").appendChild(link);
+})();
+</script>
+     <script>
       /*!
       loadCSS: load a CSS file asynchronously.
       */
