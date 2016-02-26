@@ -1,31 +1,8 @@
 <head>
   <!-- meta tag  -->
-
-  <script>
-      /*!
-      loadCSS: load a CSS file asynchronously.
-      */
-      function loadCSS(href){
-        var ss = window.document.createElement('link'),
-            ref = window.document.getElementsByTagName('head')[0];
-
-        ss.rel = 'stylesheet';
-        ss.href = href;
-
-        // temporarily, set media to something non-matching to ensure it'll
-        // fetch without blocking render
-        ss.media = 'only x';
-
-        ref.parentNode.insertBefore(ss, ref);
-
-        setTimeout( function(){
-          // set media back to `all` so that the stylesheet applies once it loads
-          ss.media = 'all';
-        },0);
-      }
-      loadCss('https://fonts.googleapis.com/icon?family=Material+Icons')
-      loadCss('css/vendor.css'); 
-    </script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/vendor.css"  media="screen,projection"/>
+  
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
