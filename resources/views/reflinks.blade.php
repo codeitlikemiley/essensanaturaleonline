@@ -23,7 +23,7 @@
     @include('layouts.navbutton')
 
      <!--Import all JS Usable in All Page-->
-     <script async src="/js/vendor.js"></script>
+     <script  src="/js/vendor.js"></script>
      <script  src="/js/search.js"></script>
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
