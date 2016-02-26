@@ -1,5 +1,7 @@
 <head>
   <!-- meta tag  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/vendor.css"  media="screen,projection"/>
   <script>
       /*!
       loadCSS: load a CSS file asynchronously.
