@@ -23,7 +23,7 @@
     @include('layouts.navbutton')
 
      <!--Import all JS Usable in All Page-->
-    {!! Html::script('js/vendor.js') !!}
+     <script type="text/javascript" src="/js/vendor.js"></script>
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
     @include('layouts.cartAjax')

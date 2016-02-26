@@ -1,43 +1,32 @@
 <head>
   <!-- meta tag  -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-@font-face {
+  @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url("../font/material-icons/Material-Design-Icons.eot"); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url("../font/material-icons/Material-Design-Icons.woff2") format('woff2'),
-       url("../font/material-icons/Material-Design-Icons.woff") format('woff'),
-       url("../font/material-icons/Material-Design-Icons.ttf") format('truetype'),
-       url("../font/material-icons/Material-Design-Icons.svg") format('svg');
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v12/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
-.material-icons {
+  .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
+  font-size: 24px;
   line-height: 1;
-  text-transform: none;
   letter-spacing: normal;
-  word-wrap: normal;
+  text-transform: none;
+  display: inline-block;
   white-space: nowrap;
+  word-wrap: normal;
   direction: ltr;
-
-  /* Support for all WebKit browsers. */
+  -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
 }
-</style>
+  </style>
+      <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/vendor.css"  media="screen,projection"/>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="csrf-token" content={{ csrf_token() }}/>
@@ -50,9 +39,6 @@
 
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>
-
-   <!--Import all Css-->   
-  {!! Html::style('css/vendor.css') !!}
   
   
 
