@@ -3366,8 +3366,8 @@ nav ul a span.badge {
 }
 
 @font-face {
-  font-family: "Material-Design-Icons";
-  src: url("../font/material-design-icons/Material-Design-Icons.eot?#iefix") format("embedded-opentype"), url("../font/material-design-icons/Material-Design-Icons.woff2") format("woff2"), url("../font/material-design-icons/Material-Design-Icons.woff") format("woff"), url("../font/material-design-icons/Material-Design-Icons.ttf") format("truetype"), url("../font/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
+  font-family: "Material Icons";
+  src: url("../font/material-icons/Material-Design-Icons.eot?#iefix") format("embedded-opentype"), url("../font/material-icons/Material-Design-Icons.woff2") format("woff2"), url("../font/material-icons/Material-Design-Icons.woff") format("woff"), url("../font/material-icons/Material-Design-Icons.ttf") format("truetype"), url("../font/material-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -3375,7 +3375,7 @@ nav ul a span.badge {
 [class^="mdi-"], [class*="mdi-"] {
   speak: none;
   display: inline-block;
-  font-family: "Material-Design-Icons";
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
