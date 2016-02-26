@@ -10,7 +10,8 @@
        local('MaterialIcons-Regular'),
        url("../font/material-icons/Material-Design-Icons.woff2") format('woff2'),
        url("../font/material-icons/Material-Design-Icons.woff") format('woff'),
-       url("../font/material-icons/Material-Design-Icons.ttf") format('truetype');
+       url("../font/material-icons/Material-Design-Icons.ttf") format('truetype'),
+       url("../font/material-icons/Material-Design-Icons.svg") format('svg');
 }
 .material-icons {
   font-family: 'Material Icons';
