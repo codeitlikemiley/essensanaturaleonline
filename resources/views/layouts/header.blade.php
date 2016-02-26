@@ -1,11 +1,5 @@
 <head>
   <!-- meta tag  -->
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <style>
-      body {
-        font-family: 'Material Icons', sans-serif;
-      }
-    </style>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="csrf-token" content={{ csrf_token() }}/>
