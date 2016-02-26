@@ -16,7 +16,8 @@
         "silber/bouncer": "^0.1.2",
         "laravolt/avatar": "^1.2",
         "sammyk/laravel-facebook-sdk": "^3.0",
-        "netshell/paypal": "dev-master"
+        "netshell/paypal": "dev-master",
+        "barryvdh/laravel-httpcache": "0.2.x@dev"
 
  
     },
