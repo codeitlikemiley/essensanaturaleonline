@@ -28,7 +28,14 @@
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
     @include('layouts.cartAjax')
+    <script>
+    var font = new FontFace("Material Icons", "url('../font/material-design-icons/Material-Design-Icons.woff2')", {});
+font.ready().then(function() {
+  // font loaded.. swap in the text / define own behavior.
+});
 
+font.load(); 
+    </script>
     <!--Custom JS Here!-->
     
 
