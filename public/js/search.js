@@ -1,5 +1,10 @@
+$(document).ready(function() {
+var font = new FontFace("Material Icons", "url('../font/material-design-icons/Material-Design-Icons.woff2')", {});
+font.ready().then(function() {
+  // font loaded.. swap in the text / define own behavior.
+});
 
-
+font.load(); 
     $.ajaxSetup({headers:{'X-CSRF-TOKEN':
         $( 'meta[name="csrf-token"]' ).attr( 'content' )}});
 
@@ -102,4 +107,4 @@
         });
 
 
-
+});

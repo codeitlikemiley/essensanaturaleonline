@@ -1,7 +1,6 @@
 <head>
   <!-- meta tag  -->
-  
-<script>
+  <script>
 var cb = function() {
   var sheets = [
     'css/vendor.css'];
@@ -11,7 +10,9 @@ var cb = function() {
   for (var i = 0; i < sheets.length; i++) {
     var l = document.createElement('link'); 
     l.rel = 'stylesheet';
+    l.type = 'text/css';
     l.href = sheets[i];
+    l.media = 'screen,projection'
     //h.parentNode.insertBefore(l, h); // This would insert them before the head.
     h.appendChild(l); // Insert them inside the head.
   }  
@@ -25,6 +26,8 @@ else window.addEventListener('load', cb);
 <style>
     @font-face {
      font-family: 'Material Icons';
+     font-style: normal;
+    font-weight: 400;
      src: local('Material Icons'), url('../font/material-design-icons/Material-Design-Icons.woff2') format('woff2');
    }
    .material-icons {
@@ -43,6 +46,7 @@ else window.addEventListener('load', cb);
   -webkit-font-smoothing: antialiased;
 }
   </style>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="csrf-token" content={{ csrf_token() }}/>
