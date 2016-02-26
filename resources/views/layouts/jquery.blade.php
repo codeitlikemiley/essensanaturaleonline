@@ -57,24 +57,8 @@
    $( "#q" ).blur(function(){
     $( "#navsearch" ).toggle();
    });
-loadStyleSheet('css/vendor.css');
-loadicon('https://fonts.googleapis.com/icon?family=Material+Icons');
-   function loadStyleSheet(src) {
-    if (document.createStyleSheet){
-        document.createStyleSheet(src);
-    }
-    else {
-        $("head").append($("<link rel='stylesheet' href='"+src+"' type='text/css' media='screen,projection' />"));
-    }
-};
-function loadicon(src) {
-    if (document.createStyleSheet){
-        document.createStyleSheet(src);
-    }
-    else {
-        $("head").append($("<link rel='stylesheet' href='"+src+"' />"));
-    }
-};
+
+   
 
 
 

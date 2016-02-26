@@ -1,7 +1,28 @@
 <head>
   <!-- meta tag  -->
-
   
+<script>
+var cb = function() {
+  var sheets = [
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'css/vendor.css'];
+  
+  var h = document.getElementsByTagName('head')[0]; 
+
+  for (var i = 0; i < sheets.length; i++) {
+    var l = document.createElement('link'); 
+    l.rel = 'stylesheet';
+    l.href = sheets[i];
+    //h.parentNode.insertBefore(l, h); // This would insert them before the head.
+    h.appendChild(l); // Insert them inside the head.
+  }  
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
