@@ -23,8 +23,8 @@
     @include('layouts.navbutton')
 
      <!--Import all JS Usable in All Page-->
-     <script async src="/js/vendor.js"></script>
-     <script async src="js/search.js"></script>
+     <script defer src="/js/vendor.js"></script>
+     <script defer src="/js/search.js"></script>
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
     @include('layouts.cartAjax')
