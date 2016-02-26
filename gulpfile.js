@@ -24,7 +24,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.styles([
-    'materialize.css',
+    'materialize.min.css',
     'jquery.lazyloadxt.fadein.min.css',
     'jquery.lazyloadxt.spinner.min.css',
     'jqueryui.css',
