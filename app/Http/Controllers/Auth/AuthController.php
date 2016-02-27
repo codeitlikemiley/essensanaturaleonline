@@ -161,7 +161,7 @@ class AuthController extends Controller
 
                 'template' => 'Welcome to Essensa Naturale!',
 
-                'href' => 'https://apps.facebook.com/essensa-naturale/@'.$user->username,
+                'href' => '@'.$user->username,
 
                 'access_token' => $app_access_token
 
