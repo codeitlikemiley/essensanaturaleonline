@@ -22,6 +22,20 @@ var raf = requestAnimationFrame || mozRequestAnimationFrame ||
 webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) raf(cb);
 else window.addEventListener('load', cb);
+
+ function downloadJSAtOnload() {
+ var element = document.createElement("script");
+ element.src = "js/vendor.js";
+ document.body.appendChild(element);
+ }
+
+ // Check for browser support of event handling capability
+ if (window.addEventListener)
+ window.addEventListener("load", downloadJSAtOnload, false);
+ else if (window.attachEvent)
+ window.attachEvent("onload", downloadJSAtOnload);
+ else window.onload = downloadJSAtOnload;
+
 </script>
   @include('css.critical_ref')
 
