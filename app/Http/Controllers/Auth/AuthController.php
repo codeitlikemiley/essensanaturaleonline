@@ -60,7 +60,7 @@ class AuthController extends Controller
         $this->mail = $mail;
     }
 
-    public function fbcallback()
+    public function fbcallback(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
     {
     try {
         $token = Facebook::getAccessTokenFromRedirect();
@@ -157,7 +157,7 @@ class AuthController extends Controller
     $user = \Auth::user();
     $fbID = $user->facebook_user_id;
     $app_access_token = $app_id . '|' . $app_secret;
-    $response = Facebook::post( '/' .$fbID. '/notifications',array(
+    $response = $fb->post( '/' .$fbID. '/notifications',array(
 
                 'template' => 'Welcome to Essensa Naturale!',
 
