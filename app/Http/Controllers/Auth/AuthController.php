@@ -22,6 +22,7 @@ use App\Order;
 use App\ItemOrder;
 use Facebook;
 use Session;
+use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 
 class AuthController extends Controller
 {
