@@ -123,7 +123,7 @@ Route::get('/facebook/callback', ['as' => 'fbcallback', 'uses' => 'Auth\AuthCont
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@login']);
 
 //Post Login and Start Session
-Route::post('login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@authenticate']);
+Route::post('authenticate', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@authenticate']);
 
 // Log Out and End Session
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
@@ -148,24 +148,6 @@ Route::post('signup', ['as' => 'signup', 'uses' => 'Auth\AuthController@create']
 //Load Referral Link of A User {NOTE: ALWAYS MAKE THIS THE LAST LINE IN ROUTE!}
 Route::get('@{link?}', ['as' => 'reflink', 'uses' => 'LinkController@showRefLink']);
 Route::post('@{link?}', ['as' => 'reflink', 'uses' => 'LinkController@showRefLink']);
-
-View::composer('layouts.cart', function($view) {
-		$cart = Cart::content();
-        $subtotal = Cart::total();
-        $shippingfee = 150;
-        if (!$subtotal) {
-            $shippingfee = 0;
-        }
-
-        if ($subtotal > 1150) {
-            $shippingfee = 0;
-        }
-        $taxrate = 0;
-        $tax = round($subtotal * $taxrate);
-        $total = $subtotal + $shippingfee + $tax;
-
-        $view->with(compact('cart', 'subtotal', 'tax', 'shippingfee', 'total'));
-    });
 
 
 });

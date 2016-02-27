@@ -1,7 +1,7 @@
 {{-- Start Card Div --}}
 <div class="card">
 {{-- Login Form --}}
-<form action="login" method="POST" class="col s12 login-form" id="login_form" data-parsley-validate>
+<form action="authenticate" method="POST" class="col s12 login-form" id="login_form" data-parsley-validate>
 
    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 

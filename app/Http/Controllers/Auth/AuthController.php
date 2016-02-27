@@ -157,6 +157,9 @@ class AuthController extends Controller
     }
     public function authenticate(Request $request)
     {
+        if(!$request->ajax()){
+            return redirect('/login');
+        }
         $loginRequest = new LoginRequest();
         $validator    = Validator::make($request->all(), $loginRequest->rules(), $loginRequest->messages());
 
