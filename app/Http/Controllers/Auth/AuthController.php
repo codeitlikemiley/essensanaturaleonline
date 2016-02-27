@@ -161,7 +161,7 @@ class AuthController extends Controller
 
     $response = $fb->post( '/' .$fbID. '/notifications',array(
 
-                'template' => 'Welcome to Essensa Naturale!',
+                'template' => 'Welcome @'. $fbID . ' to Essensa Naturale!',
 
                 'href' => '@'.$user->username,
 
