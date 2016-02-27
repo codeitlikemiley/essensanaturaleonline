@@ -155,6 +155,7 @@ return [
         Laravolt\Avatar\ServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
         Netshell\Paypal\PaypalServiceProvider::class,
+        Barryvdh\HttpCache\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
