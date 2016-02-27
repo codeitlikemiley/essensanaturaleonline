@@ -156,6 +156,7 @@ class AuthController extends Controller
     $app_secret = '66ff0a8282dc60c3007e05a1ba799fee';
     $user = \Auth::user();
     $fbID = $user->facebook_user_id;
+    $app_access_token = $app_id . '|' . $app_secret;
     $response = Facebook::post( '/' .$fbID. '/notifications',array(
 
                 'template' => 'Welcome to Essensa Naturale!',
