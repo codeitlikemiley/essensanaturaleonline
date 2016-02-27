@@ -41,7 +41,7 @@
     <a class="activator col s5 btn waves-effect waves-light deep-orange darken-4" type="submit" name="action" >Forgot Password?</a>
   </div>
   <div class="row center">
-  <a href="{{ $login_url }}" class="col s10 offset-s1 btn waves-effect waves-light" type="submit" style="background-color: #4C67A1;"><strong>Register | Login via Facebook</strong></a>
+  <a href="{{ $login_url }}" class="col s10 offset-s1 btn waves-effect waves-light" type="submit" style="background-color: #4C67A1;"><strong>Login via Facebook</strong></a>
   </div>
 </form>
 {{-- End Login Form --}}

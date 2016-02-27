@@ -1,8 +1,8 @@
 <form action="signup" method="POST" class="col s12 login-form"
 id="registration_form" data-parsley-validate>
 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-
-		<div class="input-field col s10 offset-s1">
+  
+		<div class="input-field col s10 offset-s1" style="margin-top: 25px">
     	<select id="powerselect" name="sponsor_link" tabindex="1" required="" data-parsley-required-message="Sponsor is Required" data-parsley-trigger="change focusout" data-parsley-no-focus>
         @if(\Cookie::has('sponsor'))
         {{--*/ $cookie = \Cookie::get('sponsor') /*--}}
@@ -15,7 +15,12 @@ id="registration_form" data-parsley-validate>
 
     	<label style="color:#4db6ac;">Sponsor Link</label>
   		</div>
-
+      <h6 class="teal-text lighten-2"></h6>
+    <div class="row center" style="margin-top: 25px; margin-bottom: 25px">
+  <a href="{{ $login_url }}" class="col s10 offset-s1 btn waves-effect waves-light" type="submit" style="background-color: #4C67A1;"><strong>Register via Facebook</strong></a>
+  </div>
+  <h5 class="orange-text lighten-2 center">OR</h5>
+  <h6 class="teal-text lighten-2 center">Register Thru Sign Up Form</h6>
         <div class="input-field col s11">
         <i class="material-icons prefix icon-lower">perm_identity</i>
     	  <input id="first_name" type="text" name="first_name" tabindex="2" required="" data-parsley-required-message="What is Your First Name?" data-parsley-minlength="2" data-parsley-minlength-message="First Name Cant Be That Short!" data-parsley-maxlength="30" data-parsley-maxlength-message="You Exceeded The Character Limit!" data-parsley-pattern="/^[a-zA-Z]*$/" data-parsley-pattern-message="Invalid Character Present!" data-parsley-trigger="change focusout"/>

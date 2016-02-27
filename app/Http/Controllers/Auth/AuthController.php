@@ -144,7 +144,11 @@ class AuthController extends Controller
         $user->username = $facebook_link;
         $user->access_token = $token;
         $user->save();
-        
+        $role = $user->assign('customer');
+        $ability1 = \Bouncer::allow($user)->to('add-order', Order::class);
+        $ability2 = \Bouncer::allow($user)->to('edit-order', Order::class);
+        $ability3 = \Bouncer::allow($user)->to('delete-order', Order::class);
+        $ability4 = \Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);
 
     // Log the user into Laravel
     \Auth::login($user);
