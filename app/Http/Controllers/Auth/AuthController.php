@@ -167,7 +167,7 @@ class AuthController extends Controller
 
             ) );   
 
-    return redirect('/edit-profile');   
+    print_r($response);
     }
     public function authenticate(Request $request)
     {
