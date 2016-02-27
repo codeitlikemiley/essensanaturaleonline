@@ -29,7 +29,7 @@
    </div>
    </div>
   <div class="row">
-  <div class="g-recaptcha" id="recaptcha1">
+  <div class="g-recaptcha" id="recaptcha1" data-sitekey="{{ env('RE_CAP_SITE') }}">
 
   </div>
   </div>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="g-recaptcha" id="recaptcha2">
+          <div class="g-recaptcha" id="recaptcha2" data-sitekey="{{ env('RE_CAP_SITE') }}">
 
           </div>
         </div>
