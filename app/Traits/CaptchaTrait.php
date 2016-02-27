@@ -4,13 +4,13 @@ use Input;
 use ReCaptcha\ReCaptcha;
  
 trait CaptchaTrait {
- 
+    protected $secret = env('RE_CAP_SECRET');
     public function captchaCheck()
     {
  
         $response = Input::get('g-recaptcha-response');
         $remoteip = $_SERVER['REMOTE_ADDR'];
-        $secret   = env('RE_CAP_SECRET');
+        $secret   = $this->secret;
  
         $recaptcha = new ReCaptcha($secret);
         $resp = $recaptcha->verify($response, $remoteip);
