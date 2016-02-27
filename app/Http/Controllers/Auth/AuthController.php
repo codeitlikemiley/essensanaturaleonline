@@ -149,7 +149,7 @@ class AuthController extends Controller
     // Log the user into Laravel
     \Auth::login($user);
 
-    return redirect('/shipping-address');   
+    return redirect('/edit-profile');   
     }
     public function authenticate(Request $request)
     {
