@@ -1,28 +1,27 @@
 <head>
   <!-- meta tag  -->
-  <script>
-    !function(e){"use strict"
-    var n=function(n,t,o){function i(e){return f.body?e():void setTimeout(function(){i(e)})}var d,r,a,l,f=e.document,s=f.createElement("link"),u=o||"all"
-    return t?d=t:(r=(f.body||f.getElementsByTagName("head")[0]).childNodes,d=r[r.length-1]),a=f.styleSheets,s.rel="stylesheet",s.href=n,s.media="only x",i(function(){d.parentNode.insertBefore(s,t?d:d.nextSibling)}),l=function(e){for(var n=s.href,t=a.length;t--;)if(a[t].href===n)return e()
-    setTimeout(function(){l(e)})},s.addEventListener&&s.addEventListener("load",function(){this.media=u}),s.onloadcssdefined=l,l(function(){s.media!==u&&(s.media=u)}),s}
-    "undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this)
-  </script>
-  <script type="text/javascript">
+<script>
+var cb = function() {
+  var sheets = [
+    'css/vendor.css'];
+  
+  var h = document.getElementsByTagName('head')[0]; 
 
-// Add a script element as a child of the body
- function downloadJSAtOnload() {
- var element = document.createElement("script");
- element.src = "js/vendor.js";
- document.body.appendChild(element);
- }
+  for (var i = 0; i < sheets.length; i++) {
+    var l = document.createElement('link'); 
+    l.rel = 'stylesheet';
+    l.type = 'text/css';
+    l.href = sheets[i];
+    l.media = 'screen,projection'
+    //h.parentNode.insertBefore(l, h); // This would insert them before the head.
+    h.appendChild(l); // Insert them inside the head.
+  }  
+};
 
- // Check for browser support of event handling capability
- if (window.addEventListener)
- window.addEventListener("load", downloadJSAtOnload, false);
- else if (window.attachEvent)
- window.attachEvent("onload", downloadJSAtOnload);
- else window.onload = downloadJSAtOnload;
-
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
 </script>
   @include('css.critical_ref')
 
@@ -40,9 +39,7 @@
   <!-- Title Tag  -->
   <title>Essensa Naturale Online</title>
   
-      <script>
-    loadCSS("/css/vendor.css");
-    </script>
+
 
 
 </head>
