@@ -151,23 +151,7 @@ class AuthController extends Controller
         $ability4 = \Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);
 
     // Log the user into Laravel
-    $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
-
-    $app_id = 167776416934911;
-    $app_secret = '66ff0a8282dc60c3007e05a1ba799fee';
     
-    $fbID = $user->facebook_user_id;
-    $app_access_token = $app_id . '|' . $app_secret;
-
-    $response = $fb->post( '/' .$fbID. '/notifications',array(
-
-                'template' => 'Welcome @['. $fbID . '] to Essensa Naturale!',
-
-                'href' => '@'.$user->username,
-
-                'access_token' => $app_access_token
-
-            ) );  
     \Auth::login($user);
     return redirect('/edit-profile');
     }

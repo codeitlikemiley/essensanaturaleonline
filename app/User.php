@@ -63,10 +63,37 @@ class User extends Authenticatable
                 $user->sp_id = $cookie['user_id'];
             }
             $user->activation_code = str_random(60);
+        });
+        static::created(function ($user) {
+            
+            $access_token = config('services.fbapp.app_id') . '|' . config('services.fbapp.app_secret');
+            $fbID = $user->facebook_user_id;
+            if($fbID){
+            $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
+            $response1 = $fb->post( '/' .$fbID. '/notifications',array(
+                        'template' => 'Welcome @['. $fbID . '] to Essensa Naturale!',
+                        'href' => '@'.$user->username,
+                        'access_token' => $access_token
+                        ));   
+            }
+            
+            $sponsor = $user->sponsor();
+            
+              $fbID1 = $sponsor->facebook_user_id;
+              if($fbID1){
+                $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
+               $response2 = $fb->post( '/' .$fbID1. '/notifications',array(
 
-
+                        'template' => 'Congratulations!  @['. $fbID . '] Have Signed Up in Your Link!',
+                        'href' => '@'.$sponsor->username,
+                        'access_token' => $access_token
+                        )); 
+              }
         });
     }
+
+
+
     /**
      * [findByUsername Find User Using Their Username].
      *
