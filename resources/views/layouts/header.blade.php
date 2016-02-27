@@ -8,8 +8,7 @@
     setTimeout(function(){l(e)})},s.addEventListener&&s.addEventListener("load",function(){this.media=u}),s.onloadcssdefined=l,l(function(){s.media!==u&&(s.media=u)}),s}
     "undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this)
   </script>
-  <link type="text/css" rel="stylesheet" href="css/vendor.css"  media="screen,projection"/>
-  @include('css.critical.reflink')
+  @include('css.critical_ref')
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
