@@ -82,19 +82,19 @@ function reCaptchaExpired3 () {
 
 var CaptchaCallback = function(){
 recaptcha1 = grecaptcha.render('recaptcha1', {
-          'sitekey' : '{{ env('RE_CAP_SITE') }}',
+          'sitekey' : '{!! env('RE_CAP_SITE') !!}',
           'expired-callback': reCaptchaExpired1,
           'callback' : reCaptchaVerify1,
           'theme' : 'light'
         });
 recaptcha2 = grecaptcha.render('recaptcha2', {
-          'sitekey' : '{{ env('RE_CAP_SITE') }}',
+          'sitekey' : '{!! env('RE_CAP_SITE') !!}',
           'expired-callback': reCaptchaExpired2,
           'callback' : reCaptchaVerify2,
           'theme' : 'light'
         });
 recaptcha3 = grecaptcha.render('recaptcha3', {
-          'sitekey' : '{{ env('RE_CAP_SITE') }}',
+          'sitekey' : '{!! env('RE_CAP_SITE') !!}',
           'expired-callback': reCaptchaExpired3,
           'callback' : reCaptchaVerify3,
           'theme' : 'light'
