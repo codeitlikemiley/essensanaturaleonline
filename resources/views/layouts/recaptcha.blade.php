@@ -82,19 +82,19 @@ function reCaptchaExpired3 () {
 
 var CaptchaCallback = function(){
 recaptcha1 = grecaptcha.render('recaptcha1', {
-          'sitekey' : '6LeaLRYTAAAAAM1pIhbUjKvwyQoLlCXR3HwEv4A9',
+          'sitekey' : '{{ config('services.g-recaptcha.sitekey') }}',
           'expired-callback': reCaptchaExpired1,
           'callback' : reCaptchaVerify1,
           'theme' : 'light'
         });
 recaptcha2 = grecaptcha.render('recaptcha2', {
-          'sitekey' : '6LeaLRYTAAAAAM1pIhbUjKvwyQoLlCXR3HwEv4A9',
+          'sitekey' : '{{ config('services.g-recaptcha.sitekey') }}',
           'expired-callback': reCaptchaExpired2,
           'callback' : reCaptchaVerify2,
           'theme' : 'light'
         });
 recaptcha3 = grecaptcha.render('recaptcha3', {
-          'sitekey' : '6LeaLRYTAAAAAM1pIhbUjKvwyQoLlCXR3HwEv4A9',
+          'sitekey' : '{{ config('services.g-recaptcha.sitekey') }}',
           'expired-callback': reCaptchaExpired3,
           'callback' : reCaptchaVerify3,
           'theme' : 'light'
