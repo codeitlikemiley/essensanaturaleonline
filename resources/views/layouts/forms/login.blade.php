@@ -29,7 +29,7 @@
    </div>
    </div>
   <div class="row">
-  <div class="g-recaptcha" id="recaptcha1" data-sitekey="{{ env('RE_CAP_SITE') }}">
+  <div class="g-recaptcha" id="recaptcha1">
 
   </div>
   </div>
