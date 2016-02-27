@@ -265,6 +265,9 @@ class AuthController extends Controller
 
     public function create(Request $request)
     {
+        if(!$request->ajax()){
+            return redirect('/login');
+        }
         $createUserRequest = new CreateUserRequest();
         $validator         = Validator::make($request->all(), $createUserRequest->rules(), $createUserRequest->messages());
 
