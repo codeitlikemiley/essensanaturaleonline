@@ -1,7 +1,7 @@
 <?php
-Route::get('my-page', function(){
-   return Response::make('Hello!')->setTtl(60); // Cache 1 minute
-});
+// Route::get('my-page', function(){
+//    return Response::make('Hello!')->setTtl(60); // Cache 1 minute
+// });
 
 Route::group(['middleware' => 'web'], function () {
 // 	Route::get('/notify', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
