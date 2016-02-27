@@ -74,7 +74,7 @@
 	    	</div>
 	    	<div class="col s12 m8 l8">
 	    	
-		    <form class="col s12" action="updateAboutMe" method="POST" id="updateAboutMe">
+		    <form class="col s12" action="updateAboutMe" method="POST" id="updateAboutMe" onchange="updateAboutMe(); return false;>
 		      <div class="row">
 		      <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 		        <div class="input-field">
