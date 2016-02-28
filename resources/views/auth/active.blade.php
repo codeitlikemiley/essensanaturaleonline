@@ -9,7 +9,7 @@
                 <h5 class="header col s12 light">Your user account has been successfully activated, thanks for joining.</h5>
             </div>
             <div class="row center">
-                <a href="{{ route('profile') }}" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+                <a href="{{ route('show-profile') }}" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
             </div>
             <br><br>
         </div>
