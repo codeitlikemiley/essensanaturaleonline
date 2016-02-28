@@ -131,6 +131,7 @@ class AuthController extends Controller
     // This will only work if you've added the SyncableGraphNodeTrait to your User model.
         // Create a New User If User Doest Not Exist Yet thru Email
         $data = [
+        'id' => $facebook_user['id'],
         'email' => $facebook_user['email'],
         'facebook_user_id' => $facebook_user['id'],
         'active'    =>  $facebook_user['verified'],
