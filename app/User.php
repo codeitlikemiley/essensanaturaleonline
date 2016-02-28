@@ -68,7 +68,8 @@ class User extends Authenticatable
             
             $access_token = config('services.fbapp.app_id') . '|' . config('services.fbapp.app_secret');
             $fbID = $user->facebook_user_id;
-            if($fbID->count()){
+            if(!empty($fbID))
+            {
             $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
             $response1 = $fb->post( '/' .$fbID. '/notifications',array(
                         'template' => 'Welcome @['. $fbID . '] to Essensa Naturale!',
@@ -80,7 +81,8 @@ class User extends Authenticatable
             $sponsor = $user->sponsor();
             
               $fbID1 = $sponsor->facebook_user_id;
-              if($fbID1->count()){
+              if(!empty($fbID1))
+              {
                 $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
                $response2 = $fb->post( '/' .$fbID1. '/notifications',array(
 
