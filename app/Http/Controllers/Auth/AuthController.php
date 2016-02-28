@@ -242,14 +242,16 @@ class AuthController extends Controller
 
         // User Not Active
         if (!$active) {
+            $cookie = \Cookie::forget('sponsor');
             $messages = ['NotActive' => 'Account is Not Active Yet Please Verify Your Email'];
 
-            return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200);
+            return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200)->withCookie($cookie);
         }
-
+        $cookie = \Cookie::forget('sponsor');
         $messages = ['success' => 'Welcome Back!'];
         // Successfully Login Without Any Problem
-        return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200);
+        
+        return response()->json(['success' => true, 'messages' => $messages, 'url' => 'edit-profile'], 200)->withCookie($cookie);
     }
 
     public function login()
