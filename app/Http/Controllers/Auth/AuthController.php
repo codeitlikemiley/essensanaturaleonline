@@ -156,7 +156,7 @@ class AuthController extends Controller
         
         $links = $user->links;
         // If User Doesnt Have Links Create a New One!
-        if(!$links->exists()){
+        if(empty($links)){
             $link = $user->links()->firstOrNew([
             'link'  => $facebook_link,
             ]);
