@@ -25,13 +25,13 @@
     @include('layouts.navbutton')
 
     <!--Import all JS Usable in All Page-->
-    {!! Html::script('js/vendor.js') !!}
+    {!! Html::script('/js/vendor.js') !!}
     <!--Import Initialize Js Components-->
     @include('layouts.jquery')
     @include('layouts.cartAjax')
 
     <!--Custom JS Here!-->
-    {!! Html::script('js/search.js') !!}
+    {!! Html::script('/js/search.js') !!}
 
     <!--Custom Script On Desired Page -->
     @yield('footer')
