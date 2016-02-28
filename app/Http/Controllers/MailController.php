@@ -14,7 +14,7 @@ class MailController extends Controller
     public function send($user, $template, $data)
     {
         \Mail::send($template, $data, function ($message) use ($user, $data) {
-            $message->from(config('mail.from.address'));
+            $message->from();
             $message->subject($data['subject']);
             $message->to($user->email, $user->username);
         });
