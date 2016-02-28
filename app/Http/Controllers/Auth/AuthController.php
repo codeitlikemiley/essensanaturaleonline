@@ -133,7 +133,7 @@ class AuthController extends Controller
         $data = [
         'email' => $facebook_user['email'],
         'facebook_user_id' => $facebook_user['id'],
-        'active'    =>  $facebook['verified'],
+        'active'    =>  $facebook_user['verified'],
         'username'  => $facebook_link,
         'access_token'  => $token,
         ];
