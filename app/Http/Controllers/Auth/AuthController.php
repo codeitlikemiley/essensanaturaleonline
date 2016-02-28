@@ -175,9 +175,9 @@ class AuthController extends Controller
         
 
     // Log the user into Laravel
-    
+    $cookie = \Cookie::forget('sponsor');
     \Auth::login($user);
-    return redirect('/edit-profile');
+    return redirect('/edit-profile')->withCookie($cookie);
     }
     public function authenticate(Request $request)
     {
