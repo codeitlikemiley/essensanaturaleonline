@@ -129,26 +129,49 @@ class AuthController extends Controller
     $facebook_link = preg_replace('/\s+/', '', $facebook_link['name']);
     // Create the user if it does not exist or update the existing entry.
     // This will only work if you've added the SyncableGraphNodeTrait to your User model.
-    // $profile = App\Profile::createOrUpdateGraphNode($facebook_user);
-        $user = User::createOrUpdateGraphNode($facebook_user);
-        $profile = $user->profile()->firstOrNew([
+        // Create a New User If User Doest Not Exist Yet thru Email
+        $data = [
+        'email' => $facebook_user['email'],
+        'facebook_user_id' => $facebook_user['id'],
+        'active'    =>  $facebook['verified'],
+        'username'  => $facebook_link,
+        'access_token'  => $token,
+        ];
+        
+        $user = User::createOrUpdateGraphNode($data);
+        
+
+        $profile = $user->profile;
+
+        // If User Doesnt Have Profile Create A New One!
+        if(!$profile->exists){
+            $profile = $user->profile()->firstOrNew([
             'first_name' => $facebook_profile['first_name'],
             'last_name' =>  $facebook_profile['last_name'],
             'display_name'  => $facebook_profile['name'],
             ]);
-        $user->profile()->save($profile);
-        $link = $user->links()->firstOrNew([
+            $user->profile()->save($profile);   
+        }
+        
+        $links = $user->links;
+        // If User Doesnt Have Links Create a New One!
+        if(!$links->exists){
+            $link = $user->links()->firstOrNew([
             'link'  => $facebook_link,
             ]);
         $user->links()->save($link);
-        $user->username = $facebook_link;
-        $user->access_token = $token;
-        $user->save();
+        }
+        
+
+        // if User Has No Role Yet Add a Role!
+        if(!$user->isNot('customer')){
         $role = $user->assign('customer');
         $ability1 = \Bouncer::allow($user)->to('add-order', Order::class);
         $ability2 = \Bouncer::allow($user)->to('edit-order', Order::class);
         $ability3 = \Bouncer::allow($user)->to('delete-order', Order::class);
-        $ability4 = \Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);
+        $ability4 = \Bouncer::allow($user)->to('view-itemOrder', ItemOrder::class);   
+        }
+        
 
     // Log the user into Laravel
     
