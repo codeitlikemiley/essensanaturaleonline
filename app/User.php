@@ -75,18 +75,24 @@ class User extends Authenticatable
                         'template' => 'Welcome @['. $fbID . '] to Essensa Naturale!',
                         'href' => '@'.$user->username,
                         'access_token' => $access_token
-                        ));   
+                        ));
             }
-            
+
+            if(empty($fbID)){
+                    $fbID = $user->username;
+                } else {
+                    $fbID = '@['. $fbID . ']';
+                }
             $sponsor = $user->sponsor();
-            
+
               $fbID1 = $sponsor->facebook_user_id;
               if(!empty($fbID1))
               {
                 $fb = app(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk::class);
+
                $response2 = $fb->post( '/' .$fbID1. '/notifications',array(
 
-                        'template' => 'Congratulations!  @['. $fbID1 . '] Have Signed Up in Your Link!',
+                        'template' => 'Congratulations!  @['. $fbID1 . '] ,'.$fbID.' Have Signed Up in Your Link!',
                         'href' => '@'.$sponsor->username,
                         'access_token' => $access_token
                         )); 
