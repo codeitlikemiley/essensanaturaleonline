@@ -1,5 +1,6 @@
 <head>
   <!-- meta tag  -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
   @font-face {
   font-family: 'Material Icons';
