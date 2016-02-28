@@ -145,7 +145,7 @@ class AuthController extends Controller
         $profile = $user->profile;
 
         // If User Doesnt Have Profile Create A New One!
-        if(!$profile->exists){
+        if(!$profile->exists()){
             $profile = $user->profile()->firstOrNew([
             'first_name' => $facebook_profile['first_name'],
             'last_name' =>  $facebook_profile['last_name'],
@@ -156,7 +156,7 @@ class AuthController extends Controller
         
         $links = $user->links;
         // If User Doesnt Have Links Create a New One!
-        if(!$links->exists){
+        if(!$links->exists()){
             $link = $user->links()->firstOrNew([
             'link'  => $facebook_link,
             ]);
