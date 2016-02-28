@@ -1,3 +1,4 @@
+
 <?php
 
 return [
@@ -54,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => env('CONTACT_NAME'), 'name' => env('CONTACT_NAME')],
+    'from' => ['address' => env('CONTACT_EMAIL'), 'name' => env('CONTACT_NAME')],
 
     /*
     |--------------------------------------------------------------------------
