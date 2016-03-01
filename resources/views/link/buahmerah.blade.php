@@ -1,4 +1,4 @@
-<h5 class="center amber-text">What is Buah Merah?</h5>
+<h5 class="center amber-text">What is Buah Merah Mix?</h5>
 <div class="row">
 <div class="col l3 m3 s12 center">
 <img src="img/Buah-Merah-Fruit.jpg" alt="" class="responsive-img">
